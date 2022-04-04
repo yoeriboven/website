@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 
+const webpackConfig = require('./webpack.config');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -20,4 +22,5 @@ mix.js('resources/js/app.js', 'public/js')
         proxy: 'yoerime.test',
         notify: false,
     })
+    .webpackConfig(webpackConfig)
     .version();

@@ -49,23 +49,19 @@
         </div>
     </section>
 
-    <footer class="bg-violet-600 h-72">
+    <div class="bg-violet-600 h-72">
         <div class="w-2/3 mx-auto">
             So want to see if we can work together? Contact me and immediately schedule a zoom-meeting by clicking below.
         </div>
-    </footer>
-    <div class="bg-violet-700 h-40">
-
-        <div class="w-2/3 mx-auto">
-            &copy; 2022 Yoeri.me <br/>
-        KvK: 72019301
-        View Source Twitter Contact
-        </div>
     </div>
+
+    <Footer />
 </div>
 </template>
 
 <script setup>
+import Footer from '@/Shared/Footer'
+
 defineProps({
     articles: Object
 });
