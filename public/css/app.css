@@ -903,6 +903,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .max-h-80 {
   max-height: 20rem;
 }
+.min-h-screen {
+  min-height: 100vh;
+}
+.min-h-full {
+  min-height: 100%;
+}
 .w-2\/3 {
   width: 66.666667%;
 }
@@ -1117,6 +1123,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-4 {
   padding: 1rem;
 }
+.p-24 {
+  padding: 6rem;
+}
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -1186,6 +1195,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pt-10 {
   padding-top: 2.5rem;
+}
+.pt-24 {
+  padding-top: 6rem;
 }
 .text-center {
   text-align: center;
@@ -1313,10 +1325,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
-}
-.text-emerald-500 {
-  --tw-text-opacity: 1;
-  color: rgb(16 185 129 / var(--tw-text-opacity));
 }
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);

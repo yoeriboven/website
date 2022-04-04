@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <title>Blog</title>
-</head>
-<body class="h-full bg-violet-50">
+<template>
+<div class="min-h-full bg-violet-50">
     <section class="w-2/3 mx-auto">
         <div class="py-8">
             <nav class="flex relative grid justify-items-end">
                 <div class="space-x-4 mr-14">
-                    <a href="{{ route('home') }}" class="text-gray-500 font-light tracking-wide hover:text-gray-700">Home</a>
-                    <a href="{{ route('blog') }}" class="text-gray-500 font-light tracking-wide hover:text-gray-700">Articles</a>
+                    <Link :href="route('home')" class="text-gray-500 font-light tracking-wide hover:text-gray-700">Home</Link>
+                    <Link :href="route('blog')" class="text-gray-500 font-light tracking-wide hover:text-gray-700">Articles</Link>
                 </div>
 
                 <div class="absolute right-0 group bg-white shadow-sm rounded-lg w-fit -mt-1 hover:cursor-pointer overflow-hidden">
@@ -45,20 +38,16 @@
         </div>
         <div class="w-5/12 mx-auto">
             <ul class="space-y-8">
-                @foreach($articles as $article)
-                    <li>
-                        <a href="#" class="flex flex-col group">
-                            <span class="text-xs uppercase text-indigo-700">{{ $article['date'] }}</span>
-                            <span class="text-2xl font-medium text-gray-800 group-hover:text-indigo-700">{{ $article['title'] }}</span>
-                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
-                        </a>
-                    </li>
-                @endforeach
+                <li v-for="article in articles" :key="article.id">
+                    <a href="#" class="flex flex-col group">
+                        <span class="text-xs uppercase text-indigo-700">{{ article.date }}</span>
+                        <span class="text-2xl font-medium text-gray-800 group-hover:text-indigo-700">{{ article.title }}</span>
+                        <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </section>
-
-
 
     <footer class="bg-violet-600 h-72">
         <div class="w-2/3 mx-auto">
@@ -73,5 +62,12 @@
         View Source Twitter Contact
         </div>
     </div>
-</body>
-</html>
+</div>
+</template>
+
+<script setup>
+defineProps({
+    articles: Object
+});
+
+</script>
