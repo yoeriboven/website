@@ -805,6 +805,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .col-span-3 {
   grid-column: span 3 / span 3;
 }
+.-m-6 {
+  margin: -1.5rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -844,6 +847,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .ml-3 {
   margin-left: 0.75rem;
+}
+.-mt-5 {
+  margin-top: -1.25rem;
+}
+.-mt-9 {
+  margin-top: -2.25rem;
+}
+.-mt-96 {
+  margin-top: -24rem;
+}
+.-mt-7 {
+  margin-top: -1.75rem;
+}
+.block {
+  display: block;
 }
 .flex {
   display: flex;
