@@ -1,0 +1,51 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: content
+        field:
+          type: markdown
+          localizable: true
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: repository
+        field:
+          placeholder: laravel/cashier
+          input_type: text
+          antlers: false
+          display: Repository
+          type: text
+          icon: text
+          instructions: 'The repository the code can be found in.'
+          listable: hidden
+          instructions_position: above
+          read_only: false
+          validate:
+            - required
+      -
+        handle: link
+        field:
+          placeholder: www.github.com/...
+          input_type: text
+          antlers: false
+          display: Link
+          type: text
+          icon: text
+          instructions: 'The URL to the code'
+          listable: hidden
+          instructions_position: above
+          read_only: false
+          validate:
+            - required
+            - active_url
+title: 'Open Source'
