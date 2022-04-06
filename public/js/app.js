@@ -19780,7 +19780,7 @@ var _hoisted_14 = {
   "class": "relative z-10 grid grid-cols-5 rounded-lg overflow-hidden"
 };
 var _hoisted_15 = {
-  "class": "col-span-2 max-h-80 overflow-scroll"
+  "class": "col-span-2 h-80 overflow-scroll"
 };
 var _hoisted_16 = ["onClick"];
 var _hoisted_17 = {

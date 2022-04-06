@@ -6,6 +6,7 @@ use Statamic\Facades\Entry;
 
 Route::get('/', function () {
     $projects = Entry::query()
+        ->select(['id', 'title', 'content', 'repo', 'link'])
         ->where('collection', 'projects')
         ->get();
 
@@ -41,10 +42,9 @@ Route::get('blog', function () {
 //    ];
 
     $articles = Entry::query()
+        ->select(['id', 'title', 'slug', 'date'])
         ->where('collection', 'articles')
         ->paginate(10);
-
-    // id, title, slug
 
     return Inertia::render('Blog', [
         'articles' => $articles
@@ -53,6 +53,7 @@ Route::get('blog', function () {
 
 Route::get('blog/{slug}', function($slug) {
     $article = Entry::query()
+        ->select(['id', 'title', 'content', 'date'])
         ->where('slug', $slug)
         ->first();
 

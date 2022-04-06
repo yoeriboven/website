@@ -35,7 +35,7 @@
             <!-- Ding -->
             <div class="w-full bg-white shadow-md mx-auto mt-8 rounded-lg">
                 <div class="relative z-10 grid grid-cols-5 rounded-lg overflow-hidden">
-                    <div class="col-span-2 max-h-80 overflow-scroll">
+                    <div class="col-span-2 h-80 overflow-scroll">
                         <div
                             v-for="project in projects"
                             :key="project.id"
