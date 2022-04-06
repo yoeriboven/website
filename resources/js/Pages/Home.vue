@@ -37,20 +37,32 @@
                 <div class="relative z-10 grid grid-cols-5 rounded-lg overflow-hidden">
                     <div class="col-span-2 max-h-80 overflow-scroll">
                         <div
-                            v-for="index in 12"
-                            :key="index"
+                            v-for="project in projects"
+                            :key="project.id"
+                            @click="showProject(project.id)"
                             class="flex flex-col px-4 first:pt-4 last:pb-4 py-2 hover:bg-slate-100 hover:cursor-pointer">
-                            <span class="text-gray-700">Implemented Paddle modifiers in Cashier</span>
-                            <span class="text-xs text-gray-500">laravel/cashier-paddle</span>
+                            <span class="text-gray-700">{{ project.title }}</span>
+                            <span class="text-xs text-gray-500">{{ project.repo }}</span>
                         </div>
                     </div>
-                    <div class="border-l border-slate-50 p-4 col-span-3 prose overflow-scroll max-h-80">
-                        <h3>Implemented Paddle modifiers in Cashier</h3>
-                        <p><a href="#">Paddle</a> offers a way to change subscriptions.</p>
-                        <p>With modifiers you can offer discounts, bill people based on usage or let them buy credits.</p>
-                        <p>I implemented modifiers in <code>laravel/cashier</code> with a PR.</p>
-                        <button type="button" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">View code</button>
-                        <p>Bla Die Bla</p>
+                    <div class="border-l border-slate-50 p-4 col-span-3 overflow-scroll max-h-80">
+                        <div class="flex items-center relative">
+                            <a :href="featuredProject.link" target="_blank"
+                               class="flex after:content-['\00A0\00A0\00A0\00A0\00A0'] items-center text-xl font-semibold hover:underline">
+                                <h3>{{ featuredProject.title }}</h3>
+                            </a>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="-ml-5 -mb-0.5 h-5 w-5 "
+                                 fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                 stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </div>
+
+                        <div v-html="featuredProject.content" class="prose py-2"></div>
+
+                        <a :href="featuredProject.link" target="_blank" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">View code</a>
                     </div>
                 </div>
             </div>
@@ -95,8 +107,22 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
 import Header from '@/Shared/Header'
 import CTAFooter from '@/Shared/CTAFooter'
 import Footer from '@/Shared/Footer'
+
+const props = defineProps({
+    'projects': Array
+})
+
+const featuredProject = ref(props.projects[0])
+
+function showProject(id) {
+    const selectedProject = props.projects.find((project) => project.id === id);
+
+    featuredProject.value = selectedProject;
+}
 
 </script>

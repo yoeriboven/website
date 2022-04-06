@@ -18,7 +18,7 @@ sections:
     display: Sidebar
     fields:
       -
-        handle: repository
+        handle: repo
         field:
           placeholder: laravel/cashier
           input_type: text
@@ -48,4 +48,4 @@ sections:
           validate:
             - required
             - active_url
-title: 'Open Source'
+title: Projects

@@ -9,7 +9,7 @@
             <div class="absolute right-0 group bg-white shadow-sm rounded-lg w-fit -mt-1 hover:cursor-pointer overflow-hidden">
                 <div class="p-2 hover:bg-gray-200">
                     <svg class="w-6 aspect-auto shadow-md"
-                         xmlns="http://www.w3.org/2000/svg" id="flag-icons-nl" viewBox="0 0 640 480">
+                         xmlns="http://www.w3.org/2000/svg" id="flag-icons-en" viewBox="0 0 640 480">
                         <path fill="#012169" d="M0 0h640v480H0z"/>
                         <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0h75z"/>
                         <path fill="#C8102E" d="m424 281 216 159v40L369 281h55zm-184 20 6 35L54 480H0l240-179zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-60L0 42V0z"/>

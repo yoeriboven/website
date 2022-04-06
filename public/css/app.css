@@ -854,6 +854,36 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-52 {
   margin-top: 13rem;
 }
+.ml-2 {
+  margin-left: 0.5rem;
+}
+.-ml-4 {
+  margin-left: -1rem;
+}
+.-ml-6 {
+  margin-left: -1.5rem;
+}
+.-ml-5 {
+  margin-left: -1.25rem;
+}
+.-mb-1 {
+  margin-bottom: -0.25rem;
+}
+.-mb-0\.5 {
+  margin-bottom: -0.125rem;
+}
+.-mb-0 {
+  margin-bottom: -0px;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
 .flex {
   display: flex;
 }
@@ -886,6 +916,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-96 {
   height: 24rem;
+}
+.h-4 {
+  height: 1rem;
+}
+.h-5 {
+  height: 1.25rem;
 }
 .max-h-80 {
   max-height: 20rem;
@@ -927,6 +963,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-screen {
   width: 100vw;
+}
+.w-4 {
+  width: 1rem;
+}
+.w-5 {
+  width: 1.25rem;
 }
 .min-w-0 {
   min-width: 0px;
@@ -1032,6 +1074,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-l {
   border-left-width: 1px;
 }
+.border-b {
+  border-bottom-width: 1px;
+}
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
@@ -1050,6 +1095,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-slate-50 {
   --tw-border-opacity: 1;
   border-color: rgb(248 250 252 / var(--tw-border-opacity));
+}
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 .bg-violet-50 {
   --tw-bg-opacity: 1;
@@ -1089,6 +1138,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-violet-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(237 233 254 / var(--tw-bg-opacity));
+}
+.bg-red-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
 }
 .p-2 {
   padding: 0.5rem;
@@ -1158,6 +1211,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pt-24 {
   padding-top: 6rem;
+}
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 .text-center {
   text-align: center;
@@ -1282,6 +1338,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(109 40 217 / var(--tw-text-opacity));
 }
+.underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -1297,11 +1361,63 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
 .line-clamp-3 {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+}
+.before\:content-\[\'\*\'\]::before {
+  --tw-content: '*';
+  content: var(--tw-content);
+}
+.after\:-inset-2::after {
+  content: var(--tw-content);
+  top: -0.5rem;
+  right: -0.5rem;
+  bottom: -0.5rem;
+  left: -0.5rem;
+}
+.after\:-inset-5::after {
+  content: var(--tw-content);
+  top: -1.25rem;
+  right: -1.25rem;
+  bottom: -1.25rem;
+  left: -1.25rem;
+}
+.after\:inset-5::after {
+  content: var(--tw-content);
+  top: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  left: 1.25rem;
+}
+.after\:right-0::after {
+  content: var(--tw-content);
+  right: 0px;
+}
+.after\:content-\[\'\*\'\]::after {
+  --tw-content: '*';
+  content: var(--tw-content);
+}
+.after\:content-\[\'\\00A0\'\]::after {
+  --tw-content: '\00A0';
+  content: var(--tw-content);
+}
+.after\:content-\[\'\\00A0\\00A0\\00A0\'\]::after {
+  --tw-content: '\00A0\00A0\00A0';
+  content: var(--tw-content);
+}
+.after\:content-\[\'\\00A0\\00A0\\00A0\\00A0\\00A0\'\]::after {
+  --tw-content: '\00A0\00A0\00A0\00A0\00A0';
+  content: var(--tw-content);
+}
+.after\:content-\[\'\\00A0\\00A0\\00A0\\00A0\'\]::after {
+  --tw-content: '\00A0\00A0\00A0\00A0';
+  content: var(--tw-content);
 }
 .first\:pt-4:first-child {
   padding-top: 1rem;

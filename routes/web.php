@@ -4,7 +4,15 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Statamic\Facades\Entry;
 
-Route::inertia('/', 'Home')->name('home');
+Route::get('/', function () {
+    $projects = Entry::query()
+        ->where('collection', 'projects')
+        ->get();
+
+    return Inertia::render('Home', [
+        'projects' => $projects,
+    ]);
+})->name('home');
 
 Route::inertia('contact-me', 'Contact')->name('contact');
 
