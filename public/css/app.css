@@ -845,6 +845,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ml-3 {
   margin-left: 0.75rem;
 }
+.mt-20 {
+  margin-top: 5rem;
+}
+.mt-40 {
+  margin-top: 10rem;
+}
+.mt-52 {
+  margin-top: 13rem;
+}
 .flex {
   display: flex;
 }

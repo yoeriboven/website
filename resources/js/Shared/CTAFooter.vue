@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="flex items-center">
                 <div class="mx-auto">x</div>
             </div>
