@@ -4,10 +4,12 @@
 
             <div class="col-span-2">
                 <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                    <span><slot name="header"></slot></span>
+                    <slot name="header"></slot>
                 </h2>
 
-                <p class="text-xl text-violet-200"><slot name="content"></slot></p>
+                <p class="text-xl text-violet-200">
+                    <slot name="content"></slot>
+                </p>
 
                 <div class="mt-8 flex">
                     <div class="inline-flex rounded-md shadow">
@@ -18,6 +20,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="flex items-center">
                 <div class="mx-auto">x</div>
             </div>
