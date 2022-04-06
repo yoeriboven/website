@@ -46,11 +46,15 @@
         </ul>
     </section>
 
-    <div class="bg-violet-600 h-72">
-        <div class="w-2/3 mx-auto">
-            So want to see if we can work together? Contact me and immediately schedule a zoom-meeting by clicking below.
-        </div>
-    </div>
+    <CTAFooter>
+        <template #header>
+            Want to see if we are a fit?
+        </template>
+
+        <template #content>
+            Contact me and immediately schedule a zoom-meeting by clicking below.
+        </template>
+    </CTAFooter>
 
     <Footer />
 </div>
@@ -58,6 +62,7 @@
 
 <script setup>
 import Footer from '@/Shared/Footer'
+import CTAFooter from '@/Shared/CTAFooter'
 
 defineProps({
     articles: Object

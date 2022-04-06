@@ -805,9 +805,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .col-span-3 {
   grid-column: span 3 / span 3;
 }
-.-m-6 {
-  margin: -1.5rem;
-}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -848,21 +845,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ml-3 {
   margin-left: 0.75rem;
 }
-.-mt-5 {
-  margin-top: -1.25rem;
-}
-.-mt-9 {
-  margin-top: -2.25rem;
-}
-.-mt-96 {
-  margin-top: -24rem;
-}
-.-mt-7 {
-  margin-top: -1.75rem;
-}
-.block {
-  display: block;
-}
 .flex {
   display: flex;
 }
@@ -890,11 +872,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-screen {
   height: 100vh;
 }
-.h-96 {
-  height: 24rem;
-}
 .h-6 {
   height: 1.5rem;
+}
+.h-96 {
+  height: 24rem;
 }
 .max-h-80 {
   max-height: 20rem;
@@ -1087,6 +1069,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(248 250 252 / var(--tw-bg-opacity));
 }
+.bg-violet-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(109 40 217 / var(--tw-bg-opacity));
+}
 .bg-violet-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(76 29 149 / var(--tw-bg-opacity));
@@ -1094,10 +1080,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-violet-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(237 233 254 / var(--tw-bg-opacity));
-}
-.bg-violet-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(109 40 217 / var(--tw-bg-opacity));
 }
 .p-2 {
   padding: 0.5rem;
@@ -1279,6 +1261,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
+.text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity));
+}
 .text-violet-200 {
   --tw-text-opacity: 1;
   color: rgb(221 214 254 / var(--tw-text-opacity));
@@ -1286,10 +1272,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-violet-700 {
   --tw-text-opacity: 1;
   color: rgb(109 40 217 / var(--tw-text-opacity));
-}
-.text-gray-300 {
-  --tw-text-opacity: 1;
-  color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
