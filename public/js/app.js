@@ -19713,10 +19713,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "h-screen w-screen border-b-8 border-indigo-600 bg-violet-50"
+  "class": "h-screen border-b-8 border-indigo-600 bg-violet-50"
 };
 var _hoisted_2 = {
-  "class": "w-2/3 mx-auto flex flex-col h-full justify-between mt-52"
+  "class": "w-2/3 mx-auto h-full flex items-center"
 };
 var _hoisted_3 = {
   "class": "grid grid-cols-2"
@@ -19750,18 +19750,14 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, null, -1
-/* HOISTED */
-);
-
-var _hoisted_10 = {
+var _hoisted_9 = {
   "class": "py-20 bg-slate-50"
 };
-var _hoisted_11 = {
+var _hoisted_10 = {
   "class": "w-2/3 mx-auto"
 };
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "text-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "font-bold text-3xl"
@@ -19773,31 +19769,31 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_13 = {
+var _hoisted_12 = {
   "class": "w-full bg-white shadow-md mx-auto mt-8 rounded-lg"
 };
-var _hoisted_14 = {
+var _hoisted_13 = {
   "class": "relative z-10 grid grid-cols-5 rounded-lg overflow-hidden"
 };
-var _hoisted_15 = {
+var _hoisted_14 = {
   "class": "col-span-2 h-80 overflow-scroll"
 };
-var _hoisted_16 = ["onClick"];
-var _hoisted_17 = {
+var _hoisted_15 = ["onClick"];
+var _hoisted_16 = {
   "class": "text-gray-700"
 };
-var _hoisted_18 = {
+var _hoisted_17 = {
   "class": "text-xs text-gray-500"
 };
-var _hoisted_19 = {
+var _hoisted_18 = {
   "class": "border-l border-slate-50 p-4 col-span-3 overflow-scroll max-h-80"
 };
-var _hoisted_20 = {
+var _hoisted_19 = {
   "class": "flex items-center relative"
 };
-var _hoisted_21 = ["href"];
+var _hoisted_20 = ["href"];
 
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "-ml-5 -mb-0.5 h-5 w-5",
   fill: "none",
@@ -19812,20 +19808,21 @@ var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_23 = ["innerHTML"];
-var _hoisted_24 = ["href"];
+var _hoisted_22 = ["innerHTML"];
+var _hoisted_23 = ["href"];
 
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"py-20 bg-slate-50\"><div class=\"w-2/3 mx-auto\"><div class=\"text-center\"><h2 class=\"font-bold text-3xl\">Blog</h2><p class=\"text-gray-500 text-sm mt-1\">Gewoon een stukje tekst</p></div><div class=\"mt-6\"><ul class=\"space-y-1.5\"><li class=\"flex flex-col\"><a href=\"#\" class=\"font-normal text-gray-700 text-lg\">Logging to the database</a><span class=\"text-xs text-gray-500 -mt-1\">13 March</span></li><li><a href=\"#\" class=\"font-normal text-gray-700 text-lg\">How I built social images for this site</a></li><li><a href=\"#\" class=\"font-normal text-gray-700 text-lg\">Building a multi-lingual site in Laravel</a></li><li><a href=\"#\" class=\"font-normal text-gray-700 text-lg\">Logging to the database</a></li><li><a href=\"#\" class=\"font-normal text-gray-700 text-lg\">How I built social images for this site</a></li><li><a href=\"#\" class=\"font-normal text-gray-700 text-lg\">Building a multi-lingual site in Laravel</a></li></ul></div></div></section>", 1);
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"py-20 bg-slate-50\"><div class=\"w-2/3 mx-auto\"><div class=\"text-center\"><h2 class=\"font-bold text-3xl\">Blog</h2><p class=\"text-gray-500 text-sm mt-1\">Gewoon een stukje tekst</p></div><div class=\"mt-6\"><ul class=\"space-y-1.5\"><li class=\"flex flex-col\"><a href=\"#\" class=\"font-normal text-gray-700 text-lg\">Logging to the database</a><span class=\"text-xs text-gray-500 -mt-1\">13 March</span></li><li><a href=\"#\" class=\"font-normal text-gray-700 text-lg\">How I built social images for this site</a></li><li><a href=\"#\" class=\"font-normal text-gray-700 text-lg\">Building a multi-lingual site in Laravel</a></li><li><a href=\"#\" class=\"font-normal text-gray-700 text-lg\">Logging to the database</a></li><li><a href=\"#\" class=\"font-normal text-gray-700 text-lg\">How I built social images for this site</a></li><li><a href=\"#\" class=\"font-normal text-gray-700 text-lg\">Building a multi-lingual site in Laravel</a></li></ul></div></div></section>", 1);
 
-var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Want to see if we are a fit? ");
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Want to see if we are a fit? ");
 
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Contact me and immediately schedule a zoom-meeting by clicking below. ");
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Contact me and immediately schedule a zoom-meeting by clicking below. ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Header"], {
-    showHome: false
+    showHome: false,
+    "class": "left-1/2 -translate-x-1/2 absolute"
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: _ctx.route('contact'),
     "class": "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -19838,23 +19835,23 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])])]), _hoisted_8]), _hoisted_9])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Ding "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.projects, function (project) {
+  , ["href"])])]), _hoisted_8])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Ding "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.projects, function (project) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: project.id,
       onClick: function onClick($event) {
         return $setup.showProject(project.id);
       },
       "class": "flex flex-col px-4 first:pt-4 last:pb-4 py-2 hover:bg-slate-100 hover:cursor-pointer"
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(project.title), 1
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(project.title), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(project.repo), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(project.repo), 1
     /* TEXT */
     )], 8
     /* PROPS */
-    , _hoisted_16);
+    , _hoisted_15);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: $setup.featuredProject.link,
     target: "_blank",
     "class": "flex after:content-['\\00A0\\00A0\\00A0\\00A0\\00A0'] items-center text-xl font-semibold hover:underline"
@@ -19862,23 +19859,23 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )], 8
   /* PROPS */
-  , _hoisted_21), _hoisted_22]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  , _hoisted_20), _hoisted_21]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     innerHTML: $setup.featuredProject.content,
     "class": "prose py-2"
   }, null, 8
   /* PROPS */
-  , _hoisted_23), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  , _hoisted_22), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: $setup.featuredProject.link,
     target: "_blank",
     "class": "inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
   }, "View code", 8
   /* PROPS */
-  , _hoisted_24)])])])])]), _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CTAFooter"], null, {
+  , _hoisted_23)])])])])]), _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CTAFooter"], null, {
     header: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_26];
+      return [_hoisted_25];
     }),
     content: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_27];
+      return [_hoisted_26];
     }),
     _: 1
     /* STABLE */
@@ -19904,13 +19901,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "bg-violet-600 h-96"
+  "class": "bg-violet-600"
 };
 var _hoisted_2 = {
-  "class": "w-2/3 mx-auto grid grid-cols-3 py-12 px-4 sm:px-6 md:py-16 lg:px-0 lg:py-8"
+  "class": "w-2/3 mx-auto grid grid-cols-3 py-12 px-4 sm:px-6 md:py-16 lg:px-0 lg:pt-8 lg:pb-12"
 };
 var _hoisted_3 = {
-  "class": "col-span-2"
+  "class": "col-span-3 md:col-span-2"
 };
 var _hoisted_4 = {
   "class": "text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
@@ -19922,7 +19919,7 @@ var _hoisted_5 = {
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"mt-8 flex\"><div class=\"inline-flex rounded-md shadow\"><a href=\"#\" class=\"inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-violet-900 hover:bg-violet-700\"> Get started </a></div><div class=\"ml-3 inline-flex\"><a href=\"#\" class=\"inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-violet-700 bg-violet-100 hover:bg-violet-200\"> Learn more </a></div></div>", 1);
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex items-center"
+  "class": "flex items-center order-first md:order-none"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "mx-auto"
 }, "x")], -1
@@ -19975,7 +19972,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "w-2/3 mx-auto py-8"
+  "class": "w-2/3 py-8 mx-auto"
 };
 var _hoisted_2 = {
   "class": "flex relative grid justify-items-end"

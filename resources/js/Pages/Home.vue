@@ -1,8 +1,8 @@
 <template>
-    <section class="h-screen w-screen border-b-8 border-indigo-600 bg-violet-50">
-        <Header :showHome="false" />
+    <section class="h-screen border-b-8 border-indigo-600 bg-violet-50">
+        <Header :showHome="false" class="left-1/2 -translate-x-1/2 absolute" />
 
-        <div class="w-2/3 mx-auto flex flex-col h-full justify-between mt-52">
+        <div class="w-2/3 mx-auto h-full flex items-center">
             <div class="grid grid-cols-2">
                 <div>
                     <div class="font-bold text-4xl text-gray-600 leading-tight">
@@ -21,7 +21,6 @@
                 </div>
                 <div class="">d</div>
             </div>
-            <div></div>
         </div>
     </section>
 

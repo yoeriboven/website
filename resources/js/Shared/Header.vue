@@ -1,5 +1,5 @@
 <template>
-    <section class="w-2/3 mx-auto py-8">
+    <section class="w-2/3 py-8 mx-auto">
         <nav class="flex relative grid justify-items-end">
             <div class="space-x-4 mr-14">
                 <Link v-if="showHome" :href="route('home')" class="text-gray-500 font-light tracking-wide hover:text-gray-700">Home</Link>

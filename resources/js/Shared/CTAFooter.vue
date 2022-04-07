@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-violet-600 h-96">
-        <div class="w-2/3 mx-auto grid grid-cols-3 py-12 px-4 sm:px-6 md:py-16 lg:px-0 lg:py-8">
+    <div class="bg-violet-600">
+        <div class="w-2/3 mx-auto grid grid-cols-3 py-12 px-4 sm:px-6 md:py-16 lg:px-0 lg:pt-8 lg:pb-12">
 
-            <div class="col-span-2">
+            <div class="col-span-3 md:col-span-2">
                 <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
                     <slot name="header"></slot>
                 </h2>
@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <div class="flex items-center">
+            <div class="flex items-center order-first md:order-none">
                 <div class="mx-auto">x</div>
             </div>
         </div>
