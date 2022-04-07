@@ -1,11 +1,9 @@
 ---
-id: 09151a15-de24-4d8b-8a66-50465fbff45f
-blueprint: projects
-title: 'Numbah 2'
-repo: yoerime/yoerime
-link: 'https://github.com'
+id: 395fb013-49d7-43a9-bdb5-532e23d94f77
+blueprint: articles
+title: 'My first blogpost'
 updated_by: 34a70845-2be0-4df6-abb9-741edbd0930a
-updated_at: 1649349214
+updated_at: 1649349223
 ---
 Dit is een test post
 
