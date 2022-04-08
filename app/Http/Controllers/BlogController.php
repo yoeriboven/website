@@ -7,7 +7,7 @@ use Statamic\Facades\Entry;
 
 class BlogController
 {
-    public function __invoke($slug)
+    public function __invoke()
     {
         $articles = Entry::query()
             ->select(['id', 'title', 'slug', 'date'])

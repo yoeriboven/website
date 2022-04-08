@@ -7,7 +7,7 @@ use Statamic\Facades\Entry;
 
 class HomeController
 {
-    public function __invoke($slug)
+    public function __invoke()
     {
         $projects = Entry::query()
             ->select(['id', 'title', 'content', 'repo', 'link'])
