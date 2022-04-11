@@ -7,8 +7,13 @@
             </div>
 
             <div class="absolute right-0 group bg-white shadow-sm rounded-lg w-fit -mt-1 hover:cursor-pointer overflow-hidden">
-                <button @click="changeLanguage('en')" class="p-2 hover:bg-gray-200">
-                    <svg class="w-6 aspect-auto shadow-md"
+                <button v-for="(lang, index) in languages"
+                        :key="lang"
+                        @click="changeLanguage(lang)"
+                        :class="{ 'hidden group-hover:block' : index === 1}"
+                        class="p-2 hover:bg-gray-200"
+                >
+                    <svg v-if="lang === 'en'" class="w-6 aspect-auto shadow-md"
                          xmlns="http://www.w3.org/2000/svg" id="flag-icons-en" viewBox="0 0 640 480">
                         <path fill="#012169" d="M0 0h640v480H0z"/>
                         <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0h75z"/>
@@ -16,23 +21,22 @@
                         <path fill="#FFF" d="M241 0v480h160V0H241zM0 160v160h640V160H0z"/>
                         <path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z"/>
                     </svg>
-                </button>
-                <button @click="changeLanguage('nl')" class="hidden group-hover:block p-2 hover:bg-gray-200">
-                    <svg class="w-6 aspect-auto shadow-md"
+
+                    <svg v-if="lang === 'nl'" class="w-6 aspect-auto shadow-md"
                          xmlns="http://www.w3.org/2000/svg" id="flag-icons-nl" viewBox="0 0 640 480">
                         <path fill="#21468b" d="M0 0h640v480H0z" />
                         <path fill="#fff" d="M0 0h640v320H0z" />
                         <path fill="#ae1c28" d="M0 0h640v160H0z" />
                     </svg>
                 </button>
-
             </div>
         </nav>
     </section>
 </template>
 
 <script setup>
-import { loadLanguageAsync } from 'laravel-vue-i18n';
+import { onMounted, ref } from "vue";
+import { getActiveLanguage, loadLanguageAsync } from "laravel-vue-i18n";
 import axios from "axios";
 
 defineProps({
@@ -42,12 +46,33 @@ defineProps({
     }
 });
 
+onMounted(() => {
+    orderLanguages();
+});
+
+const languages = ref(["en", "nl"]);
+
+function orderLanguages(lang) {
+    const activeLanguage = lang ?? getActiveLanguage();
+
+    if (activeLanguage === "en") {
+        languages.value = ["en", "nl"];
+    } else {
+        languages.value = ["nl", "en"];
+    }
+}
 
 function changeLanguage(lang) {
+    if (lang === getActiveLanguage()) {
+        return;
+    }
+
     axios.post(route('language-change', lang))
         .then(function(response) {
             if (response.status === 200) {
                 loadLanguageAsync(lang);
+
+                orderLanguages(lang);
             }
         });
 }
