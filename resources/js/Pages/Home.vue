@@ -19,7 +19,7 @@
                         </Link>
                     </div>
                 </div>
-                <div class="">d</div>
+                <div class="">{{ $t('Welcome')}}</div>
             </div>
         </div>
     </section>

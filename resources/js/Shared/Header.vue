@@ -7,7 +7,7 @@
             </div>
 
             <div class="absolute right-0 group bg-white shadow-sm rounded-lg w-fit -mt-1 hover:cursor-pointer overflow-hidden">
-                <div class="p-2 hover:bg-gray-200">
+                <button @click="changeLanguage('en')" class="p-2 hover:bg-gray-200">
                     <svg class="w-6 aspect-auto shadow-md"
                          xmlns="http://www.w3.org/2000/svg" id="flag-icons-en" viewBox="0 0 640 480">
                         <path fill="#012169" d="M0 0h640v480H0z"/>
@@ -16,21 +16,24 @@
                         <path fill="#FFF" d="M241 0v480h160V0H241zM0 160v160h640V160H0z"/>
                         <path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z"/>
                     </svg>
-                </div>
-                <div class="hidden group-hover:block p-2 hover:bg-gray-200">
+                </button>
+                <button @click="changeLanguage('nl')" class="hidden group-hover:block p-2 hover:bg-gray-200">
                     <svg class="w-6 aspect-auto shadow-md"
                          xmlns="http://www.w3.org/2000/svg" id="flag-icons-nl" viewBox="0 0 640 480">
                         <path fill="#21468b" d="M0 0h640v480H0z" />
                         <path fill="#fff" d="M0 0h640v320H0z" />
                         <path fill="#ae1c28" d="M0 0h640v160H0z" />
                     </svg>
-                </div>
+                </button>
+
             </div>
         </nav>
     </section>
 </template>
 
 <script setup>
+import { loadLanguageAsync } from 'laravel-vue-i18n';
+import axios from "axios";
 
 defineProps({
     showHome: {
@@ -38,5 +41,15 @@ defineProps({
         default: true
     }
 });
+
+
+function changeLanguage(lang) {
+    axios.post(route('language-change', lang))
+        .then(function(response) {
+            if (response.status === 200) {
+                loadLanguageAsync(lang);
+            }
+        });
+}
 
 </script>

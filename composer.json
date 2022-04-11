@@ -11,8 +11,10 @@
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
+        "spatie/laravel-ray": "^1.29",
         "statamic/cms": "^3.3",
-        "tightenco/ziggy": "^1.4"
+        "tightenco/ziggy": "^1.4",
+        "ext-intl": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
