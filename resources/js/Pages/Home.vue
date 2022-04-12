@@ -73,20 +73,61 @@
             <div class="text-center">
                 <h2 class="font-bold text-3xl">Blog</h2>
                 <p class="text-gray-500 text-sm mt-1">Gewoon een stukje tekst</p>
+                <div class="border-indigo-600 border-b-2 w-10 mt-2 mx-auto rounded-sm"></div>
             </div>
 
             <div class="mt-6">
-                <ul class="space-y-1.5 ">
-                    <li class="flex flex-col">
-                        <a href="#" class="font-normal text-gray-700 text-lg">Logging to the database</a>
-                        <span class="text-xs text-gray-500 -mt-1">13 March</span>
+                <ul class="grid grid-cols-2 gap-y-5 gap-x-5">
+                    <li>
+                        <a href="#" class="flex flex-col group">
+                            <span class="text-xs uppercase text-indigo-700">3 April 2022</span>
+                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">Logging to the database</span>
+                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
+                        </a>
                     </li>
-                    <li><a href="#" class="font-normal text-gray-700 text-lg">How I built social images for this site</a></li>
-                    <li><a href="#" class="font-normal text-gray-700 text-lg">Building a multi-lingual site in Laravel</a></li>
-                    <li><a href="#" class="font-normal text-gray-700 text-lg">Logging to the database</a></li>
-                    <li><a href="#" class="font-normal text-gray-700 text-lg">How I built social images for this site</a></li>
-                    <li><a href="#" class="font-normal text-gray-700 text-lg">Building a multi-lingual site in Laravel</a></li>
+                    <li>
+                        <a href="#" class="flex flex-col group">
+                            <span class="text-xs uppercase text-indigo-700">29 March 2022</span>
+                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">How I built social images for this site</span>
+                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex flex-col group">
+                            <span class="text-xs uppercase text-indigo-700">3 March 2022</span>
+                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">Building a multi-lingual site in Laravel</span>
+                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex flex-col group">
+                            <span class="text-xs uppercase text-indigo-700">22 February 2022</span>
+                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">Logging to the database</span>
+                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex flex-col group">
+                            <span class="text-xs uppercase text-indigo-700">10 February 2022</span>
+                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">How I built social images for this site</span>
+                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex flex-col group">
+                            <span class="text-xs uppercase text-indigo-700">31 January 2022</span>
+                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">Building a multi-lingual site in Laravel</span>
+                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
+                        </a>
+                    </li>
                 </ul>
+
+                <div class="mt-5 flex justify-end">
+                    <Link :href="route('blog')" as="button"
+                            class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Read more
+                    </Link>
+                </div>
             </div>
         </div>
     </section>
