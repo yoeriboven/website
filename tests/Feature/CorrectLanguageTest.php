@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
 use Illuminate\Support\Facades\App;
+use Tests\TestCase;
 
 class CorrectLanguageTest extends TestCase
 {

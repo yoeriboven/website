@@ -15,7 +15,7 @@ class BlogController
             ->paginate(10);
 
         return Inertia::render('Blog', [
-            'articles' => $articles
+            'articles' => $articles,
         ]);
     }
 }

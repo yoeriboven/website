@@ -26,9 +26,9 @@ return [
     'indexes' => [
 
         'default' => [
-            'driver' => 'local',
+            'driver'      => 'local',
             'searchables' => 'all',
-            'fields' => ['title'],
+            'fields'      => ['title'],
         ],
 
         // 'blog' => [
@@ -58,7 +58,7 @@ return [
 
         'algolia' => [
             'credentials' => [
-                'id' => env('ALGOLIA_APP_ID', ''),
+                'id'     => env('ALGOLIA_APP_ID', ''),
                 'secret' => env('ALGOLIA_SECRET', ''),
             ],
         ],

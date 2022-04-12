@@ -11,7 +11,7 @@ return [
     ],
 
     'routes' => [
-        'login' => 'oauth/{provider}',
+        'login'    => 'oauth/{provider}',
         'callback' => 'oauth/{provider}/callback',
     ],
 

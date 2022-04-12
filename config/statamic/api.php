@@ -19,12 +19,12 @@ return [
 
     'resources' => [
         'collections' => false,
-        'navs' => false,
-        'taxonomies' => false,
-        'assets' => false,
-        'globals' => false,
-        'forms' => false,
-        'users' => false,
+        'navs'        => false,
+        'taxonomies'  => false,
+        'assets'      => false,
+        'globals'     => false,
+        'forms'       => false,
+        'users'       => false,
     ],
 
     'route' => env('STATAMIC_API_ROUTE', 'api'),

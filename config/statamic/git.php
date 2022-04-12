@@ -78,7 +78,7 @@ return [
     'use_authenticated' => true,
 
     'user' => [
-        'name' => env('STATAMIC_GIT_USER_NAME', 'Spock'),
+        'name'  => env('STATAMIC_GIT_USER_NAME', 'Spock'),
         'email' => env('STATAMIC_GIT_USER_EMAIL', 'spock@example.com'),
     ],
 

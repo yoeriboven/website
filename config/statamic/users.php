@@ -21,9 +21,9 @@ return [
 
         'file' => [
             'driver' => 'file',
-            'paths' => [
-                'users' => base_path('users'),
-                'roles' => resource_path('users/roles.yaml'),
+            'paths'  => [
+                'users'  => base_path('users'),
+                'roles'  => resource_path('users/roles.yaml'),
                 'groups' => resource_path('users/groups.yaml'),
             ],
         ],
@@ -88,7 +88,7 @@ return [
     */
 
     'passwords' => [
-        'resets' => config('auth.defaults.passwords'),
+        'resets'      => config('auth.defaults.passwords'),
         'activations' => config('auth.defaults.passwords'),
     ],
 
@@ -104,8 +104,8 @@ return [
     'database' => config('database.default'),
 
     'tables' => [
-        'users' => 'users',
-        'role_user' => 'role_user',
+        'users'      => 'users',
+        'role_user'  => 'role_user',
         'group_user' => 'group_user',
     ],
 
@@ -121,7 +121,7 @@ return [
     */
 
     'guards' => [
-        'cp' => 'web',
+        'cp'  => 'web',
         'web' => 'web',
     ],
 

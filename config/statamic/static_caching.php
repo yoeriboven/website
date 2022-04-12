@@ -34,8 +34,8 @@ return [
         ],
 
         'full' => [
-            'driver' => 'file',
-            'path' => public_path('static'),
+            'driver'           => 'file',
+            'path'             => public_path('static'),
             'lock_hold_length' => 0,
         ],
 

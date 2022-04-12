@@ -3,6 +3,6 @@
 return [
 
     'enabled' => false,
-    'route' => 'amp',
+    'route'   => 'amp',
 
 ];

@@ -52,7 +52,7 @@ return [
         |
         */
 
-        'cache' => false,
+        'cache'      => false,
         'cache_path' => public_path('img'),
 
         /*
@@ -97,7 +97,7 @@ return [
     */
 
     'thumbnails' => [
-        'max_width' => 10000,
+        'max_width'  => 10000,
         'max_height' => 10000,
     ],
 
