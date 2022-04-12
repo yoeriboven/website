@@ -78,45 +78,10 @@
 
             <div class="mt-6">
                 <ul class="grid grid-cols-2 gap-y-5 gap-x-5">
-                    <li>
-                        <a href="#" class="flex flex-col group">
-                            <span class="text-xs uppercase text-indigo-700">3 April 2022</span>
-                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">Logging to the database</span>
-                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex flex-col group">
-                            <span class="text-xs uppercase text-indigo-700">29 March 2022</span>
-                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">How I built social images for this site</span>
-                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex flex-col group">
-                            <span class="text-xs uppercase text-indigo-700">3 March 2022</span>
-                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">Building a multi-lingual site in Laravel</span>
-                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex flex-col group">
-                            <span class="text-xs uppercase text-indigo-700">22 February 2022</span>
-                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">Logging to the database</span>
-                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex flex-col group">
-                            <span class="text-xs uppercase text-indigo-700">10 February 2022</span>
-                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">How I built social images for this site</span>
-                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex flex-col group">
-                            <span class="text-xs uppercase text-indigo-700">31 January 2022</span>
-                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">Building a multi-lingual site in Laravel</span>
+                    <li v-for="article in articles" :key="article.id">
+                        <a :href="route('article', article.slug)" class="flex flex-col group">
+                            <span class="text-xs uppercase text-indigo-700">{{ formatDate(article.date, "D MMMM YYYY") }}</span>
+                            <span class="text-xl -mt-1 text-gray-700 group-hover:text-indigo-700">{{ article.title }}</span>
                             <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est arcu, maximus nec varius sit amet, dignissim vitae ligula. Donec interdum tristique suscipit. Nulla scelerisque augue sed nulla gravida luctus vel sit amet mauris. In pretium eros leo, nec fermentum nibh porttitor eget.</p>
                         </a>
                     </li>
@@ -148,13 +113,15 @@
 
 <script setup>
 import { ref } from 'vue'
+import { formatDate } from "@/functions";
 
 import Header from '@/Shared/Header'
 import CTAFooter from '@/Shared/CTAFooter'
 import Footer from '@/Shared/Footer'
 
 const props = defineProps({
-    'projects': Array
+    'projects': Array,
+    'articles': Array,
 })
 
 const featuredProject = ref(props.projects[0])

@@ -14,8 +14,15 @@ class HomeController
             ->where('collection', 'projects')
             ->get();
 
+        $articles = Entry::query()
+            ->select(['id', 'title', 'slug', 'date'])
+            ->where('collection', 'articles')
+            ->limit(10)
+            ->get();
+
         return Inertia::render('Home', [
             'projects' => $projects,
+            'articles' => $articles,
         ]);
     }
 }
