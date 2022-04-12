@@ -11,5 +11,7 @@ class ChangeLanguageController
         Cookie::queue(
             Cookie::forever('language', $language)
         );
+
+        return response()->noContent();
     }
 }

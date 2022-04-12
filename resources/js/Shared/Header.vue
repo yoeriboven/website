@@ -69,8 +69,8 @@ function changeLanguage(lang) {
 
     axios.post(route('language-change', lang))
         .then(function(response) {
-            if (response.status === 200) {
                 loadLanguageAsync(lang);
+        if (response.status === 204) {
 
                 orderLanguages(lang);
             }
