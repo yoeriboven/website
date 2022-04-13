@@ -9,29 +9,38 @@ use Locale;
 
 class SetLanguageMiddleware
 {
+    private Request $request;
+
     public function handle(Request $request, Closure $next)
     {
-        $this->setLanguage($request);
+        $this->request = $request;
+
+        if ($this->hasLanguageCookie()) {
+            $this->setLanguageFromCookie();
+        } else {
+            $this->setLanguageFromBrowser();
+        }
 
         return $next($request);
     }
 
-    private function setLanguage($request)
+    private function hasLanguageCookie()
     {
-        if ($this->isValid($request->cookie('language'))) {
-            App::setLocale($request->cookie('language'));
+        return $this->isValid($this->request->cookie('language'));
+    }
 
-            return;
-        }
+    private function setLanguageFromCookie()
+    {
+        App::setLocale($this->request->cookie('language'));
+    }
 
-        // No explicit language set, look for browser default
-        $userLanguage = Locale::acceptFromHttp($request->header('accept-language'));
+    private function setLanguageFromBrowser()
+    {
+        $userLanguage = Locale::acceptFromHttp($this->request->header('accept-language'));
         $userLanguage = explode('_', $userLanguage)[0];
 
         if ($this->isValid($userLanguage)) {
             App::setLocale($userLanguage);
-
-            return;
         }
     }
 
