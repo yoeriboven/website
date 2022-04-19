@@ -68,7 +68,7 @@
         </div>
     </section>
 
-    <section class="py-12 bg-violet-500 bg-gray-50 overflow-hidden md:py-20 lg:py-24">
+    <section class="py-12 bg-violet-500 overflow-hidden md:py-20 lg:py-24">
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <!--            <svg class="absolute top-full right-full transform translate-x-1/3 -translate-y-1/4 lg:translate-x-1/2 xl:-translate-y-1/2" width="404" height="404" fill="none" viewBox="0 0 404 404" role="img" aria-labelledby="svg-mo">-->
 <!--                <title id="svg-mo">Meditatie en Ontspanning</title>-->
