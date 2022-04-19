@@ -12,11 +12,13 @@ class HomeController
         $projects = Entry::query()
             ->select(['id', 'title', 'content', 'repo', 'link'])
             ->where('collection', 'projects')
+            ->orderBy('date', 'desc')
             ->get();
 
         $articles = Entry::query()
             ->select(['id', 'title', 'slug', 'date'])
             ->where('collection', 'articles')
+            ->orderBy('date', 'desc')
             ->limit(10)
             ->get();
 

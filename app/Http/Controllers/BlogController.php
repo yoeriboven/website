@@ -12,6 +12,7 @@ class BlogController
         $articles = Entry::query()
             ->select(['id', 'title', 'slug', 'date'])
             ->where('collection', 'articles')
+            ->orderBy('date', 'desc')
             ->paginate(10);
 
         return Inertia::render('Blog', [
