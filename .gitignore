@@ -17,3 +17,5 @@ yarn-error.log
 /.idea
 /.vscode
 users/*
+public/assets
+/content/collections/*/
