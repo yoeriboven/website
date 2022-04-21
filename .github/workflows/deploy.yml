@@ -1,0 +1,39 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test-php:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+
+      - name: Install Composer dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+
+      - name: Prepare Laravel Application
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Run tests
+        run: ./vendor/bin/phpunit
+
+      - name: Deploy to Laravel Forge
+        run: curl ${{ secrets.FORGE_DEPLOYMENT_WEBHOOK }}
