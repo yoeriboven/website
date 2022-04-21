@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Testing\Fluent\AssertableJson;
 use Statamic\Facades\Markdown;
 use Torchlight\Commonmark\V2\TorchlightExtension;
+use PHPUnit\Framework\Assert as PHPUnit;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,25 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
+    {
+        $this->registerMacros();
+        $this->registerMarkdownExtensions();
+    }
+
+    protected function registerMacros(): void
+    {
+        AssertableJson::macro('whereNot', function (string $key, string $expected) {
+            $actual = $this->prop($key);
+
+            PHPUnit::assertNotSame(
+                $expected,
+                $actual,
+                sprintf('Inertia property [%s] should not match the expected value.', $this->dotPath($key))
+            );
+        });
+    }
+
+    protected function registerMarkdownExtensions(): void
     {
         Markdown::addExtension(function () {
             return new TorchlightExtension;

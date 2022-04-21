@@ -16,6 +16,8 @@ class ArticleController
 
         abort_if(is_null($article), 404);
 
+        abort_if(! $article->published && ! auth()->user(), 403);
+
         return Inertia::render('Article', [
             'article' => $article,
         ]);

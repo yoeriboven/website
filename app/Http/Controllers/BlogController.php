@@ -12,6 +12,9 @@ class BlogController
         $articles = Entry::query()
             ->select(['id', 'title', 'slug', 'date'])
             ->where('collection', 'articles')
+            ->when(! auth()->user(), function ($query) {
+                $query->where('published', 1);
+            })
             ->orderBy('date', 'desc')
             ->paginate(10);
 
