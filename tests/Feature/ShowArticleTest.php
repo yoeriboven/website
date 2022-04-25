@@ -28,6 +28,8 @@ class ShowArticleTest extends TestCase
     /** @test */
     public function it_shows_the_article_to_user_if_its_a_draft()
     {
+        $this->withoutExceptionHandling();
+
         $this->loginStatamicUser();
 
         $article = $this->createArticle(title: 'A draft post', published: false);
