@@ -3,7 +3,7 @@
         <div class="text-center w-2/3 mx-auto text-sm flex flex-col md:flex-row justify-between space-y-2 md:space-y-0">
             <div class="text-gray-200">
                 <span class="font-medium">&copy; 2022 &dash; Yoeri.me </span>
-                <a href="https://www.github.com/yoeriboven/yoerime" target="_blank" class="text-xs hover:underline">(View source)</a>
+                <a href="https://www.github.com/yoeriboven/website" target="_blank" class="text-xs hover:underline">(View source)</a>
             </div>
             <div class="flex space-x-4 text-gray-300 mx-auto md:mx-0">
                 <a href="" class="hover:text-gray-200">
