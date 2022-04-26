@@ -22,7 +22,7 @@
             </div>
 
             <div class="flex items-center order-first md:order-none">
-                <div class="mx-auto">x</div>
+                <img class="w-40 h-40 mx-auto rounded-full shadow-md" src="/img/avatar.JPG" alt="" />
             </div>
         </div>
     </div>
