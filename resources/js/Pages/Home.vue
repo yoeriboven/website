@@ -2,9 +2,9 @@
     <section class="h-screen border-b-8 border-indigo-600 bg-violet-50">
         <Header :showHome="false" class="left-1/2 -translate-x-1/2 absolute" />
 
-        <div class="w-2/3 mx-auto h-full flex items-center">
-            <div class="grid grid-cols-2">
-                <div>
+        <div class="w-2/3 mx-auto h-full flex">
+            <div class="grid grid-cols-2 items-center gap-x-10">
+                <div class="pt-5">
                     <div class="font-bold text-4xl text-gray-600 leading-tight">
                         Hi, my name is <span class="text-blue-500">Yoeri</span>
                         <br />
@@ -19,7 +19,9 @@
                         </Link>
                     </div>
                 </div>
-                <div class="">{{ $t('Welcome')}}</div>
+                <div>
+                    <img class="w-52 h-52 mx-auto rounded-full shadow-md" src="/img/avatar.JPG" alt="" />
+                </div>
             </div>
         </div>
     </section>
