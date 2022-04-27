@@ -24,6 +24,17 @@ sections:
           escape_markup: false
           smartypants: false
           antlers: false
+      -
+        handle: excerpt
+        field:
+          antlers: false
+          display: Excerpt
+          type: textarea
+          icon: textarea
+          instructions: 'A short intro to display on other pages and as the meta description.'
+          listable: hidden
+          instructions_position: above
+          read_only: false
   sidebar:
     display: Sidebar
     fields:

@@ -16,7 +16,7 @@ class HomeController
             ->get();
 
         $articles = Entry::query()
-            ->select(['id', 'title', 'slug', 'date'])
+            ->select(['id', 'title', 'slug', 'excerpt', 'date'])
             ->where('collection', 'articles')
             ->when(! auth()->user(), function ($query) {
                 $query->where('published', 1);
