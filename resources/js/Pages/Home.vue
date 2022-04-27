@@ -1,4 +1,8 @@
 <template>
+    <Head>
+      <title>Freelance webdevelopment</title>
+    </Head>
+
     <section class="h-screen border-b-8 border-indigo-600 bg-violet-50">
         <Header :showHome="false" class="left-1/2 -translate-x-1/2 absolute" />
 
@@ -200,6 +204,7 @@ import { formatDate } from "@/functions";
 import Header from '@/Shared/Header'
 import CTAFooter from '@/Shared/CTAFooter'
 import Footer from '@/Shared/Footer'
+import { Head } from '@inertiajs/inertia-vue3'
 
 const props = defineProps({
     'projects': Array,
