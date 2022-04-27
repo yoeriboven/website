@@ -1,5 +1,5 @@
 <template>
-    <section class="w-2/3 py-8 mx-auto">
+    <section class="w-5/6 md:w-2/3 py-8 mx-auto">
         <nav class="flex justify-between items-center">
             <div class="w-12 h-12">
                 <Link :href="route('home')" v-if="showHome">

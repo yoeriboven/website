@@ -6,7 +6,7 @@
     <div class="bg-violet-50">
         <Header />
 
-        <section class="py-6 w-5/12 mx-auto">
+        <section class="py-6 w-5/6 md:w-5/12 mx-auto text-center md:text-left">
             <h2 class="text-center mb-8 text-3xl font-bold">Blog</h2>
 
             <ul class="space-y-8">
