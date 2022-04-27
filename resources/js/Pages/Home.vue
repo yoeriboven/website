@@ -6,7 +6,7 @@
     <section class="h-screen border-b-8 border-indigo-600 bg-violet-50">
         <Header :showHome="false" class="left-1/2 -translate-x-1/2 absolute" />
 
-        <div class="w-2/3 mx-auto h-full flex">
+        <div class="w-5/6 md:w-2/3 mx-auto h-full flex">
             <div class="grid grid-cols-2 items-center gap-x-10">
                 <div class="pt-5">
                     <div class="font-bold text-4xl text-gray-600 leading-tight">
@@ -31,7 +31,7 @@
     </section>
 
     <section class="py-20 bg-slate-50">
-        <div class="w-2/3 mx-auto">
+        <div class="w-5/6 md:w-2/3 mx-auto">
             <div class="text-center">
                 <h2 class="font-bold text-3xl">Open source</h2>
                 <p class="text-gray-500 text-sm mt-1">Gewoon een stukje tekst</p>
@@ -155,7 +155,7 @@
 
 
     <section class="py-20 bg-slate-50">
-        <div class="w-2/3 mx-auto">
+        <div class="w-5/6 md:w-2/3 mx-auto">
             <div class="text-center">
                 <h2 class="font-bold text-3xl">Blog</h2>
                 <p class="text-gray-500 text-sm mt-1">Gewoon een stukje tekst</p>
