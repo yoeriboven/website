@@ -1,6 +1,6 @@
 <template>
     <Head>
-      <title>Freelance webdevelopment</title>
+      <title>Freelance webdeveloper</title>
     </Head>
 
     <section class="h-screen border-b-8 border-indigo-600 bg-violet-50">
@@ -165,11 +165,11 @@
             <div class="mt-6">
                 <ul class="grid grid-cols-2 gap-y-5 gap-x-5">
                     <li v-for="article in articles" :key="article.id">
-                        <a :href="route('article', article.slug)" class="flex flex-col group">
+                        <Link :href="route('article', article.slug)" class="flex flex-col group">
                             <span class="text-xs uppercase text-indigo-700">{{ formatDate(article.date, "D MMMM YYYY") }}</span>
                             <span class="text-xl font-medium text-gray-700 group-hover:text-indigo-700">{{ article.title }}</span>
                             <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">{{ article.excerpt }}</p>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
 
