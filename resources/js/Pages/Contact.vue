@@ -4,7 +4,7 @@
     </Head>
 
     <div class="bg-violet-50 min-h-screen pt-24">
-        <section class="w-1/2 mx-auto">
+        <main class="w-1/2 mx-auto">
             <div class="prose"><h1>Want to talk?</h1>
 
                 <p>I have multiple years of experience building PHP and Laravel projects and can surely help you.</p>
