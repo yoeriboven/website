@@ -1,6 +1,7 @@
 <template>
     <Head>
-      <title>Contact</title>
+        <title>Contact</title>
+        <meta name="description" content="" />
     </Head>
 
     <div class="bg-violet-50 min-h-screen pt-24">
@@ -80,8 +81,7 @@
                     </ol>
                 </nav>
             </div>
-
-        </section>
+        </main>
     </div>
 </template>
 

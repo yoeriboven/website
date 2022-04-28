@@ -1,6 +1,7 @@
 <template>
     <Head>
-      <title>Freelance webdeveloper</title>
+        <title>Freelance webdeveloper</title>
+        <meta name="description" content="" />
     </Head>
 
     <section class="h-screen border-b-8 border-indigo-600 bg-violet-50">

@@ -35,6 +35,17 @@ sections:
           listable: hidden
           instructions_position: above
           read_only: false
+      -
+        handle: meta_description
+        field:
+          placeholder: 'Max 165 chars'
+          antlers: false
+          display: 'Meta Description'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
   sidebar:
     display: Sidebar
     fields:

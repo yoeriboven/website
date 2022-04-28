@@ -1,6 +1,7 @@
 <template>
     <Head>
-      <title>{{ article.title }}</title>
+        <title>{{ article.title }}</title>
+        <meta name="description" content="{{ article.meta_description }}" />
     </Head>
 
     <div class="min-h-full bg-violet-50">

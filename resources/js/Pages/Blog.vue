@@ -1,6 +1,7 @@
 <template>
     <Head>
-      <title>Blog</title>
+        <title>Blog</title>
+        <meta name="description" content="I try to share everything I learn on this blog. You will find articles on Laravel, Inertia, Livewire, Vue.js and so on." />
     </Head>
 
     <div class="bg-violet-50">
