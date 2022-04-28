@@ -16,12 +16,12 @@ class HomeController
             ->get();
 
         $articles = Entry::query()
-            ->select(['id', 'title', 'slug', 'excerpt', 'date'])
+            ->select(['id', 'title', 'slug', 'excerpt', 'publish_date'])
             ->where('collection', 'articles')
             ->when(! auth()->user(), function ($query) {
                 $query->where('published', 1);
             })
-            ->orderBy('date', 'desc')
+            ->orderBy('publish_date', 'desc')
             ->limit(10)
             ->get();
 

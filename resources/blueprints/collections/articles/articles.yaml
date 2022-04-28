@@ -54,4 +54,22 @@ sections:
         field:
           type: slug
           localizable: true
+      -
+        handle: publish_date
+        field:
+          mode: single
+          time_enabled: false
+          time_seconds_enabled: false
+          full_width: false
+          inline: true
+          columns: 1
+          rows: 1
+          display: 'Publish Date'
+          type: date
+          icon: date
+          listable: hidden
+          instructions_position: above
+          read_only: false
+          validate:
+            - required
 title: Articles

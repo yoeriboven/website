@@ -10,7 +10,7 @@ class ArticleController
     public function __invoke($slug)
     {
         $article = Entry::query()
-            ->select(['id', 'title', 'content', 'meta_description', 'date'])
+            ->select(['id', 'title', 'content', 'meta_description', 'publish_date'])
             ->where('slug', $slug)
             ->first();
 
