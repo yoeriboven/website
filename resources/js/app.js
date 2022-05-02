@@ -3,7 +3,9 @@ import { createInertiaApp, Link } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
 import { i18nVue } from "laravel-vue-i18n";
 
-InertiaProgress.init()
+InertiaProgress.init({
+    color: 'rgb(79 70 229)',
+})
 
 createInertiaApp({
     title: title => `${title} - Yoeri.me`,
