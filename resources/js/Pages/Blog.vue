@@ -23,11 +23,11 @@
 
         <CTAFooter>
             <template #header>
-                Want to see if we are a fit?
+                Looking for a Laravel developer?
             </template>
 
             <template #content>
-                Contact me and immediately schedule a zoom-meeting by clicking below.
+                Contact me and you'll hear from me the next business day.
             </template>
         </CTAFooter>
 

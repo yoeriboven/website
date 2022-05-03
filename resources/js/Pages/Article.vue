@@ -4,7 +4,7 @@
         <meta name="description" :content="article.meta_description" />
     </Head>
 
-    <div class="min-h-full bg-violet-50">
+    <div class="bg-violet-50 border-t-4 border-indigo-600">
         <Header />
 
         <main class="py-6 w-5/6 md:w-2/3 mx-auto prose prose-img:shadow-sm prose-img:shadow-indigo-100 prose-a:text-indigo-600 prose-a:no-underline">
@@ -17,11 +17,11 @@
 
         <CTAFooter>
             <template #header>
-                Want to see if we are a fit?
+                Looking for a Laravel developer?
             </template>
 
             <template #content>
-                Contact me and immediately schedule a zoom-meeting by clicking below.
+                Contact me and you'll hear from me the next business day.
             </template>
         </CTAFooter>
 
