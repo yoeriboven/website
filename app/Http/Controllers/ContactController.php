@@ -3,23 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Statamic\Facades\Form;
+use App\Services\Statamic;
 
 class ContactController
 {
-    public function store(Request $request)
+    public function store(Request $request, Statamic $statamic)
     {
-        $form = Form::all()->first();
-
-        $submission = $form->makeSubmission();
-
-        $submission->data([
+        $statamic->storeContactSubmission([
             'name'        => $request->name,
             'email'       => $request->email,
             'description' => $request->description,
         ]);
-
-        $submission->save();
 
         return redirect(route('home'));
     }
