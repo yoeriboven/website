@@ -20,66 +20,101 @@
                 <p>After sending me a message you also have the chance to immediately schedule a meeting with me.</p>
             </div>
             <!-- This example requires Tailwind CSS v2.0+ -->
-            <div class="">
-                <nav class="mx-auto max-w-7xl mt-8" aria-label="Progress">
-                    <ol role="list"
-                        class="rounded-md overflow-hidden lg:flex lg:border-l lg:border-r lg:border-gray-200 lg:rounded-none">
-                        <li class="relative overflow-hidden lg:flex-1">
-                            <div class="border border-gray-200 overflow-hidden lg:border-0 lg:border-t">
-                                <!-- Current Step -->
-                                <a href="#" aria-current="step">
-                                <span
-                                    class="absolute top-0 left-0 w-1 h-full bg-indigo-600 lg:w-full lg:h-1 lg:bottom-0 lg:top-auto"
-                                    aria-hidden="true"></span>
-                                    <span class="px-6 py-5 flex items-start text-sm font-medium lg:pl-9">
-                  <span class="flex-shrink-0">
-                    <span class="w-10 h-10 flex items-center justify-center border-2 border-indigo-600 rounded-full">
-                      <span class="text-indigo-600">01</span>
-                    </span>
-                  </span>
-                  <span class="mt-0.5 ml-4 min-w-0 flex flex-col">
-                    <span class="text-xs font-semibold text-indigo-600 tracking-wide uppercase">Contact me</span>
-                    <span class="text-sm font-medium text-gray-500">What can I do for you?</span>
-                  </span>
-                </span>
-                                </a>
+<!--            <div class="">-->
+<!--                <nav class="mx-auto max-w-7xl mt-8" aria-label="Progress">-->
+<!--                    <ol role="list"-->
+<!--                        class="rounded-md overflow-hidden lg:flex lg:border-l lg:border-r lg:border-gray-200 lg:rounded-none">-->
+<!--                        <li class="relative overflow-hidden lg:flex-1">-->
+<!--                            <div class="border border-gray-200 overflow-hidden lg:border-0 lg:border-t">-->
+<!--                                &lt;!&ndash; Current Step &ndash;&gt;-->
+<!--                                <a href="#" aria-current="step">-->
+<!--                                <span-->
+<!--                                    class="absolute top-0 left-0 w-1 h-full bg-indigo-600 lg:w-full lg:h-1 lg:bottom-0 lg:top-auto"-->
+<!--                                    aria-hidden="true"></span>-->
+<!--                                    <span class="px-6 py-5 flex items-start text-sm font-medium lg:pl-9">-->
+<!--                  <span class="flex-shrink-0">-->
+<!--                    <span class="w-10 h-10 flex items-center justify-center border-2 border-indigo-600 rounded-full">-->
+<!--                      <span class="text-indigo-600">01</span>-->
+<!--                    </span>-->
+<!--                  </span>-->
+<!--                  <span class="mt-0.5 ml-4 min-w-0 flex flex-col">-->
+<!--                    <span class="text-xs font-semibold text-indigo-600 tracking-wide uppercase">Contact me</span>-->
+<!--                    <span class="text-sm font-medium text-gray-500">What can I do for you?</span>-->
+<!--                  </span>-->
+<!--                </span>-->
+<!--                                </a>-->
 
-                            </div>
-                        </li>
+<!--                            </div>-->
+<!--                        </li>-->
 
-                        <li class="relative overflow-hidden lg:flex-1">
-                            <div
-                                class="border border-gray-200 overflow-hidden border-t-0 rounded-b-md lg:border-0 lg:border-y">
-                                <!-- Upcoming Step -->
-                                <a href="#" class="group">
-                                <span
-                                    class="absolute top-0 left-0 w-1 h-full bg-transparent group-hover:bg-gray-200 lg:w-full lg:h-1 lg:bottom-0 lg:top-auto"
-                                    aria-hidden="true"></span>
-                                    <span class="px-6 py-5 flex items-start text-sm font-medium lg:pl-9">
-                  <span class="flex-shrink-0">
-                    <span class="w-10 h-10 flex items-center justify-center border-2 border-gray-300 rounded-full">
-                      <span class="text-gray-500">02</span>
-                    </span>
-                  </span>
-                  <span class="mt-0.5 ml-4 min-w-0 flex flex-col">
-                    <span class="text-xs font-semibold text-gray-500 tracking-wide uppercase">Meeting</span>
-                    <span class="text-sm font-medium text-gray-500">Schedule our first meeting.</span>
-                  </span>
-                </span>
-                                </a>
+<!--                        <li class="relative overflow-hidden lg:flex-1">-->
+<!--                            <div-->
+<!--                                class="border border-gray-200 overflow-hidden border-t-0 rounded-b-md lg:border-0 lg:border-y">-->
+<!--                                &lt;!&ndash; Upcoming Step &ndash;&gt;-->
+<!--                                <a href="#" class="group">-->
+<!--                                <span-->
+<!--                                    class="absolute top-0 left-0 w-1 h-full bg-transparent group-hover:bg-gray-200 lg:w-full lg:h-1 lg:bottom-0 lg:top-auto"-->
+<!--                                    aria-hidden="true"></span>-->
+<!--                                    <span class="px-6 py-5 flex items-start text-sm font-medium lg:pl-9">-->
+<!--                  <span class="flex-shrink-0">-->
+<!--                    <span class="w-10 h-10 flex items-center justify-center border-2 border-gray-300 rounded-full">-->
+<!--                      <span class="text-gray-500">02</span>-->
+<!--                    </span>-->
+<!--                  </span>-->
+<!--                  <span class="mt-0.5 ml-4 min-w-0 flex flex-col">-->
+<!--                    <span class="text-xs font-semibold text-gray-500 tracking-wide uppercase">Meeting</span>-->
+<!--                    <span class="text-sm font-medium text-gray-500">Schedule our first meeting.</span>-->
+<!--                  </span>-->
+<!--                </span>-->
+<!--                                </a>-->
 
-                                <!-- Separator -->
-                                <div class="hidden absolute top-0 left-0 w-3 inset-0 lg:block" aria-hidden="true">
-                                    <svg class="h-full w-full text-gray-200" viewBox="0 0 12 82" fill="none"
-                                         preserveAspectRatio="none">
-                                        <path d="M0.5 0V31L10.5 41L0.5 51V82" stroke="currentcolor"
-                                              vector-effect="non-scaling-stroke" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </li>
-                    </ol>
-                </nav>
+<!--                                &lt;!&ndash; Separator &ndash;&gt;-->
+<!--                                <div class="hidden absolute top-0 left-0 w-3 inset-0 lg:block" aria-hidden="true">-->
+<!--                                    <svg class="h-full w-full text-gray-200" viewBox="0 0 12 82" fill="none"-->
+<!--                                         preserveAspectRatio="none">-->
+<!--                                        <path d="M0.5 0V31L10.5 41L0.5 51V82" stroke="currentcolor"-->
+<!--                                              vector-effect="non-scaling-stroke" />-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                    </ol>-->
+<!--                </nav>-->
+<!--            </div>-->
+            <div class="pt-4 w-2/3 mx-auto">
+<!--                <h2 class="font-bold text-2xl mb-2">Contact me</h2>-->
+                <div class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <div class="mt-1">
+                            <input type="text" name="name" id="name"
+                                   class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                   placeholder="Your name" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <div class="mt-1">
+                            <input type="email" name="email" id="email"
+                                   class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                   placeholder="you@example.com" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                        <div class="mt-1">
+                            <textarea rows="5" name="description" id="description"
+                                      class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                      placeholder="Please write a short description about what you are looking for." />
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="button" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Send email</button>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
