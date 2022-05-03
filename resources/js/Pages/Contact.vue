@@ -83,44 +83,57 @@
 <!--            </div>-->
             <div class="pt-4 w-2/3 mx-auto">
 <!--                <h2 class="font-bold text-2xl mb-2">Contact me</h2>-->
-                <div class="space-y-6">
+                <form @submit.prevent="form.post(route('contact.store'))" class="space-y-6">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
                         <div class="mt-1">
-                            <input type="text" name="name" id="name"
-                                   class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                   placeholder="Your name" />
+                            <input v-model="form.name"
+                                type="text" name="name" id="name"
+                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                placeholder="Your name" />
                         </div>
                     </div>
 
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                         <div class="mt-1">
-                            <input type="email" name="email" id="email"
-                                   class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                   placeholder="you@example.com" />
+                            <input
+                                v-model="form.email"
+                                type="email" name="email" id="email"
+                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                placeholder="you@example.com" />
                         </div>
                     </div>
 
                     <div>
                         <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
                         <div class="mt-1">
-                            <textarea rows="5" name="description" id="description"
-                                      class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                      placeholder="Please write a short description about what you are looking for." />
+                            <textarea v-model="form.description"
+                                rows="5" name="description" id="description"
+                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                placeholder="Please write a short description about what you are looking for." />
                         </div>
                     </div>
 
                     <div class="flex justify-end">
-                        <button type="button" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Send email</button>
+                        <button type="submit"
+                                :disabled="form.processing"
+                                class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Send email
+                        </button>
                     </div>
-                </div>
+                </form>
             </div>
         </main>
     </div>
 </template>
 
 <script setup>
-import { Head } from '@inertiajs/inertia-vue3'
+import { Head, useForm } from '@inertiajs/inertia-vue3'
 
+const form = useForm({
+  name: null,
+  email: null,
+  description: null,
+})
 </script>

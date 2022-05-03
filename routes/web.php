@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ChangeLanguageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('blog', BlogController::class)->name('blog');
@@ -15,3 +16,4 @@ Route::post('language/{language}', ChangeLanguageController::class)
     ->name('language-change');
 
 Route::inertia('contact-me', 'Contact')->name('contact');
+Route::post('contact-me', [ContactController::class, 'store'])->name('contact.store');
