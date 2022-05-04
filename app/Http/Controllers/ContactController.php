@@ -2,18 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Services\Statamic;
+use Facades\App\Services\Statamic;
+use App\Http\Requests\ContactRequest;
 
 class ContactController
 {
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
-        Statamic::storeContactSubmission([
-            'name'        => $request->name,
-            'email'       => $request->email,
-            'description' => $request->description,
-        ]);
+        Statamic::storeContactSubmission($request->validated());
 
         return redirect(route('home'));
     }

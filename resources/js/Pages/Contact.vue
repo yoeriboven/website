@@ -83,35 +83,58 @@
 <!--            </div>-->
             <div class="pt-4 w-2/3 mx-auto">
 <!--                <h2 class="font-bold text-2xl mb-2">Contact me</h2>-->
-                <form @submit.prevent="form.post(route('contact.store'))" class="space-y-6">
+                <form @submit.prevent="submitForm" class="space-y-6">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                        <div class="mt-1">
+                        <div v-if="!form.errors.name" class="mt-1">
                             <input v-model="form.name"
                                 type="text" name="name" id="name"
                                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                                 placeholder="Your name" />
                         </div>
+                        <div v-else>
+                            <div class="mt-1">
+                                <input v-model="form.name" type="text" name="name" id="name" class="block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm rounded-md" aria-invalid="true" aria-describedby="name-error" />
+                            </div>
+                            <p class="mt-2 text-sm text-red-600" id="name-error">{{ form.errors.name }}</p>
+                        </div>
                     </div>
 
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <div class="mt-1">
+                        <div v-if="!form.errors.email" class="mt-1">
                             <input
                                 v-model="form.email"
                                 type="email" name="email" id="email"
                                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                                 placeholder="you@example.com" />
                         </div>
+                        <div v-else>
+                            <div class="mt-1">
+                                <input v-model="form.email" type="email" name="email" id="email"
+                                       class="block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm rounded-md" aria-invalid="true" aria-describedby="email-error" />
+                            </div>
+                            <p class="mt-2 text-sm text-red-600" id="email-error">{{ form.errors.email }}</p>
+                        </div>
                     </div>
 
                     <div>
                         <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                        <div class="mt-1">
+                        <div v-if="!form.errors.description" class="mt-1">
                             <textarea v-model="form.description"
                                 rows="5" name="description" id="description"
                                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                                 placeholder="Please write a short description about what you are looking for." />
+                        </div>
+                        <div v-else>
+                            <div class="mt-1">
+                                <textarea v-model="form.description"
+                                     rows="5" name="description" id="description"
+                                     class="shadow-sm text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 block w-full sm:text-sm border-red-300 rounded-md"
+                                     placeholder="Please write a short description about what you are looking for."
+                                     aria-invalid="true" aria-describedby="description-error" />
+                            </div>
+                            <p class="mt-2 text-sm text-red-600" id="description-error">{{ form.errors.description }}</p>
                         </div>
                     </div>
 
@@ -136,4 +159,10 @@ const form = useForm({
   email: null,
   description: null,
 })
+
+function submitForm() {
+    form.post(route('contact.store'), {
+        preserveScroll: () => ! Object.keys(form.errors).length,
+    })
+}
 </script>

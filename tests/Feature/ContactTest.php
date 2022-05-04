@@ -22,6 +22,36 @@ class ContactTest extends TestCase
             'name'        => 'Yoeri Boven',
             'email'       => 'example@yoeri.me',
             'description' => "We're looking for someone to build a SaaS application.",
-        ])->assertSuccessful();
+        ])->assertRedirect();
+    }
+
+    /** @test */
+    public function it_requires_all_fields()
+    {
+        $this->post(route('contact.store'), [
+            'name'        => null,
+            'email'       => null,
+            'description' => null,
+        ])->assertInvalid(['name', 'email', 'description']);
+    }
+
+    /** @test */
+    public function it_requires_a_valid_email()
+    {
+        $this->post(route('contact.store'), [
+            'email' => 'invalid_email',
+        ])->assertInvalid(['email']);
+    }
+
+    /** @test */
+    public function it_needs_a_description_of_at_least_10_characters()
+    {
+        $this->post(route('contact.store'), [
+            'description' => 'nine_char',
+        ])->assertInvalid(['description']);
+
+        $this->post(route('contact.store'), [
+            'description' => 'more than 10 characters',
+        ])->assertValid(['descriptions']);
     }
 }
