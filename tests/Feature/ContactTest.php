@@ -2,7 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Notifications\NewContactSubmission;
 use Facades\App\Services\Statamic;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class ContactTest extends TestCase
@@ -53,5 +55,25 @@ class ContactTest extends TestCase
         $this->post(route('contact.store'), [
             'description' => 'more than 10 characters',
         ])->assertValid(['descriptions']);
+    }
+
+    /** @test */
+    public function it_sends_an_email_when_the_form_is_submitted()
+    {
+        Statamic::shouldReceive('storeContactSubmission')->once()->byDefault();
+
+        Notification::fake();
+
+        $formData = [
+            'name'        => 'Yoeri Boven',
+            'email'       => 'example@yoeri.me',
+            'description' => "We're looking for someone to build a SaaS application.",
+        ];
+
+        $this->post(route('contact.store'), $formData);
+
+        Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification) use ($formData) {
+            return $notification->submission === $formData;
+        });
     }
 }
