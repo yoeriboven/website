@@ -7,9 +7,9 @@ use App\Services\Statamic;
 
 class ContactController
 {
-    public function store(Request $request, Statamic $statamic)
+    public function store(Request $request)
     {
-        $statamic->storeContactSubmission([
+        Statamic::storeContactSubmission([
             'name'        => $request->name,
             'email'       => $request->email,
             'description' => $request->description,
