@@ -20,7 +20,7 @@ class StatamicTest extends TestCase
         $mockedSubmission = $this->mock(Submission::class, function (MockInterface $mock) {
             $mock->shouldReceive('data')->with([
                 'name'        => 'Yoeri Boven',
-                'email'       => 'yoeri@yoeri.me',
+                'email'       => 'example@yoeri.me',
                 'description' => "We're looking for someone to build a SaaS application.",
             ]);
 
@@ -39,7 +39,7 @@ class StatamicTest extends TestCase
 
         Statamic::storeContactSubmission([
             'name'        => 'Yoeri Boven',
-            'email'       => 'yoeri@yoeri.me',
+            'email'       => 'example@yoeri.me',
             'description' => "We're looking for someone to build a SaaS application.",
         ]);
     }
