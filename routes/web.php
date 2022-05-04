@@ -3,9 +3,10 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ChangeLanguageController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('blog', BlogController::class)->name('blog');
@@ -15,5 +16,7 @@ Route::post('language/{language}', ChangeLanguageController::class)
     ->whereIn('language', ['en', 'nl'])
     ->name('language-change');
 
-Route::inertia('contact-me', 'Contact')->name('contact');
-Route::post('contact-me', [ContactController::class, 'store'])->name('contact.store');
+Route::get('contact-me', [ContactController::class, 'show'])->name('contact');
+Route::post('contact-me', [ContactController::class, 'store'])
+    ->middleware(ProtectAgainstSpam::class)
+    ->name('contact.store');

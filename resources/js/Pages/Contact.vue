@@ -122,6 +122,11 @@
                         <p v-if="form.errors.description" class="mt-1 text-sm text-red-600">{{ form.errors.description }}</p>
                     </div>
 
+                    <div v-if="honeypot.enabled" :name="`${honeypot.nameFieldName}_wrap`" style="display:none;">
+                        <input type="text" v-model="form[honeypot.nameFieldName]" :name="honeypot.nameFieldName" :id="honeypot.nameFieldName" />
+                        <input type="text" v-model="form[honeypot.validFromFieldName]" :name="honeypot.validFromFieldName" />
+                    </div>
+
                     <div class="flex justify-end">
                         <button type="submit"
                                 :disabled="form.processing"
@@ -138,10 +143,16 @@
 <script setup>
 import { Head, useForm } from '@inertiajs/inertia-vue3'
 
+const props = defineProps({
+    honeypot: Object,
+})
+
 const form = useForm({
-  name: null,
-  email: null,
-  description: null,
+    name: null,
+    email: null,
+    description: null,
+    [props.honeypot.nameFieldName]: '',
+    [props.honeypot.validFromFieldName]: props.honeypot.encryptedValidFrom,
 })
 
 function submitForm() {
