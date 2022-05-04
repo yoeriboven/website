@@ -84,40 +84,48 @@
             <div class="pt-4 w-2/3 mx-auto">
 <!--                <h2 class="font-bold text-2xl mb-2">Contact me</h2>-->
                 <form @submit.prevent="submitForm" class="space-y-6">
-                    <div>
-                        <FormInput
-                            :value="form.name"
-                            :error="form.errors.name"
-                            title="Name"
-                            name="name"
-                            placeholder="Your name"
+                    <div class="space-y-1">
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input v-model="form.name"
+                               type="text"
+                               name="name"
+                               id="name"
+                               class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                               :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500' : form.errors.name }"
+                               placeholder="Your name"
                         />
+                        <p v-if="form.errors.name" class="mt-1 text-sm text-red-600">{{ form.errors.name }}</p>
                     </div>
 
-                    <div>
-                        <FormInput
-                            :value="form.email"
-                            :error="form.errors.email"
-                            title="Email"
-                            name="email"
-                            placeholder="you@example.com"
+                    <div class="space-y-1">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input v-model="form.email"
+                               type="email"
+                               name="email"
+                               id="email"
+                               class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                               :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500' : form.errors.email }"
+                               placeholder="you@example.com"
                         />
+                        <p v-if="form.errors.email" class="mt-1 text-sm text-red-600">{{ form.errors.email }}</p>
                     </div>
 
-                    <div>
-                        <FormTextarea
-                            :value="form.description"
-                            :error="form.errors.description"
-                            title="Description"
-                            name="description"
-                            placeholder="Please write a short description about what you are looking for."
-                        />
+                    <div class="space-y-1">
+                        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                        <textarea v-model="form.description"
+                                  rows="5"
+                                  name="description"
+                                  id="description"
+                                  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                  :class="{ 'shadow-sm text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 block w-full sm:text-sm border-red-300 rounded-md' : form.errors.description }"
+                                  placeholder="Please write a short description about what you are looking for." />
+                        <p v-if="form.errors.description" class="mt-1 text-sm text-red-600">{{ form.errors.description }}</p>
                     </div>
 
                     <div class="flex justify-end">
                         <button type="submit"
                                 :disabled="form.processing"
-                                class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-semibold rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Send email
                         </button>
                     </div>
@@ -129,8 +137,6 @@
 
 <script setup>
 import { Head, useForm } from '@inertiajs/inertia-vue3'
-import FormInput from "@/Shared/FormInput";
-import FormTextarea from "@/Shared/FormTextarea";
 
 const form = useForm({
   name: null,
