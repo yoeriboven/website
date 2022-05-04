@@ -4,7 +4,7 @@
         <meta name="description" content="" />
     </Head>
 
-    <div class="bg-violet-50 min-h-screen pt-24">
+    <div class="bg-violet-50 min-h-screen pt-24 pb-[400px]">
         <main class="w-1/2 mx-auto">
             <div class="prose"><h1>Want to talk?</h1>
 
@@ -146,7 +146,7 @@ const form = useForm({
 
 function submitForm() {
     form.post(route('contact.store'), {
-        preserveScroll: () => ! Object.keys(form.errors).length,
+        preserveScroll: true
     })
 }
 </script>
