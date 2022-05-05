@@ -15,27 +15,25 @@ class StatamicTest extends TestCase
     /** @test */
     public function it_can_store_a_form_submission()
     {
-        $this->withoutExceptionHandling();
-
         $mockedSubmission = $this->mock(Submission::class, function (MockInterface $mock) {
-            $mock->shouldReceive('data')->with([
+            $mock->shouldReceive('data')->once()->with([
                 'name'        => 'Yoeri Boven',
                 'email'       => 'example@yoeri.me',
                 'description' => "We're looking for someone to build a SaaS application.",
             ]);
 
-            $mock->shouldReceive('save')->andReturn(true);
+            $mock->shouldReceive('save')->once()->andReturn(true);
         });
 
         $mockedForm = $this->mock(Form::class, function (MockInterface $mock) use ($mockedSubmission) {
-            $mock->shouldReceive('makeSubmission')->andReturn($mockedSubmission);
+            $mock->shouldReceive('makeSubmission')->once()->andReturn($mockedSubmission);
         });
 
         $mockedCollection = $this->mock(Collection::class, function (MockInterface $mock) use ($mockedForm) {
-            $mock->shouldReceive('first')->andReturn($mockedForm);
+            $mock->shouldReceive('first')->once()->andReturn($mockedForm);
         });
 
-        FormFacade::shouldReceive('all')->andReturn($mockedCollection);
+        FormFacade::shouldReceive('all')->once()->andReturn($mockedCollection);
 
         Statamic::storeContactSubmission([
             'name'        => 'Yoeri Boven',
