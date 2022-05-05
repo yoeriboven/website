@@ -23,9 +23,9 @@ class ContactController
         Statamic::storeContactSubmission($request->validated());
 
         Notification::route('mail', config('app.contact_email'))
-            ->route('telegram', config('services.telegram-bot-api.chat_id'))
-            ->notify(new NewContactSubmission($request->validated()));
+                ->route('telegram', config('services.telegram-bot-api.chat_id'))
+                ->notify(new NewContactSubmission($request->validated()));
 
-        return redirect(route('home'));
+        return redirect(route('contact'))->with('success', 'Form submitted.');
     }
 }

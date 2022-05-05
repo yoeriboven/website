@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Contact</title>
+        <title>Contact Me</title>
         <meta name="description" content="" />
     </Head>
 
@@ -138,10 +138,14 @@
             </div>
         </main>
     </div>
+
+    <ContactSuccessModal :open="!! $page.props.flash.success" />
+
 </template>
 
 <script setup>
 import { Head, useForm } from '@inertiajs/inertia-vue3'
+import ContactSuccessModal from "@/Shared/ContactSuccessModal";
 
 const props = defineProps({
     honeypot: Object,
