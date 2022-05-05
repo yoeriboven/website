@@ -2,10 +2,42 @@
 
 namespace App\Services;
 
+use Statamic\Extensions\Pagination\LengthAwarePaginator;
+use Statamic\Facades\Entry;
 use Statamic\Facades\Form;
+use Statamic\Entries\EntryCollection;
 
 class Statamic
 {
+    public function getArticleBySlug(string $slug): \Statamic\Entries\Entry
+    {
+        return Entry::query()
+            ->select(['id', 'title', 'content', 'meta_description', 'publish_date'])
+            ->where('slug', $slug)
+            ->first();
+    }
+
+    public function getLatestArticles(int $take): LengthAwarePaginator
+    {
+        return Entry::query()
+            ->select(['id', 'title', 'slug', 'excerpt', 'publish_date'])
+            ->where('collection', 'articles')
+            ->when(! auth()->user(), function ($query) {
+                $query->where('published', 1);
+            })
+            ->orderBy('publish_date', 'desc')
+            ->paginate($take);
+    }
+
+    public function getAllProjects(): EntryCollection
+    {
+        return Entry::query()
+            ->select(['id', 'title', 'content', 'repo', 'link'])
+            ->where('collection', 'projects')
+            ->orderBy('date', 'desc')
+            ->get();
+    }
+
     public function storeContactSubmission(array $data): void
     {
         $form = Form::all()->first();

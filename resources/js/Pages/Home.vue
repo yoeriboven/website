@@ -54,7 +54,7 @@
             </div>
             <div class="mt-6">
                 <ul class="grid grid-cols-2 gap-y-5 gap-x-5">
-                    <li v-for="article in articles" :key="article.id">
+                    <li v-for="article in articles.data" :key="article.id">
                         <Link :href="route('article', article.slug)" class="flex flex-col group">
                             <span class="text-xs uppercase text-indigo-700">{{ formatDate(article.publish_date, "D MMMM YYYY") }}</span>
                             <span class="text-xl font-medium text-gray-700 group-hover:text-indigo-700">{{ article.title }}</span>
@@ -221,7 +221,7 @@ import { Head } from '@inertiajs/inertia-vue3'
 
 const props = defineProps({
     'projects': Array,
-    'articles': Array,
+    'articles': Object,
 })
 
 const featuredProject = ref(props.projects[0])
