@@ -194,4 +194,15 @@ return [
         // ...
     ])->toArray(),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Form recipient
+    |--------------------------------------------------------------------------
+    |
+    | The email address to where the contact form submissions should
+    | be sent to.
+    |
+    */
+    'contact_email' => env('FORM_SUBMISSIONS_RECIPIENT'),
+
 ];

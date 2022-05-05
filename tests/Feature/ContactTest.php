@@ -9,22 +9,26 @@ use Tests\TestCase;
 
 class ContactTest extends TestCase
 {
+    protected array $validData = [
+        'name'        => 'Yoeri Boven',
+        'email'       => 'example@yoeri.me',
+        'description' => "We're looking for someone to build a SaaS application.",
+    ];
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        Notification::fake();
+    }
+
     /** @test */
     public function it_stores_the_form_submission()
     {
-        $this->withoutExceptionHandling();
+        Statamic::shouldReceive('storeContactSubmission')->once()->with($this->validData);
 
-        Statamic::shouldReceive('storeContactSubmission')->with([
-            'name'        => 'Yoeri Boven',
-            'email'       => 'example@yoeri.me',
-            'description' => "We're looking for someone to build a SaaS application.",
-        ]);
-
-        $this->post(route('contact.store'), [
-            'name'        => 'Yoeri Boven',
-            'email'       => 'example@yoeri.me',
-            'description' => "We're looking for someone to build a SaaS application.",
-        ])->assertRedirect();
+        $this->post(route('contact.store'), $this->validData)
+            ->assertRedirect();
     }
 
     /** @test */
@@ -58,22 +62,38 @@ class ContactTest extends TestCase
     }
 
     /** @test */
+    public function it_sends_a_notification_when_the_form_is_submitted()
+    {
+        Statamic::shouldReceive('storeContactSubmission')->once();
+
+        $this->post(route('contact.store'), $this->validData);
+
+        Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification) {
+            return $notification->submission === $this->validData;
+        });
+    }
+
+    /** @test */
     public function it_sends_an_email_when_the_form_is_submitted()
     {
-        Statamic::shouldReceive('storeContactSubmission')->once()->byDefault();
+        Statamic::shouldReceive('storeContactSubmission')->once();
 
-        Notification::fake();
+        $this->post(route('contact.store'), $this->validData);
 
-        $formData = [
-            'name'        => 'Yoeri Boven',
-            'email'       => 'example@yoeri.me',
-            'description' => "We're looking for someone to build a SaaS application.",
-        ];
+        Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification, $channels, $notififiable) {
+            return $notififiable->routes['mail'] === config('app.contact_email');
+        });
+    }
 
-        $this->post(route('contact.store'), $formData);
+    /** @test */
+    public function it_sends_a_telegram_message_when_the_form_is_submitted()
+    {
+        Statamic::shouldReceive('storeContactSubmission')->once();
 
-        Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification) use ($formData) {
-            return $notification->submission === $formData;
+        $this->post(route('contact.store'), $this->validData);
+
+        Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification, $channels, $notififiable) {
+            return $notififiable->routes['telegram'] === config('services.telegram-bot-api.chat_id');
         });
     }
 }

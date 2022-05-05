@@ -5,6 +5,7 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use NotificationChannels\Telegram\TelegramMessage;
 
 class NewContactSubmission extends Notification
 {
@@ -28,7 +29,7 @@ class NewContactSubmission extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'telegram'];
     }
 
     /**
@@ -43,6 +44,21 @@ class NewContactSubmission extends Notification
                     ->line('Name: '.$this->submission['name'])
                     ->line('Email: '.$this->submission['email'])
                     ->line($this->submission['description']);
+    }
+
+    /**
+     * Get the telegram representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return TelegramMessage
+     */
+    public function toTelegram($notifiable)
+    {
+        $content = '*Name:* '.$this->submission['name'].PHP_EOL;
+        $content .= '*Email:* '.$this->submission['email'].PHP_EOL;
+        $content .= '*Message:* '.$this->submission['description'];
+
+        return TelegramMessage::create()->content($content);
     }
 
     /**
