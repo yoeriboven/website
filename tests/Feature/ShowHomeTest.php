@@ -42,7 +42,7 @@ class ShowHomeTest extends TestCase
         $this->get(route('home'))
             ->assertInertia(function (Assert $page) {
                 $page->component('Home')
-                    ->where('articles.0.title', 'A draft post');
+                    ->where('articles.data.0.title', 'A draft post');
             });
     }
 }
