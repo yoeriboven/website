@@ -4,12 +4,12 @@ namespace Tests\Integration\Services;
 
 use Facades\App\Services\Statamic;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Mockery\MockInterface;
 use Statamic\Facades\Form as FormFacade;
 use Statamic\Forms\Form;
 use Statamic\Forms\Submission;
 use Tests\TestCase;
-use Illuminate\Support\Str;
 
 class StatamicTest extends TestCase
 {
@@ -70,9 +70,9 @@ class StatamicTest extends TestCase
     {
         $this->createArticle(title: 'A draft post', published: false);
 
-        $article = Statamic::getLatestArticles()->items()[0];
+        $article = optional(Statamic::getLatestArticles()->first());
 
-        $this->assertNotEquals('A published post', $article->title);
+        $this->assertNotEquals('A draft post', $article->title);
     }
 
     /** @test */
