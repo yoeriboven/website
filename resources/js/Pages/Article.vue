@@ -4,7 +4,9 @@
         <meta name="description" :content="article.meta_description" />
     </Head>
 
-    <div class="bg-violet-50 border-t-4 border-indigo-600">
+    <div class="bg-violet-50">
+        <TopBanner />
+
         <Header />
 
         <main class="py-6 w-5/6 md:w-2/3 mx-auto prose prose-img:shadow-sm prose-img:shadow-indigo-100 prose-a:text-indigo-600 prose-a:no-underline">
@@ -36,6 +38,7 @@ import Header from '@/Shared/Header'
 import CTAFooter from '@/Shared/CTAFooter'
 import Footer from '@/Shared/Footer'
 import { Head } from '@inertiajs/inertia-vue3'
+import TopBanner from "@/Shared/TopBanner";
 
 defineProps({
     article: Object

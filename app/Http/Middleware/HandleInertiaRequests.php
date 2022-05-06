@@ -43,6 +43,11 @@ class HandleInertiaRequests extends Middleware
                     'error'   => $request->session()->get('error'),
                 ];
             },
+            'settings' => function () {
+                return [
+                    'showHireMeBanner' => config('app.show_hire_me_banner', false),
+                ];
+            },
         ]);
     }
 }

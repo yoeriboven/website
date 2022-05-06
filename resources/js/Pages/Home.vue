@@ -5,6 +5,8 @@
     </Head>
 
     <section class="h-screen bg-violet-50 border-b-4 border-indigo-600">
+        <TopBanner />
+
         <Header :showHome="false" class="left-1/2 -translate-x-1/2 absolute" />
 
         <div class="w-5/6 md:w-2/3 mx-auto h-full flex items-center">
@@ -218,6 +220,7 @@ import Header from '@/Shared/Header'
 import CTAFooter from '@/Shared/CTAFooter'
 import Footer from '@/Shared/Footer'
 import { Head } from '@inertiajs/inertia-vue3'
+import TopBanner from "@/Shared/TopBanner";
 
 const props = defineProps({
     'projects': Array,

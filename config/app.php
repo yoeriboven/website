@@ -196,13 +196,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Form recipient
+    | App Settings
     |--------------------------------------------------------------------------
-    |
-    | The email address to where the contact form submissions should
-    | be sent to.
     |
     */
     'contact_email' => env('FORM_SUBMISSIONS_RECIPIENT'),
+
+    'show_hire_me_banner' => env('SHOW_HIRE_ME_BANNER', false),
 
 ];

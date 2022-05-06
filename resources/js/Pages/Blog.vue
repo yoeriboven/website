@@ -5,6 +5,8 @@
     </Head>
 
     <div class="bg-violet-50">
+        <TopBanner />
+
         <Header />
 
         <main class="py-6 w-5/6 md:w-5/12 mx-auto text-center md:text-left">
@@ -42,6 +44,7 @@ import Header from '@/Shared/Header'
 import CTAFooter from '@/Shared/CTAFooter'
 import Footer from '@/Shared/Footer'
 import { Head } from '@inertiajs/inertia-vue3'
+import TopBanner from "@/Shared/TopBanner";
 
 defineProps({
     articles: Object
