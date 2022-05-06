@@ -26,6 +26,13 @@ class ShowArticleTest extends TestCase
     }
 
     /** @test */
+    public function it_returns_404_if_the_article_is_not_found()
+    {
+        $this->get(route('article', 'article-does-not-exist'))
+            ->assertNotFound();
+    }
+
+    /** @test */
     public function it_shows_the_article_to_user_if_its_a_draft()
     {
         $this->loginStatamicUser();

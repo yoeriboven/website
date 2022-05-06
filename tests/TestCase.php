@@ -3,8 +3,8 @@
 namespace Tests;
 
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use Statamic\Facades\Entry;
 use Illuminate\Support\Str;
+use Statamic\Facades\Entry;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -25,7 +25,7 @@ abstract class TestCase extends BaseTestCase
     public function createArticle(string $title, bool $published = true): \Statamic\Entries\Entry
     {
         return $this->makeEntry(function () use ($title, $published) {
-            $slug = Str::random(15);
+            $slug = Str::slug($title);
 
             Entry::make()
                 ->collection('articles')

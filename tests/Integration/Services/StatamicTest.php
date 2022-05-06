@@ -9,6 +9,7 @@ use Statamic\Facades\Form as FormFacade;
 use Statamic\Forms\Form;
 use Statamic\Forms\Submission;
 use Tests\TestCase;
+use Illuminate\Support\Str;
 
 class StatamicTest extends TestCase
 {
@@ -40,5 +41,59 @@ class StatamicTest extends TestCase
             'email'       => 'example@yoeri.me',
             'description' => "We're looking for someone to build a SaaS application.",
         ]);
+    }
+
+    /** @test */
+    public function it_gets_published_posts_for_guests()
+    {
+        $this->createArticle(title: 'A published post', published: true);
+
+        $article = Statamic::getLatestArticles()->items()[0];
+
+        $this->assertEquals('A published post', $article->title);
+    }
+
+    /** @test */
+    public function it_gets_published_posts_for_admins()
+    {
+        $this->loginStatamicUser();
+
+        $this->createArticle(title: 'A published post', published: true);
+
+        $article = Statamic::getLatestArticles()->items()[0];
+
+        $this->assertEquals('A published post', $article->title);
+    }
+
+    /** @test */
+    public function it_doesnt_get_drafts_for_guests()
+    {
+        $this->createArticle(title: 'A draft post', published: false);
+
+        $article = Statamic::getLatestArticles()->items()[0];
+
+        $this->assertNotEquals('A published post', $article->title);
+    }
+
+    /** @test */
+    public function it_gets_drafts_for_admin()
+    {
+        $this->loginStatamicUser();
+
+        $this->createArticle(title: 'A draft post', published: false);
+
+        $article = Statamic::getLatestArticles()->items()[0];
+
+        $this->assertEquals('A draft post', $article->title);
+    }
+
+    /** @test */
+    public function it_returns_the_article_by_slug()
+    {
+        $this->createArticle(title: 'A draft post', published: false);
+
+        $article = Statamic::getArticleBySlug(Str::slug('A draft post'));
+
+        $this->assertEquals('A draft post', $article->title);
     }
 }

@@ -2,14 +2,14 @@
 
 namespace App\Services;
 
+use Statamic\Entries\EntryCollection;
 use Statamic\Extensions\Pagination\LengthAwarePaginator;
 use Statamic\Facades\Entry;
 use Statamic\Facades\Form;
-use Statamic\Entries\EntryCollection;
 
 class Statamic
 {
-    public function getArticleBySlug(string $slug): \Statamic\Entries\Entry
+    public function getArticleBySlug(string $slug): ?\Statamic\Entries\Entry
     {
         return Entry::query()
             ->select(['id', 'title', 'content', 'meta_description', 'publish_date'])
@@ -17,7 +17,7 @@ class Statamic
             ->first();
     }
 
-    public function getLatestArticles(int $take): LengthAwarePaginator
+    public function getLatestArticles(int $take = 10): LengthAwarePaginator
     {
         return Entry::query()
             ->select(['id', 'title', 'slug', 'excerpt', 'publish_date'])
