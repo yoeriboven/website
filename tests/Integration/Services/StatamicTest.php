@@ -70,9 +70,9 @@ class StatamicTest extends TestCase
     {
         $this->createArticle(title: 'A draft post', published: false);
 
-        $article = optional(Statamic::getLatestArticles()->first());
+        $article = Statamic::getLatestArticles()->first();
 
-        $this->assertNotEquals('A draft post', $article->title);
+        $this->assertNotEquals('A draft post', $article?->title);
     }
 
     /** @test */
