@@ -8,6 +8,7 @@
         "php": "^8.0.2",
         "ext-intl": "*",
         "guzzlehttp/guzzle": "^7.2",
+        "hammerstone/sidecar": "^0.3.9",
         "inertiajs/inertia-laravel": "^0.5.4",
         "laravel-notification-channels/telegram": "^2.0",
         "laravel/framework": "^9.2",
@@ -20,7 +21,8 @@
         "spatie/laravel-ray": "^1.29",
         "statamic/cms": "3.3.7",
         "tightenco/ziggy": "^1.4",
-        "torchlight/torchlight-commonmark": "^0.5.5"
+        "torchlight/torchlight-commonmark": "^0.5.5",
+        "wnx/sidecar-browsershot": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

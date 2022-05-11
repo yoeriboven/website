@@ -4,7 +4,7 @@ namespace App\Actions;
 
 use Facades\App\Services\Statamic;
 use Statamic\Entries\Entry;
-use Spatie\Browsershot\Browsershot;
+use Wnx\SidecarBrowsershot\BrowsershotLambda;
 
 class CreateSocialImageAction
 {
@@ -26,7 +26,7 @@ class CreateSocialImageAction
 
         ray('No image yet.');
 
-        Browsershot::url(route('social-image', $slug))
+        BrowsershotLambda::url(route('social-image', $slug))
             ->setScreenshotType('jpeg', 100)
             ->deviceScaleFactor(2)
             ->windowSize(1200, 628)
