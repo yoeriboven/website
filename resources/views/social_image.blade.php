@@ -13,7 +13,7 @@
         </div>
         <div class="flex mt-4 items-center justify-between space-x-8">
             <div class="">
-                <span class="text-3xl">30 April 2022</span>
+                <span class="text-3xl">{{ $article->publish_date->toFormattedDateString() }}</span>
                 <h1 class="font-extrabold text-7xl leading-tight line-clamp-4">{{ $article->title }}</h1>
             </div>
             <div class="shrink-0">
