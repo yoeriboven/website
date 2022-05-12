@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
 </head>
 <body class="antialiased">
-    <div class="w-[1200px] h-[628px] bg-violet-600 p-12 text-white text-3xl space-y-3 flex flex-col justify-between">
+    <div class="w-[1200px] h-[630px] bg-violet-600 p-12 text-white text-3xl space-y-3 flex flex-col justify-between">
         <div class="flex justify-between">
             <div class="font-medium text-violet-600 text-xl rounded-2xl bg-violet-300 w-fit px-4 uppercase">New Article</div>
             <div class="font-medium text-violet-600 text-xl rounded-2xl bg-violet-300 w-fit px-4 uppercase">Yoeri.me</div>
