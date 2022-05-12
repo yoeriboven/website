@@ -21,8 +21,12 @@
             </div>
         </div>
 
-        <div class="bg-violet-400 rounded-xl px-4 py-2 font-medium">
-            &#128075 I'm currently available for new projects! Hire me on my site.
+        <div class="bg-violet-400 rounded-xl px-4 py-2 font-medium flex items-center space-x-2">
+            <img style="height:1em;"
+                 src="{{ asset('img/waving-hand-120.png') }}"
+                 srcset="{{ asset('img/waving-hand-160.png') }} 2x"
+            />
+            <span>I'm currently available for new projects! Hire me on my site.</span>
         </div>
     </div>
 </body>
