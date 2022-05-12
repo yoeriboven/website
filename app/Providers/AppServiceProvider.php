@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
+use Facades\App\Services\Statamic;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Testing\Fluent\AssertableJson;
+use PHPUnit\Framework\Assert as PHPUnit;
 use Statamic\Facades\Markdown;
 use Torchlight\Commonmark\V2\TorchlightExtension;
-use PHPUnit\Framework\Assert as PHPUnit;
 
 class AppServiceProvider extends ServiceProvider
 {

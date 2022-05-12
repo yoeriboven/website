@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Facades\App\Services\Statamic;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
+        $this->registerRouteModelBinding();
 
         $this->routes(function () {
             Route::prefix('api')
@@ -38,15 +40,21 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Configure the rate limiters for the application.
-     *
-     * @return void
-     */
     protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        });
+    }
+
+    public function registerRouteModelBinding(): void
+    {
+        Route::bind('article', function ($slug) {
+            $article = Statamic::getArticleBySlug($slug);
+
+            abort_if(is_null($article), 404);
+
+            return $article;
         });
     }
 }

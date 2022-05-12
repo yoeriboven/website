@@ -12,7 +12,16 @@ class Statamic
     public function getArticleBySlug(string $slug): ?\Statamic\Entries\Entry
     {
         return Entry::query()
-            ->select(['id', 'published', 'title', 'slug', 'content', 'meta_description', 'publish_date', 'last_modified'])
+            ->select([
+                'id',
+                'published',
+                'title',
+                'slug',
+                'content',
+                'meta_description',
+                'publish_date',
+                'last_modified',
+            ])
             ->where('slug', $slug)
             ->first();
     }
