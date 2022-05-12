@@ -1,6 +1,6 @@
 @props(['article'])
 
-@if($article)
+@if($article && $article['published'])
     <meta property="og:title" content="{{ $article['title'] }}">
     <meta property="og:type" content="article" />
     <meta property="og:description" content="{{ $article['meta_description'] }}">
@@ -9,7 +9,7 @@
     <meta property="article:author" content="Yoeri Boven">
     <meta name="twitter:card" content="summary_large_image">
 
-    @isset($article['published_date'])
+    @isset($article['publish_date'])
         <meta property="article:published_time" content="{{ $article['publish_date']->toAtomString() }}">
     @endisset
 
