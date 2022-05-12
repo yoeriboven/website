@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59fd40a19124ab0e88704fe0cbfeb893",
+    "content-hash": "d7811dc80b7ecef551aabf63660d418e",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -3260,6 +3260,59 @@
                 "source": "https://github.com/michelf/php-smartypants/tree/1.8.1"
             },
             "time": "2016-12-13T01:01:17+00:00"
+        },
+        {
+            "name": "mojtabaahn/laravel-web-logs",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mojtabaahn/laravel-web-logs.git",
+                "reference": "cad3c29b6939e5ee37840c4d726374a624cff706"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mojtabaahn/laravel-web-logs/zipball/cad3c29b6939e5ee37840c4d726374a624cff706",
+                "reference": "cad3c29b6939e5ee37840c4d726374a624cff706",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "7.*|8.*|9.*",
+                "illuminate/routing": "7.*|8.*|9.*",
+                "illuminate/support": "7.*|8.*|9.*",
+                "php": "^8.0|^7.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mojtabaahn\\LaravelWebLogs\\Providers\\LaravelWebLogsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "./src/helpers.php"
+                ],
+                "psr-4": {
+                    "Mojtabaahn\\LaravelWebLogs\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mojtabaa HN",
+                    "email": "mojtabaa.hn@gmail.com"
+                }
+            ],
+            "description": "Access Laravel/Lumen logs from web made easy.",
+            "support": {
+                "issues": "https://github.com/mojtabaahn/laravel-web-logs/issues",
+                "source": "https://github.com/mojtabaahn/laravel-web-logs/tree/1.4.0"
+            },
+            "time": "2022-02-12T06:52:20+00:00"
         },
         {
             "name": "monolog/monolog",
