@@ -28,7 +28,7 @@ class CreateSocialImageAction
 
         BrowsershotLambda::url(route('social-image', $slug))
             ->setScreenshotType('jpeg', 100)
-//            ->deviceScaleFactor(2)
+            ->deviceScaleFactor(2)
             ->windowSize(1200, 630)
             ->save(public_path('img/social/'.$slug.'.jpeg'));
 
