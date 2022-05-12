@@ -3,6 +3,7 @@
 namespace App\Actions;
 
 use Facades\App\Services\Statamic;
+use Illuminate\Support\Facades\Storage;
 use Statamic\Entries\Entry;
 use Wnx\SidecarBrowsershot\BrowsershotLambda;
 
@@ -26,11 +27,13 @@ class CreateSocialImageAction
 
         ray('No image yet.');
 
-        BrowsershotLambda::url(route('social-image', $slug))
-            ->setScreenshotType('jpeg', 100)
-            ->deviceScaleFactor(2)
-            ->windowSize(1200, 630)
-            ->save(public_path('img/social/'.$slug.'.jpeg'));
+        $screenshot = BrowsershotLambda::url(route('social-image', $slug))
+                    ->setScreenshotType('jpeg', 100)
+                    ->deviceScaleFactor(2)
+                    ->windowSize(1200, 630)
+                    ->screenshot();
+
+        Storage::disk('s3')->put("/img/social/{$slug}.jpeg", $screenshot);
 
         $article
             ->set('social_image_title', $article->title)
