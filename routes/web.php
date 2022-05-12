@@ -22,7 +22,3 @@ Route::get('contact-me', [ContactController::class, 'show'])->name('contact');
 Route::post('contact-me', [ContactController::class, 'store'])
     ->middleware(ProtectAgainstSpam::class)
     ->name('contact.store');
-
-Route::get('test', function () {
-    return 'test';
-});
