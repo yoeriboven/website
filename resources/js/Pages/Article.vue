@@ -4,8 +4,6 @@
         <meta name="description" :content="article.meta_description" />
     </Head>
 
-    <SocialMetaTags :article="article" />
-
     <div class="bg-violet-50">
         <TopBanner />
 
@@ -41,7 +39,6 @@ import CTAFooter from '@/Shared/CTAFooter'
 import Footer from '@/Shared/Footer'
 import { Head } from '@inertiajs/inertia-vue3'
 import TopBanner from "@/Shared/TopBanner";
-import SocialMetaTags from "@/Shared/SocialMetaTags";
 
 defineProps({
     article: Object
