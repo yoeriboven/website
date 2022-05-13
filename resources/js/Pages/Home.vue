@@ -4,14 +4,14 @@
         <meta name="description" content="" />
     </Head>
 
-    <section class="h-screen bg-violet-50">
+    <section class="h-auto md:h-screen bg-violet-50">
         <TopBanner />
 
-        <Header :showHome="false" class="left-1/2 -translate-x-1/2 absolute" />
+        <Header :showHome="false" class="hidden md:block left-1/2 -translate-x-1/2 absolute" />
 
-        <div class="w-5/6 md:w-2/3 mx-auto h-full flex items-center">
-            <div class="grid grid-cols-4 gap-x-10">
-                <div class="pt-5 col-span-3">
+        <div class="w-5/6 md:w-2/3 pt-10 md:pt-0 mx-auto h-full flex items-center">
+            <div class="grid md:grid-cols-4 gap-x-10 flex">
+                <div class="pt-5 md:col-span-3">
                     <div class="font-extrabold text-4xl text-gray-600 leading-tight">
                         Hi, I'm <span class="text-blue-500">Yoeri</span>
                         and I build <span class="text-indigo-500">web apps</span> using <span class="text-[#F05340]">Laravel</span>.
@@ -40,22 +40,22 @@
 <!--                            I need a dev-->
 <!--                        </Link>-->
                 </div>
-                <div class="flex justify-end mt-10">
-                    <img class="w-52 h-52 rounded-full shadow-md" src="/img/avatar.JPG" alt="" />
+                <div class="flex justify-center md:justify-end md:mt-10 order-first md:order-last">
+                    <img class="w-52 h-52 aspect-square rounded-full shadow-md" src="/img/avatar.JPG" alt="" />
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pb-10 bg-violet-50">
+    <section class="pt-16 pb-10 md:pt-0 bg-violet-50">
         <div class="w-5/6 md:w-2/3 mx-auto">
             <div class="">
                 <div class="hidden border-indigo-600 border-b-4 w-10 mb-2"></div>
                 <h2 class="font-bold text-4xl">Blog</h2>
-                <p class="text-gray-500 text-lg mt-1">Each time I learn something new I try to teach others using my blog.<br/>Here are some of my latest articles.</p>
+                <p class="text-gray-600 md:text-lg mt-1 leading-tight md:leading-snug text-justify text-left">Each time I learn something new I try to teach others using my blog.<br/>Here are some of my latest articles.</p>
             </div>
-            <div class="mt-6">
-                <ul class="grid grid-cols-2 gap-y-5 gap-x-7">
+            <div class="mt-4 md:mt-6">
+                <ul class="grid md:grid-cols-2 gap-y-5 gap-x-7">
                     <li v-for="article in articles.data" :key="article.id">
                         <Link :href="route('article', article.slug)" class="flex flex-col group">
                             <span class="text-xs uppercase text-indigo-700">{{ formatDate(article.publish_date, "D MMMM YYYY") }}</span>
@@ -70,6 +70,49 @@
                             class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Read more
                     </Link>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-10 md:py-20 bg-violet-50">
+        <div class="w-5/6 md:w-2/3 mx-auto">
+            <div class="">
+                <h2 class="font-bold text-4xl">Open Source Projects</h2>
+                <p class="text-gray-600 text-lg mt-1 leading-snug">Every developer uses a lot of open source packages and occasionally I add something of my own.</p>
+                <div class="hidden border-indigo-600 border-b-4 w-10 mt-2"></div>
+            </div>
+            <div class="w-full bg-white shadow-md mx-auto mt-4 rounded-lg">
+                <div class="grid grid-cols-3 rounded-lg overflow-hidden h-[28rem]">
+                    <div class="overflow-scroll col-span-3 md:col-span-1 divide-y divide-slate-50 md:divide-y-0">
+                        <div
+                            v-for="project in projects"
+                            :key="project.id"
+                            @click="showProject(project.id)"
+                            class="flex flex-col px-4 first:pt-4 last:pb-4 py-2 hover:bg-slate-100 hover:cursor-pointer">
+                            <span class="text-gray-700">{{ project.title }}</span>
+                            <span class="text-xs text-gray-500">{{ project.repo }}</span>
+                        </div>
+                    </div>
+                    <div class="hidden md:block border-l border-slate-50 p-4 col-span-2 overflow-scroll">
+                        <div class="flex items-center relative">
+                            <a :href="featuredProject.link" target="_blank"
+                               class="flex after:content-['\00A0\00A0\00A0\00A0\00A0'] items-center text-xl font-semibold hover:underline">
+                                <h3>{{ featuredProject.title }}</h3>
+                            </a>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="-ml-5 -mb-0.5 h-5 w-5 "
+                                 fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                 stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </div>
+
+                        <div v-html="featuredProject.content" class="prose py-2"></div>
+
+                        <a :href="featuredProject.link" target="_blank" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">View code</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -153,50 +196,6 @@
 <!--        </div>-->
 <!--    </div>-->
 <!--</section>-->
-
-    <section class="py-20 bg-violet-50">
-        <div class="w-5/6 md:w-2/3 mx-auto">
-            <div class="">
-                <h2 class="font-bold text-4xl">Open Source Projects</h2>
-                <p class="text-gray-500 text-lg mt-1">Every developer uses a lot of open source packages and occasionally I add something of my own.</p>
-                <div class="hidden border-indigo-600 border-b-4 w-10 mt-2"></div>
-            </div>
-            <!-- Ding -->
-            <div class="w-full bg-white shadow-md mx-auto mt-8 rounded-lg">
-                <div class="relative z-10 grid grid-cols-3 rounded-lg overflow-hidden h-[28rem]">
-                    <div class="overflow-scroll">
-                        <div
-                            v-for="project in projects"
-                            :key="project.id"
-                            @click="showProject(project.id)"
-                            class="flex flex-col px-4 first:pt-4 last:pb-4 py-2 hover:bg-slate-100 hover:cursor-pointer">
-                            <span class="text-gray-700">{{ project.title }}</span>
-                            <span class="text-xs text-gray-500">{{ project.repo }}</span>
-                        </div>
-                    </div>
-                    <div class="border-l border-slate-50 p-4 col-span-2 overflow-scroll">
-                        <div class="flex items-center relative">
-                            <a :href="featuredProject.link" target="_blank"
-                               class="flex after:content-['\00A0\00A0\00A0\00A0\00A0'] items-center text-xl font-semibold hover:underline">
-                                <h3>{{ featuredProject.title }}</h3>
-                            </a>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" class="-ml-5 -mb-0.5 h-5 w-5 "
-                                 fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                 stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </div>
-
-                        <div v-html="featuredProject.content" class="prose py-2"></div>
-
-                        <a :href="featuredProject.link" target="_blank" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">View code</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <CTAFooter>
