@@ -4,7 +4,7 @@
         <meta name="description" content="" />
     </Head>
 
-    <section class="h-screen bg-violet-50 border-b-4 border-indigo-600">
+    <section class="h-screen bg-violet-50">
         <TopBanner />
 
         <Header :showHome="false" class="left-1/2 -translate-x-1/2 absolute" />
@@ -40,22 +40,22 @@
 <!--                            I need a dev-->
 <!--                        </Link>-->
                 </div>
-                <div class="flex justify-end">
+                <div class="flex justify-end mt-10">
                     <img class="w-52 h-52 rounded-full shadow-md" src="/img/avatar.JPG" alt="" />
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-violet-50">
+    <section class="pb-10 bg-violet-50">
         <div class="w-5/6 md:w-2/3 mx-auto">
-            <div class="text-center">
-                <h2 class="font-bold text-3xl">Blog</h2>
-                <p class="text-gray-500 text-sm mt-1">Everytime I learn something new I try to teach others using my blog.<br/>Here are some of my latest articles.</p>
-                <div class="border-indigo-600 border-b-2 w-10 mt-2 mx-auto rounded-sm"></div>
+            <div class="">
+                <div class="hidden border-indigo-600 border-b-4 w-10 mb-2"></div>
+                <h2 class="font-bold text-4xl">Blog</h2>
+                <p class="text-gray-500 text-lg mt-1">Each time I learn something new I try to teach others using my blog.<br/>Here are some of my latest articles.</p>
             </div>
             <div class="mt-6">
-                <ul class="grid grid-cols-2 gap-y-5 gap-x-5">
+                <ul class="grid grid-cols-2 gap-y-5 gap-x-7">
                     <li v-for="article in articles.data" :key="article.id">
                         <Link :href="route('article', article.slug)" class="flex flex-col group">
                             <span class="text-xs uppercase text-indigo-700">{{ formatDate(article.publish_date, "D MMMM YYYY") }}</span>
@@ -156,15 +156,15 @@
 
     <section class="py-20 bg-violet-50">
         <div class="w-5/6 md:w-2/3 mx-auto">
-            <div class="text-center">
-                <h2 class="font-bold text-3xl">Open Source Projects</h2>
-                <p class="text-gray-500 text-sm mt-1">Every developer uses a lot of open source packages and occasionally I add something of my own.</p>
-                <div class="border-indigo-600 border-b-2 w-10 mt-2 mx-auto rounded-sm"></div>
+            <div class="">
+                <h2 class="font-bold text-4xl">Open Source Projects</h2>
+                <p class="text-gray-500 text-lg mt-1">Every developer uses a lot of open source packages and occasionally I add something of my own.</p>
+                <div class="hidden border-indigo-600 border-b-4 w-10 mt-2"></div>
             </div>
             <!-- Ding -->
             <div class="w-full bg-white shadow-md mx-auto mt-8 rounded-lg">
-                <div class="relative z-10 grid grid-cols-5 rounded-lg overflow-hidden">
-                    <div class="col-span-2 h-80 overflow-scroll">
+                <div class="relative z-10 grid grid-cols-3 rounded-lg overflow-hidden h-[28rem]">
+                    <div class="overflow-scroll">
                         <div
                             v-for="project in projects"
                             :key="project.id"
@@ -174,7 +174,7 @@
                             <span class="text-xs text-gray-500">{{ project.repo }}</span>
                         </div>
                     </div>
-                    <div class="border-l border-slate-50 p-4 col-span-3 overflow-scroll max-h-80">
+                    <div class="border-l border-slate-50 p-4 col-span-2 overflow-scroll">
                         <div class="flex items-center relative">
                             <a :href="featuredProject.link" target="_blank"
                                class="flex after:content-['\00A0\00A0\00A0\00A0\00A0'] items-center text-xl font-semibold hover:underline">

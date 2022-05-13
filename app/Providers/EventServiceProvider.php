@@ -30,7 +30,9 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         Event::listen(function (EntrySaved $event) {
-            CreateSocialImageJob::dispatch($event->entry->slug);
+            if (app()->environment('production')) {
+                CreateSocialImageJob::dispatch($event->entry->slug);
+            }
         });
     }
 
