@@ -12,7 +12,7 @@
         <div class="w-5/6 md:w-2/3 pt-10 md:pt-0 mx-auto h-full flex items-center">
             <div class="grid md:grid-cols-4 gap-x-10 flex">
                 <div class="pt-5 md:col-span-3">
-                    <div class="font-extrabold text-4xl text-gray-600 leading-tight">
+                    <div class="font-extrabold text-4xl text-gray-700 leading-tight">
                         Hi, I'm <span class="text-blue-500">Yoeri</span>
                         and I build <span class="text-indigo-500">web apps</span> using <span class="text-[#F05340]">Laravel</span>.
                     </div>
@@ -200,11 +200,11 @@
 
     <CTAFooter>
         <template #header>
-            Want to see if we are a fit?
+            Want to work together?
         </template>
 
         <template #content>
-            Contact me and immediately schedule a zoom-meeting by clicking below.
+            Contact me and you will get a response the next business day.
         </template>
     </CTAFooter>
 
