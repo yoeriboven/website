@@ -52,7 +52,7 @@
             <div class="">
                 <div class="hidden border-indigo-600 border-b-4 w-10 mb-2"></div>
                 <h2 class="font-bold text-4xl">Blog</h2>
-                <p class="text-gray-600 md:text-lg mt-1 leading-tight md:leading-snug text-justify text-left">Each time I learn something new I try to teach others using my blog.<br/>Here are some of my latest articles.</p>
+                <p class="text-gray-600 text-lg mt-1 leading-tight md:leading-snug">Each time I learn something new I try to teach others using my blog.<br/>Here are some of my latest articles.</p>
             </div>
             <div class="mt-4 md:mt-6">
                 <ul class="grid md:grid-cols-2 gap-y-5 gap-x-7">
@@ -79,7 +79,7 @@
         <div class="w-5/6 md:w-2/3 mx-auto">
             <div class="">
                 <h2 class="font-bold text-4xl">Open Source Projects</h2>
-                <p class="text-gray-600 text-lg mt-1 leading-snug">Every developer uses a lot of open source packages and occasionally I add something of my own.</p>
+                <p class="text-gray-600 text-lg mt-1 leading-tight md:leading-snug">Every developer uses a lot of open source packages and occasionally I add something of my own.</p>
                 <div class="hidden border-indigo-600 border-b-4 w-10 mt-2"></div>
             </div>
             <div class="w-full bg-white shadow-md mx-auto mt-4 rounded-lg">
@@ -209,6 +209,13 @@
     </CTAFooter>
 
     <Footer />
+
+    <ProjectModal
+        class="md:hidden"
+        :open="showProjectModal"
+        @close="showProjectModal = false"
+        :featured-project="featuredProject"
+    />
 </template>
 
 <script setup>
@@ -220,6 +227,7 @@ import CTAFooter from '@/Shared/CTAFooter'
 import Footer from '@/Shared/Footer'
 import { Head } from '@inertiajs/inertia-vue3'
 import TopBanner from "@/Shared/TopBanner";
+import ProjectModal from "@/Shared/ProjectModal";
 
 const props = defineProps({
     'projects': Array,
@@ -227,11 +235,14 @@ const props = defineProps({
 })
 
 const featuredProject = ref(props.projects[0])
+const showProjectModal = ref(false);
 
 function showProject(id) {
     const selectedProject = props.projects.find((project) => project.id === id);
 
     featuredProject.value = selectedProject;
+
+    showProjectModal.value = true;
 }
 
 </script>
