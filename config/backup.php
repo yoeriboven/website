@@ -162,11 +162,11 @@ return [
 
         'notifications' => [
             BackupHasFailedNotification::class         => ['mail'],
-            UnhealthyBackupWasFoundNotification::class => ['mail'],
+            UnhealthyBackupWasFoundNotification::class => [''],
             CleanupHasFailedNotification::class        => ['mail'],
-            BackupWasSuccessfulNotification::class     => ['mail'],
-            HealthyBackupWasFoundNotification::class   => ['mail'],
-            CleanupWasSuccessfulNotification::class    => ['mail'],
+            BackupWasSuccessfulNotification::class     => [''],
+            HealthyBackupWasFoundNotification::class   => [''],
+            CleanupWasSuccessfulNotification::class    => [''],
         ],
 
         /*
