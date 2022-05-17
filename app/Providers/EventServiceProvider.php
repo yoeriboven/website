@@ -2,11 +2,8 @@
 
 namespace App\Providers;
 
-use App\Jobs\CreateSocialImageJob;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use App\Listeners\CreateSocialImageNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 use Statamic\Events\EntrySaved;
 
 class EventServiceProvider extends ServiceProvider
@@ -17,8 +14,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
+        EntrySaved::class => [
+            CreateSocialImageNotification::class,
         ],
     ];
 
@@ -29,11 +26,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Event::listen(function (EntrySaved $event) {
-            if (app()->environment('production')) {
-                CreateSocialImageJob::dispatch($event->entry->slug);
-            }
-        });
+        //
     }
 
     /**
