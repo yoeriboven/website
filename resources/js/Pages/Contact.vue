@@ -4,8 +4,10 @@
         <meta name="description" content="" />
     </Head>
 
-    <div class="bg-violet-50 min-h-screen pt-24 pb-[400px]">
-        <main class="w-1/2 mx-auto">
+    <TopBanner />
+
+    <div class="bg-violet-50 min-h-screen py-8">
+        <main class="w-5/6 md:w-1/2 mx-auto">
             <div class="prose"><h1>Want to talk?</h1>
 
                 <p>I have multiple years of experience building PHP and Laravel projects and can surely help you.</p>
@@ -81,8 +83,8 @@
 <!--                    </ol>-->
 <!--                </nav>-->
 <!--            </div>-->
-            <div class="pt-4 w-2/3 mx-auto">
-<!--                <h2 class="font-bold text-2xl mb-2">Contact me</h2>-->
+            <div class="pt-10 md:w-2/3">
+                <h2 class="font-bold text-2xl mb-2">Contact me</h2>
                 <form @submit.prevent="submitForm" class="space-y-6">
                     <div class="space-y-1">
                         <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
@@ -139,6 +141,8 @@
         </main>
     </div>
 
+    <Footer />
+
     <ContactSuccessModal :open="!! $page.props.flash.success" />
 
 </template>
@@ -146,6 +150,8 @@
 <script setup>
 import { Head, useForm } from '@inertiajs/inertia-vue3'
 import ContactSuccessModal from "@/Shared/ContactSuccessModal";
+import Footer from "@/Shared/Footer";
+import TopBanner from "@/Shared/TopBanner";
 
 const props = defineProps({
     honeypot: Object,

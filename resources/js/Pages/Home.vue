@@ -50,16 +50,16 @@
     <section class="pt-16 pb-10 md:pt-0 bg-violet-50">
         <div class="w-5/6 md:w-2/3 mx-auto">
             <div class="">
-                <div class="hidden border-indigo-600 border-b-4 w-10 mb-2"></div>
                 <h2 class="font-bold text-4xl">Blog</h2>
-                <p class="text-gray-600 text-lg mt-1 leading-tight md:leading-snug">Each time I learn something new I try to teach others using my blog.<br/>Here are some of my latest articles.</p>
+                <p class="prose leading-snug mt-2">Each time I learn something new I try to teach others using my blog.<br/>Here are some of my latest articles.</p>
+                <div class="hidden border-indigo-600 border-b-4 w-1/2 mb-2 mt-2"></div>
             </div>
-            <div class="mt-4 md:mt-6">
+            <div class="mt-6">
                 <ul class="grid md:grid-cols-2 gap-y-5 gap-x-7">
                     <li v-for="article in articles.data" :key="article.id">
                         <Link :href="route('article', article.slug)" class="flex flex-col group">
                             <span class="text-xs uppercase text-indigo-700">{{ formatDate(article.publish_date, "D MMMM YYYY") }}</span>
-                            <span class="text-xl font-medium text-gray-700 group-hover:text-indigo-700">{{ article.title }}</span>
+                            <span class="text-lg font-medium text-gray-700 group-hover:text-indigo-700">{{ article.title }}</span>
                             <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">{{ article.excerpt }}</p>
                         </Link>
                     </li>
@@ -79,7 +79,7 @@
         <div class="w-5/6 md:w-2/3 mx-auto">
             <div class="">
                 <h2 class="font-bold text-4xl">Open Source Projects</h2>
-                <p class="text-gray-600 text-lg mt-1 leading-tight md:leading-snug">Every developer uses a lot of open source packages and occasionally I add something of my own.</p>
+                <p class="prose leading-snug mt-2">Every developer uses a lot of open source packages and occasionally I add something of my own.</p>
                 <div class="hidden border-indigo-600 border-b-4 w-10 mt-2"></div>
             </div>
             <div class="w-full bg-white shadow-md mx-auto mt-4 rounded-lg">
@@ -204,7 +204,7 @@
         </template>
 
         <template #content>
-            Contact me and you will get a response the next business day.
+            Contact me and I will respond the next business day.
         </template>
     </CTAFooter>
 
