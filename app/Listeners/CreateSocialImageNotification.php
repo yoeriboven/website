@@ -14,10 +14,15 @@ class CreateSocialImageNotification implements ShouldQueue
             return;
         }
 
-        if ($event->entry->collection->handle !== 'articles') {
+        if (! $this->isArticle($event->entry)) {
             return;
         }
 
         (new CreateSocialImageAction())($event->entry->slug);
+    }
+
+    protected function isArticle($entry): bool
+    {
+        return $entry->collection->handle === 'articles';
     }
 }
