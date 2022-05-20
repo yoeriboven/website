@@ -7,3 +7,5 @@ sort_dir: asc
 date_behavior:
   past: public
   future: private
+structure:
+  root: false

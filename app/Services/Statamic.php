@@ -43,7 +43,7 @@ class Statamic
         return Entry::query()
             ->select(['id', 'title', 'content', 'repo', 'link'])
             ->where('collection', 'projects')
-            ->orderBy('date', 'desc')
+            ->orderBy('order')
             ->get();
     }
 
