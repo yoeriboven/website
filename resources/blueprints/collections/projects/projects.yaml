@@ -48,4 +48,23 @@ sections:
           validate:
             - required
             - active_url
+      -
+        handle: project_type
+        field:
+          options:
+            pr: PR
+            project: Project
+            package: Package
+          multiple: false
+          clearable: false
+          searchable: false
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          display: 'Project type'
+          type: select
+          icon: select
+          listable: hidden
+          instructions_position: above
+          read_only: false
 title: Projects

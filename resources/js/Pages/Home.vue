@@ -91,31 +91,46 @@
                             @click="showProject(project.id)"
                             class="flex flex-col px-4 first:pt-4 last:pb-4 py-2 hover:bg-slate-100 hover:cursor-pointer">
                             <span class="text-gray-700">{{ project.title }}</span>
-                            <span class="text-xs text-gray-500">{{ project.repo }}</span>
+                            <div class="flex space-x-1.5 text-xs text-gray-500">
+                                <span>{{ project.repo }}</span>
+                                <span class="rounded-md px-2"
+                                      :class="projectColors(project.project_type.value)"
+                                >
+                                    {{ project.project_type.label }}
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="hidden md:block border-l border-slate-50 p-4 col-span-2 overflow-scroll">
-                        <div class="flex items-center relative">
-                            <a :href="featuredProject.link" target="_blank"
-                               class="flex after:content-['\00A0\00A0\00A0\00A0\00A0'] items-center text-xl font-semibold hover:underline">
-                                <h3>{{ featuredProject.title }}</h3>
-                            </a>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center relative">
+                                <a :href="featuredProject.link" target="_blank"
+                                   class="flex after:content-['\00A0\00A0\00A0\00A0\00A0'] items-center text-xl font-semibold hover:underline">
+                                    <h3>{{ featuredProject.title }}</h3>
+                                </a>
 
-                            <svg xmlns="http://www.w3.org/2000/svg" class="-ml-5 -mb-0.5 h-5 w-5 "
-                                 fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                 stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="-ml-5 -mb-0.5 h-5 w-5 "
+                                     fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                     stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </div>
+                            <span class="rounded-md px-2 py-1 text-xs text-gray-600 cursor-default"
+                                  :class="projectColors(featuredProject.project_type.value)"
+                            >
+                                {{ featuredProject.project_type.label }}
+                            </span>
                         </div>
 
                         <div v-html="featuredProject.content" class="prose py-2"></div>
-                            <a
-                                :href="featuredProject.link"
-                                target="_blank"
-                                class="inline-flex justify-center rounded-md border border-transparent shadow-sm mt-2 px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none sm:text-sm">
-                                View code
-                            </a>
+
+                        <a
+                            :href="featuredProject.link"
+                            target="_blank"
+                            class="inline-flex justify-center rounded-md border border-transparent shadow-sm mt-2 px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none sm:text-sm">
+                            View code
+                        </a>
                     </div>
                 </div>
             </div>
@@ -224,7 +239,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { formatDate } from "@/functions";
+import { formatDate, projectColors } from "@/functions";
 
 import Header from '@/Shared/Header'
 import CTAFooter from '@/Shared/CTAFooter'

@@ -41,7 +41,7 @@ class Statamic
     public function getAllProjects(): EntryCollection
     {
         return Entry::query()
-            ->select(['id', 'title', 'content', 'repo', 'link'])
+            ->select(['id', 'title', 'content', 'repo', 'link', 'project_type'])
             ->where('collection', 'projects')
             ->orderBy('order')
             ->get();

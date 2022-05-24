@@ -19,6 +19,12 @@
                                     <span class="text-gray-500">{{ featuredProject.repo }}</span>
                                 </div>
 
+                                <span class="mt-2 inline-block rounded-md px-2 py-1 text-xs text-gray-600 cursor-default"
+                                      :class="projectColors(featuredProject.project_type.value)"
+                                >
+                                    {{ featuredProject.project_type.label }}
+                                </span>
+
                                 <div class="mt-2 prose focus:prose-a:outline-none">
                                     <p v-html="featuredProject.content" class="text-sm text-gray-500"></p>
                                 </div>
@@ -45,6 +51,7 @@
 
 <script setup>
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
+import { projectColors } from "@/functions";
 
 const props = defineProps({
     open : {
