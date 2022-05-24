@@ -21,3 +21,4 @@ yarn-error.log
 users/*
 public/assets
 /content/collections/*/
+/content/trees/*/
