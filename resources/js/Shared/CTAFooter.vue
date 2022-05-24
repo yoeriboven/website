@@ -20,7 +20,7 @@
 <!--                </div>-->
                 <div class="mt-8 flex mx-auto md:mx-0 md:w-fit">
                     <div class="inline-flex w-full rounded-md shadow">
-                        <Link :href="route('contact')" class="w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-violet-700 bg-violet-100 hover:bg-violet-200">Contact me</Link>
+                        <Link :href="route('contact')" class="w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-violet-700 bg-white hover:bg-violet-100">Contact me</Link>
                     </div>
                 </div>
             </div>
