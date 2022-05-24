@@ -15,9 +15,21 @@ module.exports = {
         },
     },
 
+    variants: {
+    extend: {
+      textColor: [
+        "selection"
+      ],
+      backgroundColor: [
+        "selection"
+      ],
+    },
+  },
+
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/line-clamp'),
+        require("tailwindcss-selection-variant")
     ],
 }
