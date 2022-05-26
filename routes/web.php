@@ -7,12 +7,11 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
-use App\Http\Controllers\SocialImageController;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('blog', BlogController::class)->name('blog');
 Route::get('blog/{article}', ArticleController::class)->name('article');
-Route::get('blog/social-image/{article}', SocialImageController::class)->name('social-image');
+Route::view('blog/social-image/{article}', 'social_image')->name('social-image');
 
 Route::post('language/{language}', ChangeLanguageController::class)
     ->whereIn('language', ['en', 'nl'])
