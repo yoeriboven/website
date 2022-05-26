@@ -37,6 +37,7 @@ class CreateSocialImageAction
 
         $article
             ->set('social_image_title', $article->title)
+            ->set('social_image_publish_date', $article->publish_date->toDateString())
             ->saveQuietly();
 
         ray('Image created');
@@ -49,6 +50,7 @@ class CreateSocialImageAction
 
     public function hasSocialImage(Entry $article): bool
     {
-        return $article->social_image_title === $article->title;
+        return $article->social_image_title === $article->title &&
+            $article->social_image_publish_date === $article->publish_date->toDateString();
     }
 }
