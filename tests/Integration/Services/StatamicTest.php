@@ -6,6 +6,7 @@ use Facades\App\Services\Statamic;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Mockery\MockInterface;
+use Statamic\Entries\Entry;
 use Statamic\Facades\Form as FormFacade;
 use Statamic\Forms\Form;
 use Statamic\Forms\Submission;
@@ -95,5 +96,47 @@ class StatamicTest extends TestCase
         $article = Statamic::getArticleBySlug(Str::slug('A draft post'));
 
         $this->assertEquals('A draft post', $article->title);
+    }
+
+    /** @test */
+    public function it_only_shows_published_in_the_past_posts_to_guests()
+    {
+        $this->createArticle(title: 'A published post in the future', published: true, publish_date: today()->addDay());
+
+        $containsFuturePost = Statamic::getLatestArticles()->contains(function (Entry $article) {
+            return $article->title === 'A published post in the future';
+        });
+
+        $this->assertFalse($containsFuturePost);
+
+        $this->createArticle(title: 'A published post in the past', published: true, publish_date: today()->subDay());
+
+        $containsPastPost = Statamic::getLatestArticles()->contains(function (Entry $article) {
+            return $article->title === 'A published post in the past';
+        });
+
+        $this->assertTrue($containsPastPost);
+    }
+
+    /** @test */
+    public function it_shows_published_posts_to_admins_regardless_of_the_published_date()
+    {
+        $this->loginStatamicUser();
+
+        $this->createArticle(title: 'A published post in the future', published: true, publish_date: today()->addDay());
+
+        $containsFuturePost = Statamic::getLatestArticles()->contains(function (Entry $article) {
+            return $article->title === 'A published post in the future';
+        });
+
+        $this->assertTrue($containsFuturePost);
+
+        $this->createArticle(title: 'A published post in the past', published: true, publish_date: today()->subDay());
+
+        $containsPastPost = Statamic::getLatestArticles()->contains(function (Entry $article) {
+            return $article->title === 'A published post in the past';
+        });
+
+        $this->assertTrue($containsPastPost);
     }
 }

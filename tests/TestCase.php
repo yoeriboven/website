@@ -22,9 +22,9 @@ abstract class TestCase extends BaseTestCase
         $this->actingAs($this->makeStatamicUser());
     }
 
-    public function createArticle(string $title, bool $published = true): \Statamic\Entries\Entry
+    public function createArticle(string $title, bool $published = true, string $publish_date = null): \Statamic\Entries\Entry
     {
-        return $this->makeEntry(function () use ($title, $published) {
+        return $this->makeEntry(function () use ($title, $published, $publish_date) {
             $slug = Str::slug($title);
 
             Entry::make()
@@ -32,7 +32,8 @@ abstract class TestCase extends BaseTestCase
                 ->published($published)
                 ->slug($slug)
                 ->data([
-                    'title' => $title,
+                    'title'        => $title,
+                    'publish_date' => $publish_date,
                 ])
                 ->saveQuietly();
 

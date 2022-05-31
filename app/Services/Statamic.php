@@ -32,7 +32,8 @@ class Statamic
             ->select(['id', 'title', 'slug', 'excerpt', 'publish_date'])
             ->where('collection', 'articles')
             ->when(! auth()->user(), function ($query) {
-                $query->where('published', 1);
+                $query->where('published', 1)
+                    ->where('publish_date', '<=', today());
             })
             ->orderBy('publish_date', 'desc')
             ->paginate($take);
