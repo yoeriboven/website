@@ -9,7 +9,7 @@
 
         <Header />
 
-        <main class="py-6 w-5/6 md:w-5/12 mx-auto text-left">
+        <main class="py-6 mb-4 w-5/6 md:w-5/12 mx-auto text-left">
             <h2 class="text-center mb-8 text-3xl font-bold">Blog</h2>
 
             <ul class="space-y-8">
