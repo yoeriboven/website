@@ -8,18 +8,21 @@
 
     <div class="bg-violet-50 min-h-screen py-8">
         <main class="w-5/6 md:w-1/2 mx-auto">
-            <div class="prose"><h1>Want to talk?</h1>
+            <div class="prose">
+                <img class="mt-6 mb-6 w-24 h-24 aspect-square rounded-full shadow-md" src="/img/avatar.JPG" alt="" />
+
+                <h1 class="">Want to talk?</h1>
 
                 <p>I have multiple years of experience building PHP and Laravel projects and can help you with your project.</p>
 
-                <p>I'm available for both ongoing hourly projects and projects with a clear scope.</p>
+                <p>I'm available for both ongoing hourly projects and projects with a scope.</p>
 
-                <p>Looking for someone to add new features or squash your bug list? I'm your guy.</p>
+                <p>Or looking for someone to add new features or squash your bug list? I'm your guy.</p>
 
                 <p>Below you can contact me. Let me know what you're looking for and I will respond the next working
                     day.</p>
             </div>
-            
+
             <div class="pt-10 md:w-2/3">
                 <h2 class="font-bold text-2xl mb-2">Contact me</h2>
                 <form @submit.prevent="submitForm" class="space-y-6">
