@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <x-meta_tags :article="$page['props']['article'] ?? null"/>
 
-    <script src="https://cdn.usefathom.com/script.js" data-site="ZLTGUHEL" defer></script>
+    <script src="https://metal-pretty.yoeri.me/script.js" data-site="ZLTGUHEL" defer></script>
 
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
 
