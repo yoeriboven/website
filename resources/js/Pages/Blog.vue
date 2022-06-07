@@ -29,7 +29,7 @@
             </template>
 
             <template #content>
-                Contact me and I will respond the next business day.
+                Contact me and maybe we'll work together.
             </template>
         </CTAFooter>
 

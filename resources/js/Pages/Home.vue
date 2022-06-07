@@ -21,7 +21,7 @@
 
                         <p>I am experienced in PHP, Laravel, Vue.js, Javascript, Git, Inertia JS, Livewire, Tailwind CSS, and more.</p>
 
-                        <p>I have experience building apps from start to finish on my own. Building a SaaS or accepting payments from users are things I can do with my eyes closed.</p>
+                        <p>I have experience building apps from start to finish on my own. Building a SaaS or accepting payments from users are things I can do with my eyes closed. I write PHPUnit tests for all of my projects.</p>
 
                         <p>I am open to both hourly commitments as well as fixed projects like adding features or starting from scratch.</p>
 
