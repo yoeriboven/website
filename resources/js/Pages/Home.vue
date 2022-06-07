@@ -11,34 +11,66 @@
 
         <div class="w-5/6 md:w-2/3 pt-10 md:pt-0 mx-auto h-full flex items-center">
             <div class="grid md:grid-cols-4 gap-x-10 flex">
+
                 <div class="pt-5 md:col-span-3">
-                    <div class="font-extrabold text-4xl text-gray-700 leading-tight">
-                        Hi, I'm <span class="text-blue-500">Yoeri</span>
-                        and I build <span class="text-indigo-500">web apps</span> using <span class="text-[#F05340]">Laravel</span>.
+                    <div v-if="currentLanguage === 'nl'">
+                        <div class="font-extrabold text-4xl text-gray-700 leading-tight">
+                            Hoi, I'm <span class="text-blue-500">Yoeri</span>
+                            and I build <span class="text-indigo-500">web apps</span> using <span
+                            class="text-[#F05340]">Laravel</span>.
+                        </div>
+                        <div class="mt-8 prose">
+                            <p>I have been building web applications for over a decade and can help you with your
+                                project.</p>
+
+                            <p>I am experienced in PHP, Laravel, Vue.js, Javascript, Git, Inertia JS, Livewire, Tailwind
+                                CSS, and more.</p>
+
+                            <p>I have experience building apps from start to finish on my own. Building a SaaS or
+                                accepting payments from users are things I can do with my eyes closed. I write PHPUnit
+                                tests for all of my projects.</p>
+
+                            <p>I am open to both hourly commitments as well as fixed projects like adding features or
+                                starting from scratch.</p>
+
+                            <p>Take a look around or
+                                <Link :href="route('contact')"
+                                      class="no-underline font-regular text-indigo-600 hover:text-indigo-700">
+                                    contact me
+                                </Link>
+                                and we'll talk soon. :)
+                            </p>
+                        </div>
                     </div>
-                    <div class="mt-8 prose">
-                        <p>I have been building web applications for over a decade and can help you with your project.</p>
+                    <div v-else>
+                        <div class="font-extrabold text-4xl text-gray-700 leading-tight">
+                            Hi, I'm <span class="text-blue-500">Yoeri</span>
+                            and I build <span class="text-indigo-500">web apps</span> using <span
+                            class="text-[#F05340]">Laravel</span>.
+                        </div>
+                        <div class="mt-8 prose">
+                            <p>I have been building web applications for over a decade and can help you with your
+                                project.</p>
 
-                        <p>I am experienced in PHP, Laravel, Vue.js, Javascript, Git, Inertia JS, Livewire, Tailwind CSS, and more.</p>
+                            <p>I am experienced in PHP, Laravel, Vue.js, Javascript, Git, Inertia JS, Livewire, Tailwind
+                                CSS, and more.</p>
 
-                        <p>I have experience building apps from start to finish on my own. Building a SaaS or accepting payments from users are things I can do with my eyes closed. I write PHPUnit tests for all of my projects.</p>
+                            <p>I have experience building apps from start to finish on my own. Building a SaaS or
+                                accepting payments from users are things I can do with my eyes closed. I write PHPUnit
+                                tests for all of my projects.</p>
 
-                        <p>I am open to both hourly commitments as well as fixed projects like adding features or starting from scratch.</p>
+                            <p>I am open to both hourly commitments as well as fixed projects like adding features or
+                                starting from scratch.</p>
 
-                        <p>Take a look around or <Link :href="route('contact')" class="no-underline font-regular text-indigo-600 hover:text-indigo-700">
-                            contact me
-                        </Link> and we'll talk soon. :)</p>
-<!--                        <p>Take a look around or <Link :href="route('contact')" class="no-underline font-regular inline-flex items-center px-2 py-1 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">-->
-<!--                            contact me-->
-<!--                        </Link> and we'll talk soon. :)</p>-->
-
+                            <p>Take a look around or
+                                <Link :href="route('contact')"
+                                      class="no-underline font-regular text-indigo-600 hover:text-indigo-700">
+                                    contact me
+                                </Link>
+                                and we'll talk soon. :)
+                            </p>
+                        </div>
                     </div>
-<!--                    <a class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">-->
-<!--                            Tell me more-->
-<!--                        </a>-->
-<!--                        <Link :href="route('contact')" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">-->
-<!--                            I need a dev-->
-<!--                        </Link>-->
                 </div>
                 <div class="flex justify-center md:justify-end md:mt-10 order-first md:order-last">
                     <img class="w-52 h-52 aspect-square rounded-full shadow-md" src="/img/avatar.JPG" alt="" />
@@ -239,7 +271,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { formatDate, projectColors } from "@/functions";
+import { formatDate, projectColors, getCurrentLanguage } from "@/functions";
 
 import Header from '@/Shared/Header'
 import CTAFooter from '@/Shared/CTAFooter'
@@ -253,6 +285,7 @@ const props = defineProps({
     'articles': Object,
 })
 
+const currentLanguage = getCurrentLanguage();
 const featuredProject = ref(props.projects[0])
 const showProjectModal = ref(false);
 

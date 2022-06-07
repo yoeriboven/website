@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, inject } from "vue";
 import { getActiveLanguage, loadLanguageAsync } from "laravel-vue-i18n";
 import axios from "axios";
 
@@ -59,6 +59,7 @@ defineProps({
 
 onMounted(() => {
     orderLanguages();
+
 });
 
 const languages = ref(["en", "nl"]);
@@ -72,6 +73,7 @@ function orderLanguages(lang) {
         languages.value = ["nl", "en"];
     }
 }
+const emitter = inject('emitter');
 
 function changeLanguage(lang) {
     if (lang === getActiveLanguage()) {
@@ -81,9 +83,12 @@ function changeLanguage(lang) {
     axios.post(route('language-change', lang))
         .then(function(response) {
             loadLanguageAsync(lang);
-        if (response.status === 204) {
-            orderLanguages(lang);
-        }
+
+            emitter.emit('changedLanguage', {lang: lang});
+
+            if (response.status === 204) {
+                orderLanguages(lang);
+            }
     });
 }
 
