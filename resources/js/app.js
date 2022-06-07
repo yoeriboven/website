@@ -1,5 +1,6 @@
 import { createApp, h } from "vue";
 import { createInertiaApp, Link } from "@inertiajs/inertia-vue3";
+import { Inertia } from "@inertiajs/inertia";
 import { InertiaProgress } from "@inertiajs/progress";
 import { i18nVue } from "laravel-vue-i18n";
 import mitt from "mitt";
@@ -22,4 +23,8 @@ createInertiaApp({
             .component('Link', Link)
             .mount(el)
     },
+})
+
+Inertia.on('navigate', (event) => {
+  window.fathom.trackPageview();
 })
