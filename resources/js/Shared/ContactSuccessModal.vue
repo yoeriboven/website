@@ -17,12 +17,12 @@
                                 </div>
                                 <div class="mt-3 text-center sm:mt-5">
                                     <DialogTitle as="h3" class="text-lg leading-6 font-medium text-gray-900">
-                                        Message received!
+                                        {{ $t('message_received') }}
                                     </DialogTitle>
 
                                     <div class="mt-2">
                                         <p class="text-sm text-gray-500">
-                                            You'll hear from me on the next business day!
+                                            {{ $t('contact.success_modal_message') }}
                                         </p>
                                     </div>
                                 </div>
@@ -31,7 +31,7 @@
                                 <Link as="button"
                                       :href="route('home')"
                                       class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
-                                    Got it.
+                                    {{ $t('contact.success_modal_close') }}
                                 </Link>
                             </div>
                         </DialogPanel>

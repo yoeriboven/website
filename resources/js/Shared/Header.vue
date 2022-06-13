@@ -9,7 +9,7 @@
             <div class="flex relative justify-items-end">
                 <div class="space-x-4 mr-14">
                     <Link :href="route('blog')" class="text-gray-500 font-light tracking-wide hover:text-gray-700">
-                        Articles
+                        {{ $t('header.articles') }}
                     </Link>
                 </div>
 

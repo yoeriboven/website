@@ -18,12 +18,10 @@
         </main>
 
         <CTAFooter>
-            <template #header>
-                Looking for a Laravel developer?
-            </template>
+            <template #header> {{ $t('non_home.cta_footer.title') }}</template>
 
             <template #content>
-                Contact me and maybe we'll work together.
+                {{ $t('non_home.cta_footer.text') }}
             </template>
         </CTAFooter>
 

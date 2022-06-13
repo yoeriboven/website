@@ -9,11 +9,11 @@
                              src="/img/waving-hand-120.png"
                              srcset="/img/waving-hand-160.png 2x"
                     />
-                        <span>I'm currently available for new projects!</span>
+                        <span>{{ $t('top_banner.availability') }}</span>
                     </div>
                     <span class="block sm:ml-2 sm:inline-block">
                         <Link :href="route('contact')" class="text-white font-bold underline underline-offset-2">
-                            Hire me <span aria-hidden="true">&rarr;</span>
+                           {{ $t('top_banner.cta')}} <span aria-hidden="true">&rarr;</span>
                         </Link>
                     </span>
                 </div>

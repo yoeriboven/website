@@ -15,30 +15,25 @@
                 <div class="pt-5 md:col-span-3">
                     <div v-if="currentLanguage === 'nl'">
                         <div class="font-extrabold text-4xl text-gray-700 leading-tight">
-                            Hoi, I'm <span class="text-blue-500">Yoeri</span>
-                            and I build <span class="text-indigo-500">web apps</span> using <span
+                            Hoi, ik ben <span class="text-blue-500">Yoeri</span>
+                            en ik maak <span class="text-indigo-500">web apps</span> met <span
                             class="text-[#F05340]">Laravel</span>.
                         </div>
                         <div class="mt-8 prose">
-                            <p>I have been building web applications for over a decade and can help you with your
-                                project.</p>
+                            <p>Met meer dan een decennium aan ervaring in het bouwen van web-apps help ik u graag met uw project. </p>
 
-                            <p>I am experienced in PHP, Laravel, Vue.js, Javascript, Git, Inertia JS, Livewire, Tailwind
-                                CSS, and more.</p>
+                            <p>Tools als PHP, Laravel, Vue.js, Javascript, Git, Inertia JS, LiveWire, Tailwind CSS, PHPUnit en anderen kennen geen geheimen meer voor mij.</p>
 
-                            <p>I have experience building apps from start to finish on my own. Building a SaaS or
-                                accepting payments from users are things I can do with my eyes closed. I write PHPUnit
-                                tests for all of my projects.</p>
+                            <p>Ik kan alleen aan een website werken of in een team. Een SaaS bouwen of betalingen accepteren zijn dingen die ik meermaals heb gedaan.</p>
 
-                            <p>I am open to both hourly commitments as well as fixed projects like adding features or
-                                starting from scratch.</p>
+                            <p>Ik sta open voor zowel opdrachten op uurbasis als op projectbasis.</p>
 
-                            <p>Take a look around or
+                            <p>Kijk even rond of
                                 <Link :href="route('contact')"
                                       class="no-underline font-regular text-indigo-600 hover:text-indigo-700">
-                                    contact me
+                                    neem contact op
                                 </Link>
-                                and we'll talk soon. :)
+                                en dan praten we snel. :)
                             </p>
                         </div>
                     </div>
@@ -83,7 +78,7 @@
         <div class="w-5/6 md:w-2/3 mx-auto">
             <div class="">
                 <h2 class="font-bold text-4xl">Blog</h2>
-                <p class="prose leading-snug mt-2">Each time I learn something new I try to teach others using my blog.<br/>Here are some of my latest articles.</p>
+                <p class="prose leading-snug mt-2 w-2/3">{{ $t('home.blog.description') }}</p>
                 <div class="hidden border-indigo-600 border-b-4 w-1/2 mb-2 mt-2"></div>
             </div>
             <div class="mt-6">
@@ -100,7 +95,7 @@
                 <div class="mt-5 flex justify-end">
                     <Link :href="route('blog')" as="button"
                             class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Read more
+                        {{ $t('read_more') }}
                     </Link>
                 </div>
             </div>
@@ -110,8 +105,8 @@
     <section class="pb-10 md:py-20 bg-violet-50">
         <div class="w-5/6 md:w-2/3 mx-auto">
             <div class="">
-                <h2 class="font-bold text-4xl">Open Source Projects</h2>
-                <p class="prose leading-snug mt-2">Every developer uses a lot of open source packages and occasionally I add something of my own.</p>
+                <h2 class="font-bold text-4xl">{{ $t('home.os.title') }}</h2>
+                <p class="prose leading-snug mt-2 w-2/3">{{ $t('home.os.description') }}</p>
                 <div class="hidden border-indigo-600 border-b-4 w-10 mt-2"></div>
             </div>
             <div class="w-full bg-white shadow-md mx-auto mt-4 rounded-lg">
@@ -161,7 +156,7 @@
                             :href="featuredProject.link"
                             target="_blank"
                             class="inline-flex justify-center rounded-md border border-transparent shadow-sm mt-2 px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none sm:text-sm">
-                            View code
+                            {{ $t('view_code') }}
                         </a>
                     </div>
                 </div>
@@ -251,11 +246,11 @@
 
     <CTAFooter>
         <template #header>
-            Want to work together?
+            {{ $t('home.cta_footer.title') }}
         </template>
 
         <template #content>
-            Contact me and I will respond the next business day.
+            {{ $t('home.cta_footer.text') }}
         </template>
     </CTAFooter>
 

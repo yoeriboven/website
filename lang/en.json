@@ -1,0 +1,32 @@
+{
+    "home.blog.description" : "Each time I learn something new I try to teach others using my blog. Here are some of my latest articles.",
+    "home.os.title" : "My code",
+    "home.os.description" : "Below you find the code of websites I've built, pull request to open source packages and packages I published on my own.",
+    "home.cta_footer.title" : "Want to work together?",
+    "home.cta_footer.text" : "Contact me and I will respond the next business day.",
+
+    "header.articles" : "Articles",
+
+    "non_home.cta_footer.title" : "Looking for a Laravel developer?",
+    "non_home.cta_footer.text" : "Contact me and maybe we'll work together.",
+
+    "top_banner.availability" : "I'm currently available for new projects!",
+    "top_banner.cta" : "Hire me",
+
+    "contact.meta_title" : "Contact Me",
+    "contact.form_title" : "How can I help you?",
+    "contact.form_placeholder_name": "Your name",
+    "contact.form_placeholder_email": "you@example.com",
+    "contact.form_placeholder_description": "Please write a short description about what you are looking for.",
+    "contact.success_modal_message" : "You'll hear from me on the next business day!",
+    "contact.success_modal_close": "Got it.",
+
+    "read_more" : "Read more",
+    "view_code" : "View code",
+    "contact_me" : "Contact me",
+    "view_source" : "View source",
+    "send" : "Send",
+    "name" : "Name",
+    "description" : "Description",
+    "message_received" : "Message received"
+}

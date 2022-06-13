@@ -4,7 +4,7 @@
             <div class="text-gray-200">
                 <span class="font-medium">&copy; 2012 &dash; 2022 <span class="hidden md:inline">|</span>
                     <br class="md:hidden"/> Yoeri.me </span>
-                <a href="https://www.github.com/yoeriboven/website" target="_blank" class="text-xs hover:underline">(View source)</a>
+                <a href="https://www.github.com/yoeriboven/website" target="_blank" class="text-xs hover:underline">({{ $t('view_source') }})</a>
             </div>
             <div class="flex space-x-4 text-gray-300 mx-auto md:mx-0">
                 <Link :href="route('contact')" class="hover:text-gray-200">

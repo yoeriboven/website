@@ -1,3 +1,32 @@
 {
-    "Welcome": "Welkom in Nederland"
+    "home.blog.description" : "Wanneer ik iets nieuws leer of iets doe waarmee ik anderen iets kan leren geef ik graag mijn kennis door. Hieronder een aantal van mijn laatste artikelen.",
+    "home.os.title" : "Mijn code",
+    "home.os.description" : "Hieronder vindt u complete websites waar ik aan gewerkt heb, pull request aan open source projecten en packages die ik zelf heb uitgebracht.",
+    "home.cta_footer.title" : "Samenwerken?",
+    "home.cta_footer.text" : "Neem contact op en u hoort de volgende werkdag van mij.",
+
+    "header.articles" : "Blog",
+
+    "non_home.cta_footer.title" : "Op zoek naar een Laravel developer?",
+    "non_home.cta_footer.text" : "Neem contact op en u hoort de volgende werkdag van mij.",
+
+    "top_banner.availability" : "Ik ben nu beschikbaar voor nieuwe opdrachten!",
+    "top_banner.cta" : "Neem contact op",
+
+    "contact.meta_title" : "Contact",
+    "contact.form_title" : "Waar bent u naar op zoek?",
+    "contact.form_placeholder_name": "Uw naam",
+    "contact.form_placeholder_email": "naam@bedrijf.nl",
+    "contact.form_placeholder_description": "Een omschrijving van wat u van mij verlangt.",
+    "contact.success_modal_message" : "U hoort de volgende werkdag van mij!",
+    "contact.success_modal_close": "Sluiten",
+
+    "read_more" : "Lees meer",
+    "view_code" : "Bekijk code",
+    "contact_me" : "Neem contact op",
+    "view_source" : "Bekijk code",
+    "send" : "Verstuur",
+    "name" : "Naam",
+    "description" : "Omschrijving",
+    "message_received" : "Bericht ontvangen"
 }
