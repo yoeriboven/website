@@ -67,8 +67,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-center md:justify-end md:mt-10 order-first md:order-last">
-                    <img class="w-52 h-52 aspect-square rounded-full shadow-md" src="/img/avatar.JPG" alt="" />
+                <div class="flex w-52 h-52 justify-center md:justify-end md:mt-10 order-first md:order-last">
+                    <img class="aspect-square rounded-full shadow-md" src="/img/avatar.webp" alt="A picture of me" />
                 </div>
             </div>
         </div>

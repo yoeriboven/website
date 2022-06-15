@@ -10,7 +10,7 @@
         <main class="w-5/6 md:w-1/2 mx-auto">
             <div class="prose">
                 <Link :href="route('home')">
-                    <img class="mt-6 mb-6 w-24 h-24 aspect-square rounded-full shadow-md" src="/img/avatar.JPG" alt="" />
+                    <img class="mt-6 mb-6 w-24 h-24 aspect-square rounded-full shadow-md" src="/img/avatar.webp" alt="A picture of me" />
                 </Link>
 
                 <div v-if="currentLanguage === 'nl'">

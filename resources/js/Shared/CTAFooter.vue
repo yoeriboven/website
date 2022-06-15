@@ -18,7 +18,7 @@
             </div>
 
             <div class="flex order-first md:order-none">
-                <img class="w-40 h-40 mx-auto rounded-full shadow-md" src="/img/avatar.JPG" alt="" />
+                <img class="w-40 h-40 mx-auto rounded-full shadow-md" src="/img/avatar.webp" alt="A picture of me" />
             </div>
         </div>
     </div>

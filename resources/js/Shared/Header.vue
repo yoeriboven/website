@@ -1,9 +1,9 @@
 <template>
     <header class="w-5/6 md:w-2/3 py-2 md:py-8 mx-auto">
         <nav class="flex justify-between items-center">
-            <div class="w-12 h-12">
+            <div class="w-14 h-14">
                 <Link :href="route('home')" v-if="showHome">
-                    <img class="rounded-full shadow-md" src="/img/avatar.JPG"  alt=""/>
+                    <img class="rounded-full shadow-md" src="/img/avatar.webp"  alt="A picture of me"/>
                 </Link>
             </div>
             <div class="flex relative justify-items-end">
