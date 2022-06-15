@@ -9,7 +9,7 @@
 
         <Header />
 
-        <main class="py-6 w-5/6 md:w-2/3 mx-auto prose prose-img:shadow-sm prose-img:shadow-indigo-100 prose-a:text-indigo-600 prose-a:no-underline prose-p:text-gray-500">
+        <main class="py-6 w-5/6 md:w-2/3 mx-auto prose prose-img:shadow-sm prose-img:shadow-emerald-100 prose-a:text-emerald-600 prose-a:no-underline prose-p:text-gray-500">
             <span class="uppercase text-sm text-emerald-600">{{ formatDate(article.publish_date, "D MMMM YYYY") }}</span>
 
             <h1 class="text-emerald-700">{{ article.title }}</h1>

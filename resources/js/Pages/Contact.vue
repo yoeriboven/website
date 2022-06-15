@@ -14,7 +14,7 @@
                 </Link>
 
                 <div v-if="currentLanguage === 'nl'">
-                    <h1 class="text-emerald-700">Contact opnemen?</h1>
+                    <h1 class="text-emerald-700">Contact</h1>
 
                     <p>Ik heb veel ervaring met het bouwen van PHP en Laravel webapps and ga graag met u aan de slag met uw project.</p>
 

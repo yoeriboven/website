@@ -17,7 +17,7 @@
     "contact.form_title" : "Waar bent u naar op zoek?",
     "contact.form_placeholder_name": "Uw naam",
     "contact.form_placeholder_email": "naam@bedrijf.nl",
-    "contact.form_placeholder_description": "Een omschrijving van wat u van mij verlangt.",
+    "contact.form_placeholder_description": "Een omschrijving van de opdracht.",
     "contact.success_modal_message" : "U hoort de volgende werkdag van mij!",
     "contact.success_modal_close": "Sluiten",
 
