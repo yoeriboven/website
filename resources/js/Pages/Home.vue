@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex w-52 h-52 justify-center md:justify-end md:mt-10 order-first md:order-last">
+                <div class="mx-auto w-52 h-52 justify-center md:justify-end md:mt-10 order-first md:order-last">
                     <img class="aspect-square rounded-full shadow-md border border-2 border-amber-800" src="/img/avatar.webp" alt="A picture of me" />
                 </div>
             </div>
