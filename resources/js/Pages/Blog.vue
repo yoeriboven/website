@@ -7,7 +7,7 @@
         />
     </Head>
 
-    <div class="bg-violet-50">
+    <div>
         <TopBanner />
 
         <Header />
@@ -21,15 +21,15 @@
                         :href="route('article', article.slug)"
                         class="group flex flex-col"
                     >
-                        <span class="text-xs uppercase text-indigo-700">{{
+                        <span class="text-xs uppercase text-emerald-600">{{
                             formatDate(article.publish_date, "D MMMM YYYY")
                         }}</span>
                         <span
-                            class="text-2xl font-medium leading-7 text-gray-800 group-hover:text-indigo-700"
+                            class="text-2xl font-medium leading-7 text-gray-600 group-hover:text-emerald-600"
                             >{{ article.title }}</span
                         >
                         <p
-                            class="mt-2 text-sm leading-snug text-gray-600 line-clamp-3 group-hover:text-indigo-700 md:mt-1"
+                            class="mt-2 text-sm leading-snug text-gray-500 line-clamp-3 group-hover:text-emerald-600 md:mt-1"
                         >
                             {{ article.excerpt }}
                         </p>

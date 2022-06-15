@@ -4,7 +4,7 @@
         <meta name="description" content="" />
     </Head>
 
-    <section class="h-auto md:h-screen bg-violet-50">
+    <section class="h-auto md:h-screen">
         <TopBanner />
 
         <Header :showHome="false" class="hidden md:block left-1/2 -translate-x-1/2 absolute" />
@@ -15,11 +15,11 @@
                 <div class="pt-5 md:col-span-3">
                     <div v-if="currentLanguage === 'nl'">
                         <div class="font-extrabold text-4xl text-gray-700 leading-tight">
-                            Hoi, ik ben <span class="text-blue-500">Yoeri</span>
-                            en ik maak <span class="text-indigo-500">web apps</span> met <span
+                            Hoi, ik ben <span class="text-emerald-500">Yoeri</span>
+                            en ik maak <span class="text-emerald-500">web apps</span> met <span
                             class="text-[#F05340]">Laravel</span>.
                         </div>
-                        <div class="mt-8 prose">
+                        <div class="mt-8 prose text-gray-500">
                             <p>Met meer dan een decennium aan ervaring in het bouwen van web-apps help ik u graag met uw project. </p>
 
                             <p>Tools als PHP, Laravel, Vue.js, Javascript, Git, Inertia JS, LiveWire, Tailwind CSS, PHPUnit en anderen kennen geen geheimen meer voor mij.</p>
@@ -30,7 +30,7 @@
 
                             <p>Kijk even rond of
                                 <Link :href="route('contact')"
-                                      class="no-underline font-regular text-indigo-600 hover:text-indigo-700">
+                                      class="no-underline font-regular text-emerald-500 hover:text-emerald-400">
                                     neem contact op
                                 </Link>
                                 en dan praten we snel. :)
@@ -39,11 +39,11 @@
                     </div>
                     <div v-else>
                         <div class="font-extrabold text-4xl text-gray-700 leading-tight">
-                            Hi, I'm <span class="text-blue-500">Yoeri</span>
-                            and I build <span class="text-indigo-500">web apps</span> using <span
+                            Hi, I'm <span class="text-emerald-500">Yoeri</span>
+                            and I build <span class="text-emerald-500">web apps</span> using <span
                             class="text-[#F05340]">Laravel</span>.
                         </div>
-                        <div class="mt-8 prose">
+                        <div class="mt-8 prose text-gray-500">
                             <p>I have been building web applications for over a decade and can help you with your
                                 project.</p>
 
@@ -59,7 +59,7 @@
 
                             <p>Take a look around or
                                 <Link :href="route('contact')"
-                                      class="no-underline font-regular text-indigo-600 hover:text-indigo-700">
+                                      class="no-underline font-regular text-emerald-500 hover:text-emerald-400">
                                     contact me
                                 </Link>
                                 and we'll talk soon. :)
@@ -68,33 +68,32 @@
                     </div>
                 </div>
                 <div class="flex w-52 h-52 justify-center md:justify-end md:mt-10 order-first md:order-last">
-                    <img class="aspect-square rounded-full shadow-md" src="/img/avatar.webp" alt="A picture of me" />
+                    <img class="aspect-square rounded-full shadow-md border border-2 border-amber-800" src="/img/avatar.webp" alt="A picture of me" />
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pt-16 pb-10 md:pt-0 bg-violet-50">
+    <section class="mt-12 pb-10 md:pt-0">
         <div class="w-5/6 md:w-2/3 mx-auto">
-            <div class="">
-                <h2 class="font-bold text-4xl">Blog</h2>
-                <p class="prose leading-snug mt-2 w-2/3">{{ $t('home.blog.description') }}</p>
-                <div class="hidden border-indigo-600 border-b-4 w-1/2 mb-2 mt-2"></div>
+            <div class="text-center">
+                <h2 class="font-bold text-4xl text-emerald-500">Blog</h2>
+                <p class="prose leading-snug mt-2 text-gray-500 mx-auto">{{ $t('home.blog.description') }}</p>
             </div>
             <div class="mt-6">
                 <ul class="grid md:grid-cols-2 gap-y-5 gap-x-7">
                     <li v-for="article in articles.data" :key="article.id">
                         <Link :href="route('article', article.slug)" class="flex flex-col group">
-                            <span class="text-xs uppercase text-indigo-700">{{ formatDate(article.publish_date, "D MMMM YYYY") }}</span>
-                            <span class="text-lg font-medium text-gray-700 group-hover:text-indigo-700">{{ article.title }}</span>
-                            <p class="text-gray-600 text-sm leading-snug line-clamp-3 group-hover:text-indigo-700">{{ article.excerpt }}</p>
+                            <span class="text-xs uppercase text-emerald-600">{{ formatDate(article.publish_date, "D MMMM YYYY") }}</span>
+                            <span class="text-lg font-medium text-gray-700 group-hover:text-emerald-600">{{ article.title }}</span>
+                            <p class="text-gray-500 text-sm leading-snug line-clamp-3 group-hover:text-emerald-600">{{ article.excerpt }}</p>
                         </Link>
                     </li>
                 </ul>
 
                 <div class="mt-5 flex justify-end">
                     <Link :href="route('blog')" as="button"
-                            class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-300">
                         {{ $t('read_more') }}
                     </Link>
                 </div>
@@ -102,12 +101,11 @@
         </div>
     </section>
 
-    <section class="pb-10 md:py-20 bg-violet-50">
+    <section class="pb-10 md:py-20">
         <div class="w-5/6 md:w-2/3 mx-auto">
-            <div class="">
-                <h2 class="font-bold text-4xl">{{ $t('home.os.title') }}</h2>
-                <p class="prose leading-snug mt-2 w-2/3">{{ $t('home.os.description') }}</p>
-                <div class="hidden border-indigo-600 border-b-4 w-10 mt-2"></div>
+            <div class="text-center">
+                <h2 class="font-bold text-4xl text-emerald-500">{{ $t('home.os.title') }}</h2>
+                <p class="prose leading-snug mt-2 mx-auto text-gray-500">{{ $t('home.os.description') }}</p>
             </div>
             <div class="w-full bg-white shadow-md mx-auto mt-4 rounded-lg">
                 <div class="grid grid-cols-3 rounded-lg overflow-hidden h-[28rem]">
@@ -155,7 +153,7 @@
                         <a
                             :href="featuredProject.link"
                             target="_blank"
-                            class="inline-flex justify-center rounded-md border border-transparent shadow-sm mt-2 px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none sm:text-sm">
+                            class="inline-flex justify-center rounded-md border border-transparent shadow-sm mt-2 px-4 py-2 bg-emerald-500 text-base font-medium text-white hover:bg-emerald-400 focus:outline-none sm:text-sm">
                             {{ $t('view_code') }}
                         </a>
                     </div>

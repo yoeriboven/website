@@ -1,5 +1,5 @@
 <template>
-    <div v-if="$page.props.settings.showHireMeBanner" class="relative bg-violet-600">
+    <div v-if="$page.props.settings.showHireMeBanner" class="relative bg-amber-800">
         <div class="max-w-7xl mx-auto py-2 px-3 sm:px-6 lg:px-8">
             <div class="text-center sm:px-16">
                 <div class="font-medium text-white flex flex-col md:inline-flex md:flex-row">

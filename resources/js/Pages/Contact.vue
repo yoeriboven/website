@@ -6,7 +6,7 @@
 
     <TopBanner />
 
-    <div class="bg-violet-50 min-h-screen py-8">
+    <div class="py-8">
         <main class="w-5/6 md:w-1/2 mx-auto">
             <div class="prose">
                 <Link :href="route('home')">
@@ -14,7 +14,7 @@
                 </Link>
 
                 <div v-if="currentLanguage === 'nl'">
-                    <h1>Contact opnemen?</h1>
+                    <h1 class="text-emerald-700">Contact opnemen?</h1>
 
                     <p>Ik heb veel ervaring met het bouwen van PHP en Laravel webapps and ga graag met u aan de slag met uw project.</p>
 
@@ -25,7 +25,7 @@
                     <p>Hieronder kunt u contact opnemen. Voeg een beschrijving van de opdracht en dan krijgt u de volgende werkdag een reactie.</p>
                 </div>
                 <div v-else>
-                    <h1>Want to talk?</h1>
+                    <h1 class="text-emerald-700">Want to talk?</h1>
 
                     <p>I have multiple years of experience building PHP and Laravel projects and can help you with your project.</p>
 
@@ -39,7 +39,7 @@
             </div>
 
             <div class="pt-6 md:w-2/3">
-                <h2 class="font-bold text-2xl mb-2">{{ $t('contact.form_title') }}</h2>
+                <h2 class="font-bold text-2xl mb-2 text-emerald-600">{{ $t('contact.form_title') }}</h2>
                 <form @submit.prevent="submitForm" class="space-y-6">
                     <div class="space-y-1">
                         <label for="name" class="block text-sm font-medium text-gray-700">{{ $t('name') }}</label>
@@ -87,7 +87,7 @@
                     <div class="flex justify-end">
                         <button type="submit"
                                 :disabled="form.processing"
-                                class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-semibold rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-semibold rounded shadow-sm text-white bg-emerald-500 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-300">
                             {{ $t('send') }}
                         </button>
                     </div>

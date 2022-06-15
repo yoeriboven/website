@@ -4,15 +4,15 @@
         <meta name="description" :content="article.meta_description" />
     </Head>
 
-    <div class="bg-violet-50">
+    <div>
         <TopBanner />
 
         <Header />
 
-        <main class="py-6 w-5/6 md:w-2/3 mx-auto prose prose-img:shadow-sm prose-img:shadow-indigo-100 prose-a:text-indigo-600 prose-a:no-underline">
-            <span class="uppercase text-sm text-indigo-700">{{ formatDate(article.publish_date, "D MMMM YYYY") }}</span>
+        <main class="py-6 w-5/6 md:w-2/3 mx-auto prose prose-img:shadow-sm prose-img:shadow-indigo-100 prose-a:text-indigo-600 prose-a:no-underline prose-p:text-gray-500">
+            <span class="uppercase text-sm text-emerald-600">{{ formatDate(article.publish_date, "D MMMM YYYY") }}</span>
 
-            <h1>{{ article.title }}</h1>
+            <h1 class="text-emerald-700">{{ article.title }}</h1>
 
             <div v-html="article.content"></div>
         </main>
