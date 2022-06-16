@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Freelance webdeveloper</title>
+        <title>Freelance Laravel developer</title>
         <meta name="description" content="" />
     </Head>
 
