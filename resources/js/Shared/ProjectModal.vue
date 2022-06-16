@@ -37,7 +37,7 @@
                                 </a>
                                 <button
                                       @click="$emit('close')"
-                                      class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none sm:text-sm">
+                                      class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-emerald-500 text-base font-medium text-white hover:bg-emerald-400 focus:outline-none sm:text-sm">
                                     Go back
                                 </button>
                             </div>

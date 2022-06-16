@@ -8,13 +8,13 @@
 
     <div class="py-8">
         <main class="w-5/6 md:w-1/2 mx-auto">
-            <div class="prose">
+            <div class="prose prose-h1:mb-0">
                 <Link :href="route('home')">
                     <img class="mt-6 mb-6 w-24 h-24 aspect-square rounded-full shadow-md" src="/img/avatar.webp" alt="A picture of me" />
                 </Link>
 
                 <div v-if="currentLanguage === 'nl'">
-                    <h1 class="text-emerald-700">Contact</h1>
+                    <h1 class="text-emerald-500">Contact</h1>
 
                     <p>Ik heb veel ervaring met het bouwen van PHP en Laravel webapps and ga graag met u aan de slag met uw project.</p>
 
@@ -22,10 +22,10 @@
 
                     <p>Of op zoek naar iemand die nieuwe features toevoegt of bestaande onderhoudt? Iemand die uw lijst met bugs wegwerkt? Ik kan u helpen.</p>
 
-                    <p>Hieronder kunt u contact opnemen. Voeg een beschrijving van de opdracht en dan krijgt u de volgende werkdag een reactie.</p>
+                    <p>Hieronder kunt u contact opnemen. Voeg een omschrijving van de opdracht toe en dan krijgt u de volgende werkdag een reactie.</p>
                 </div>
                 <div v-else>
-                    <h1 class="text-emerald-700">Want to talk?</h1>
+                    <h1 class="text-emerald-500">Want to talk?</h1>
 
                     <p>I have multiple years of experience building PHP and Laravel projects and can help you with your project.</p>
 
@@ -38,9 +38,9 @@
                 </div>
             </div>
 
-            <div class="pt-6 md:w-2/3">
-                <h2 class="font-bold text-2xl mb-2 text-emerald-600">{{ $t('contact.form_title') }}</h2>
-                <form @submit.prevent="submitForm" class="space-y-6">
+            <div class="pt-4 md:w-2/3">
+                <h2 class="font-bold text-2xl mb-2 text-emerald-400">{{ $t('contact.form_title') }}</h2>
+                <form @submit.prevent="submitForm" class="space-y-6 mt-2">
                     <div class="space-y-1">
                         <label for="name" class="block text-sm font-medium text-gray-700">{{ $t('name') }}</label>
                         <input v-model="form.name"
