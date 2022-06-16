@@ -8,8 +8,9 @@
     @production
         <script src="https://metal-pretty.yoeri.me/script.js" data-site="ZLTGUHEL" defer></script>
     @endproduction
-    
+
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
+    <link rel="preload" as="image" href="/img/avatar.webp" type="image/webp">
 
     @routes
     <script src="{{ mix('/js/app.js') }}" defer></script>
