@@ -2,7 +2,7 @@
     <footer class="bg-amber-800 py-6">
         <div class="text-center w-2/3 mx-auto text-sm flex flex-col md:flex-row justify-between space-y-2 md:space-y-0">
             <div class="text-gray-200">
-                <span class="font-medium">&copy; 2012 &dash; 2022 <span class="hidden md:inline">|</span>
+                <span class="font-medium">&copy; 2012 &dash; {{ currentYear }} <span class="hidden md:inline">|</span>
                     <br class="md:hidden"/> Yoeri.me </span>
                 <a href="https://www.github.com/yoeriboven/website" target="_blank" class="text-xs hover:underline">({{ $t('view_source') }})</a>
             </div>
@@ -25,5 +25,5 @@
 </template>
 
 <script setup>
-
+const currentYear = new Date().getFullYear();
 </script>
