@@ -20,6 +20,7 @@
             </div>
         </div>
     </div>
+    <div v-else class="bg-amber-800 h-1"></div>
 </template>
 
 <script setup>
