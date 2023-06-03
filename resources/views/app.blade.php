@@ -6,7 +6,7 @@
     <x-meta_tags :article="$page['props']['article'] ?? null"/>
 
     @production
-        <script src="https://metal-pretty.yoeri.me/script.js" data-site="ZLTGUHEL" defer></script>
+        <script src="https://cdn.usefathom.com/script.js" data-site="ZLTGUHEL" defer></script>
     @endproduction
 
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
