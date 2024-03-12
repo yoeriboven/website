@@ -104,9 +104,9 @@
 
 <script setup>
 import { Head, useForm } from '@inertiajs/inertia-vue3'
-import ContactSuccessModal from "@/Shared/ContactSuccessModal";
-import Footer from "@/Shared/Footer";
-import TopBanner from "@/Shared/TopBanner";
+import ContactSuccessModal from "@/Shared/ContactSuccessModal.vue";
+import Footer from "@/Shared/Footer.vue";
+import TopBanner from "@/Shared/TopBanner.vue";
 import { getCurrentLanguage } from "@/functions";
 
 const currentLanguage = getCurrentLanguage();
