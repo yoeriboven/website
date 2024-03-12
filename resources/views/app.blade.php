@@ -9,11 +9,11 @@
         <script src="https://cdn.usefathom.com/script.js" data-site="ZLTGUHEL" defer></script>
     @endproduction
 
-    <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
+    @vite('resources/css/app.css')
     <link rel="preload" as="image" href="/img/avatar.webp" type="image/webp">
 
     @routes
-    <script src="{{ mix('/js/app.js') }}" defer></script>
+    @vite('resources/js/app.js')
     @inertiaHead
 </head>
 <body class="antialiased bg-amber-50 selection:bg-emerald-600 selection:text-white">
