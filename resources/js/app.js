@@ -6,7 +6,7 @@ import { i18nVue } from "laravel-vue-i18n";
 import mitt from "mitt";
 
 InertiaProgress.init({
-    color: 'rgb(79 70 229)',
+    color: 'rgb(16 185 129)',
 })
 
 createInertiaApp({
