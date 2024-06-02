@@ -4,6 +4,7 @@ import { Inertia } from "@inertiajs/inertia";
 import { InertiaProgress } from "@inertiajs/progress";
 import { i18nVue } from "laravel-vue-i18n";
 import mitt from "mitt";
+import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 
 InertiaProgress.init({
     color: 'rgb(79 70 229)',
@@ -11,7 +12,7 @@ InertiaProgress.init({
 
 createInertiaApp({
     title: title => `${title} - Yoeri.me`,
-    resolve: name => require(`./Pages/${name}`),
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)

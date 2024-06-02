@@ -54,11 +54,11 @@
 import { formatDate } from "@/functions";
 import { Link } from '@inertiajs/inertia-vue3'
 
-import Header from "@/Shared/Header";
-import CTAFooter from "@/Shared/CTAFooter";
-import Footer from "@/Shared/Footer";
+import Header from "@/Shared/Header.vue";
+import CTAFooter from "@/Shared/CTAFooter.vue";
+import Footer from "@/Shared/Footer.vue";
 import { Head } from "@inertiajs/inertia-vue3";
-import TopBanner from "@/Shared/TopBanner";
+import TopBanner from "@/Shared/TopBanner.vue";
 
 defineProps({
     articles: Object,

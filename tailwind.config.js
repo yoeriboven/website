@@ -16,15 +16,15 @@ module.exports = {
     },
 
     variants: {
-    extend: {
-      textColor: [
-        "selection"
-      ],
-      backgroundColor: [
-        "selection"
-      ],
+        extend: {
+            textColor: [
+                "selection"
+            ],
+            backgroundColor: [
+                "selection"
+            ],
+        },
     },
-  },
 
     plugins: [
         require('@tailwindcss/forms'),
