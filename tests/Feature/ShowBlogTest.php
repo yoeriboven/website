@@ -54,7 +54,7 @@ class ShowBlogTest extends TestCase
         $this->get(route('blog'))
             ->assertInertia(function (Assert $page) {
                 $page->component('Blog')
-                    ->whereNot('articles.data.0.title', 'A draft post');
+                    ->missing('articles.data.0.title', 'A draft post');
             });
     }
 

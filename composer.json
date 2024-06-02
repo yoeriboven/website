@@ -20,7 +20,7 @@
         "spatie/laravel-backup": "^8.1",
         "spatie/laravel-honeypot": "^4.2",
         "spatie/laravel-ray": "^1.29",
-        "statamic/cms": "3.3.7",
+        "statamic/cms": "^4.0",
         "tightenco/ziggy": "^1.4",
         "torchlight/torchlight-commonmark": "^0.5.5",
         "wnx/sidecar-browsershot": "^1.0"
