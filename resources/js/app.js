@@ -7,7 +7,7 @@ import mitt from "mitt";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 
 InertiaProgress.init({
-    color: 'rgb(146 64 14)',
+    color: 'rgb(16 185 129)',
 })
 
 createInertiaApp({
