@@ -6,6 +6,7 @@ use App\Notifications\NewContactSubmission;
 use Facades\App\Services\Statamic;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ContactTest extends TestCase
 {
@@ -22,7 +23,7 @@ class ContactTest extends TestCase
         Notification::fake();
     }
 
-    /** @test */
+    #[Test]
     public function it_stores_the_form_submission()
     {
         Statamic::shouldReceive('storeContactSubmission')->once()->with($this->validData);
@@ -31,7 +32,7 @@ class ContactTest extends TestCase
             ->assertRedirect();
     }
 
-    /** @test */
+    #[Test]
     public function it_requires_all_fields()
     {
         $this->post(route('contact.store'), [
@@ -41,7 +42,7 @@ class ContactTest extends TestCase
         ])->assertInvalid(['name', 'email', 'description']);
     }
 
-    /** @test */
+    #[Test]
     public function it_requires_a_valid_email()
     {
         $this->post(route('contact.store'), [
@@ -49,7 +50,7 @@ class ContactTest extends TestCase
         ])->assertInvalid(['email']);
     }
 
-    /** @test */
+    #[Test]
     public function it_needs_a_description_of_at_least_10_characters()
     {
         $this->post(route('contact.store'), [
@@ -61,7 +62,7 @@ class ContactTest extends TestCase
         ])->assertValid(['descriptions']);
     }
 
-    /** @test */
+    #[Test]
     public function it_sends_a_notification_when_the_form_is_submitted()
     {
         Statamic::shouldReceive('storeContactSubmission')->once();
@@ -73,7 +74,7 @@ class ContactTest extends TestCase
         });
     }
 
-    /** @test */
+    #[Test]
     public function it_sends_an_email_when_the_form_is_submitted()
     {
         Statamic::shouldReceive('storeContactSubmission')->once();
@@ -85,7 +86,7 @@ class ContactTest extends TestCase
         });
     }
 
-    /** @test */
+    #[Test]
     public function it_sends_a_telegram_message_when_the_form_is_submitted()
     {
         Statamic::shouldReceive('storeContactSubmission')->once();

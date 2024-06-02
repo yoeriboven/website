@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class SetLanguageMiddlewareTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_uses_a_cookie_if_it_is_set()
     {
         $this->assertTrue(App::isLocale('en'));
@@ -22,7 +23,7 @@ class SetLanguageMiddlewareTest extends TestCase
         $this->assertTrue(App::isLocale('nl'));
     }
 
-    /** @test */
+    #[Test]
     public function it_uses_the_browser_language_if_no_cookie_is_set()
     {
         $this->assertTrue(App::isLocale('en'));
@@ -36,7 +37,7 @@ class SetLanguageMiddlewareTest extends TestCase
         $this->assertTrue(App::isLocale('nl'));
     }
 
-    /** @test */
+    #[Test]
     public function it_has_a_default_language_of_english()
     {
         $this->assertTrue(App::isLocale('en'));

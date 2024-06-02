@@ -4,10 +4,11 @@ namespace Tests\Feature;
 
 use Inertia\Testing\AssertableInertia as Assert;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ShowBlogTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_lists_the_latest_posts()
     {
         $this->createArticle('The First Article');
@@ -20,7 +21,7 @@ class ShowBlogTest extends TestCase
             ->assertSee('The Third Article');
     }
 
-    /** @test */
+    #[Test]
     public function it_shows_published_posts_to_guests()
     {
         $this->createArticle(title: 'A published post', published: true);
@@ -32,7 +33,7 @@ class ShowBlogTest extends TestCase
             });
     }
 
-    /** @test */
+    #[Test]
     public function it_shows_published_posts_to_admins()
     {
         $this->loginStatamicUser();
@@ -46,7 +47,7 @@ class ShowBlogTest extends TestCase
             });
     }
 
-    /** @test */
+    #[Test]
     public function it_hides_drafts_from_guests()
     {
         $this->createArticle(title: 'A draft post', published: false);
@@ -58,7 +59,7 @@ class ShowBlogTest extends TestCase
             });
     }
 
-    /** @test */
+    #[Test]
     public function it_shows_drafts_to_admin()
     {
         $this->loginStatamicUser();
