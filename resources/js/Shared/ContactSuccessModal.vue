@@ -45,6 +45,7 @@
 <script setup>
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { CheckIcon } from '@heroicons/vue/outline'
+import { Link } from '@inertiajs/inertia-vue3'
 
 const props = defineProps({
     open : {

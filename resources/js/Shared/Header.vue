@@ -48,6 +48,7 @@
 <script setup>
 import { onMounted, ref, inject } from "vue";
 import { getActiveLanguage, loadLanguageAsync } from "laravel-vue-i18n";
+import { Link } from '@inertiajs/inertia-vue3'
 import axios from "axios";
 
 defineProps({

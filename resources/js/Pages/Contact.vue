@@ -1,7 +1,7 @@
 <template>
     <Head>
         <title>{{ $t('contact.meta_title') }}</title>
-        <meta name="description" content="" />
+        <meta name="description" :content="pageDescription" />
     </Head>
 
     <TopBanner />
@@ -103,8 +103,9 @@
 </template>
 
 <script setup>
-import { Head, useForm } from '@inertiajs/inertia-vue3'
+import { Head, useForm, Link } from '@inertiajs/inertia-vue3'
 import ContactSuccessModal from "@/Shared/ContactSuccessModal";
+import { computed } from 'vue'
 import Footer from "@/Shared/Footer";
 import TopBanner from "@/Shared/TopBanner";
 import { getCurrentLanguage } from "@/functions";
@@ -128,4 +129,13 @@ function submitForm() {
         preserveScroll: true
     })
 }
+
+const pageDescription = computed(() => {
+    if (currentLanguage.value === 'nl') {
+        return "Neem contact op als u op zoek bent naar een ervaren webdeveloper"
+    }
+
+    return "Contact me if you're looking for an experience webdeveloper"
+})
+
 </script>

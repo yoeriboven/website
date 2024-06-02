@@ -52,6 +52,7 @@
 
 <script setup>
 import { formatDate } from "@/functions";
+import { Link } from '@inertiajs/inertia-vue3'
 
 import Header from "@/Shared/Header";
 import CTAFooter from "@/Shared/CTAFooter";

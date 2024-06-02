@@ -1,7 +1,7 @@
 <template>
     <Head>
         <title>Freelance Laravel developer</title>
-        <meta name="description" content="" />
+        <meta name="description" :content="pageDescription" />
     </Head>
 
     <section class="h-auto md:h-screen">
@@ -10,12 +10,12 @@
         <Header :showHome="false" class="hidden md:block left-1/2 -translate-x-1/2 absolute" />
 
         <div class="w-5/6 md:w-2/3 pt-10 md:pt-0 mx-auto h-full flex items-center">
-            <div class="grid md:grid-cols-4 gap-x-10 flex">
+            <div class="grid md:grid-cols-4 gap-x-10">
 
                 <div class="pt-5 md:col-span-3">
                     <div v-if="currentLanguage === 'nl'">
                         <div class="font-extrabold text-4xl text-gray-700 leading-tight">
-                            Hoi, ik ben <span class="text-emerald-500">Yoeri</span>
+                            Hoi, ik ben <span class="text-emerald-500">Yoeri</span> <span class="sr-only">Boven</span>
                             en ik maak <span class="text-emerald-500">web apps</span> met <span
                             class="text-[#F05340]">Laravel</span>.
                         </div>
@@ -263,15 +263,16 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { formatDate, projectColors, getCurrentLanguage } from "@/functions";
+import { ref, computed } from 'vue'
+import { formatDate, projectColors, getCurrentLanguage } from "@/functions"
+import { Link } from '@inertiajs/inertia-vue3'
 
 import Header from '@/Shared/Header'
 import CTAFooter from '@/Shared/CTAFooter'
 import Footer from '@/Shared/Footer'
 import { Head } from '@inertiajs/inertia-vue3'
-import TopBanner from "@/Shared/TopBanner";
-import ProjectModal from "@/Shared/ProjectModal";
+import TopBanner from "@/Shared/TopBanner"
+import ProjectModal from "@/Shared/ProjectModal"
 
 const props = defineProps({
     'projects': Array,
@@ -289,5 +290,13 @@ function showProject(id) {
 
     showProjectModal.value = true;
 }
+
+const pageDescription = computed(() => {
+    if (currentLanguage.value === 'nl') {
+        return 'Yoeri Boven is een Nederlandse Laravel developer met meer dan een decennium aan ervaring in softwareontwikkeling.'
+    }
+
+    return 'Yoeri Boven is a Dutch Laravel developer with over a decade of experience in software engineering'
+})
 
 </script>
