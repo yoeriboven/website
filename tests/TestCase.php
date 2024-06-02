@@ -37,7 +37,7 @@ abstract class TestCase extends BaseTestCase
                 ])
                 ->saveQuietly();
 
-            return Entry::findBySlug($slug, 'articles');
+            return Entry::query()->where('slug', $slug)->first();
         });
     }
 }
