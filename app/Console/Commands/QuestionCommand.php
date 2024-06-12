@@ -35,14 +35,15 @@ class QuestionCommand extends Command
 //                $this->error('Run from the command line.');
 //            }
         } catch (\Exception $exception) {
-            $answer = null;
+//            $answer = null;
+            $this->fail('Run from the command line.');
         }
 
         $this->info('test');
 
-        if ($answer === null) {
-            $this->error('Run from the command line.');
-        }
+//        if ($answer === null) {
+//            $this->error('Run from the command line.');
+//        }
 
 
         if (in_array($answer, ['y', 'Y', '1', 'yes'])) {
