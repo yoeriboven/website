@@ -24,28 +24,11 @@ class QuestionCommand extends Command
     public function shouldShowHighHeartRiskNotification(): bool
     {
         try {
-
-            $this->info('ja');
-
             $answer = $this->ask('Do you want to alert users of high heart risk? Only do this when the heart risk calculations have changed. (y/n)', null);
-//
-            $this->info('x');
-//
-//            if ($answer === null) {
-//                $this->error('Run from the command line.');
-//            }
         } catch (\Exception $exception) {
-//            $answer = null;
             $this->fail('Run from the command line.');
         }
-
-        $this->info('test');
-
-//        if ($answer === null) {
-//            $this->error('Run from the command line.');
-//        }
-
-
+        
         if (in_array($answer, ['y', 'Y', '1', 'yes'])) {
             return true;
         } else {
