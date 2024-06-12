@@ -12,9 +12,9 @@ class QuestionCommand extends Command
 
     public function handle(): void
     {
-        $answer = $this->ask('Do you want to alert users of high heart risk? Only do this when the heart risk calculations have changed. (y/n)');
+        $answer = $this->ask('Do you want to alert users of high heart risk? Only do this when the heart risk calculations have changed. (y/n)', null);
 
-        if (! isset($answer)) {
+        if ($answer === null) {
             $this->error('Run from the command line.');
         }
 
