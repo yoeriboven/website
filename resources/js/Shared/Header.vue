@@ -80,16 +80,13 @@ function changeLanguage(lang) {
         return;
     }
 
+    loadLanguageAsync(lang);
+
+    emitter.emit('changedLanguage', {lang: lang});
+
+    orderLanguages(lang);
+
     ky.post(route('language-change', lang))
-        .then(function(response) {
-            loadLanguageAsync(lang);
-
-            emitter.emit('changedLanguage', {lang: lang});
-
-            if (response.status === 204) {
-                orderLanguages(lang);
-            }
-        })
 }
 
 </script>
