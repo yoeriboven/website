@@ -12,7 +12,6 @@
 .env
 .env.backup
 .phpunit.result.cache
-.phpunit.cache/
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
@@ -24,3 +23,4 @@ users/*
 public/assets
 /content/collections/*/
 /content/trees/*/
+/.phpunit.cache
