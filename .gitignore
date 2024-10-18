@@ -25,3 +25,4 @@ public/assets
 /content/trees/*/
 /.phpunit.cache
 /.phpunit.cache/
+.phpunit.cache/test-results
