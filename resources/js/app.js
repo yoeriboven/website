@@ -3,10 +3,6 @@ import { createInertiaApp, Link, router } from "@inertiajs/vue3";
 import { i18nVue } from "laravel-vue-i18n";
 import mitt from "mitt";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
-import axios from "axios";
-
-window.axios = axios;
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 createInertiaApp({
     title: title => `${title} - Yoeri.me`,
