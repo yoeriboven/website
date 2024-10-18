@@ -49,7 +49,7 @@
 import { onMounted, ref, inject } from "vue";
 import { getActiveLanguage, loadLanguageAsync } from "laravel-vue-i18n";
 import { Link } from '@inertiajs/vue3'
-import axios from 'axios'
+import ky from 'ky'
 
 defineProps({
     showHome: {
@@ -60,7 +60,6 @@ defineProps({
 
 onMounted(() => {
     orderLanguages();
-
 });
 
 const languages = ref(["en", "nl"]);
@@ -81,7 +80,7 @@ function changeLanguage(lang) {
         return;
     }
 
-    axios.post(route('language-change', lang))
+    ky.post(route('language-change', lang))
         .then(function(response) {
             loadLanguageAsync(lang);
 
