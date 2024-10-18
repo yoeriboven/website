@@ -41,7 +41,7 @@ jobs:
           php artisan key:generate
 
       - name: Run tests
-        run: ./vendor/bin/phpunit
+        run: php artisan test
 
       - name: Deploy to Laravel Forge
         run: curl ${{ secrets.FORGE_DEPLOYMENT_WEBHOOK }}

@@ -1,49 +1,36 @@
 <?php
 
-namespace Tests\Feature;
-
 use Inertia\Testing\AssertableInertia as Assert;
-use Tests\TestCase;
-use PHPUnit\Framework\Attributes\Test;
 
-class ShowHomeTest extends TestCase
-{
-    #[Test]
-    public function it_lists_the_latest_posts()
-    {
-        $this->createArticle('The First Article');
-        $this->createArticle('The Second Article');
-        $this->createArticle('The Third Article');
+it('lists the latest posts', function () {
+    $this->createArticle('The First Article');
+    $this->createArticle('The Second Article');
+    $this->createArticle('The Third Article');
 
-        $this->get(route('home'))
-            ->assertSee('The First Article')
-            ->assertSee('The Second Article')
-            ->assertSee('The Third Article');
-    }
+    $this->get(route('home'))
+        ->assertSee('The First Article')
+        ->assertSee('The Second Article')
+        ->assertSee('The Third Article');
+});
 
-    #[Test]
-    public function it_hides_drafts_from_guests()
-    {
-        $this->createArticle(title: 'A draft post', published: false);
+it('hides drafts from guests', function () {
+    $this->createArticle(title: 'A draft post', published: false);
 
-        $this->get(route('home'))
-            ->assertInertia(function (Assert $page) {
-                $page->component('Home')
-                    ->missing('articles.0.title', 'A draft post');
-            });
-    }
+    $this->get(route('home'))
+        ->assertInertia(function (Assert $page) {
+            $page->component('Home')
+                ->missing('articles.0.title', 'A draft post');
+        });
+});
 
-    #[Test]
-    public function it_shows_drafts_to_admin()
-    {
-        $this->loginStatamicUser();
+it('shows drafts to admin', function () {
+    $this->loginStatamicUser();
 
-        $this->createArticle(title: 'A draft post', published: false);
+    $this->createArticle(title: 'A draft post', published: false);
 
-        $this->get(route('home'))
-            ->assertInertia(function (Assert $page) {
-                $page->component('Home')
-                    ->where('articles.data.0.title', 'A draft post');
-            });
-    }
-}
+    $this->get(route('home'))
+        ->assertInertia(function (Assert $page) {
+            $page->component('Home')
+                ->where('articles.data.0.title', 'A draft post');
+        });
+});

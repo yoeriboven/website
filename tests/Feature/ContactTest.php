@@ -1,100 +1,78 @@
 <?php
 
-namespace Tests\Feature;
-
 use App\Notifications\NewContactSubmission;
 use Facades\App\Services\Statamic;
 use Illuminate\Support\Facades\Notification;
-use Tests\TestCase;
-use PHPUnit\Framework\Attributes\Test;
 
-class ContactTest extends TestCase
-{
-    protected array $validData = [
+beforeEach(function () {
+    Notification::fake();
+});
+
+function validData(): array {
+    return [
         'name'        => 'Yoeri Boven',
         'email'       => 'example@yoeri.me',
         'description' => "We're looking for someone to build a SaaS application.",
     ];
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        Notification::fake();
-    }
-
-    #[Test]
-    public function it_stores_the_form_submission()
-    {
-        Statamic::shouldReceive('storeContactSubmission')->once()->with($this->validData);
-
-        $this->post(route('contact.store'), $this->validData)
-            ->assertRedirect();
-    }
-
-    #[Test]
-    public function it_requires_all_fields()
-    {
-        $this->post(route('contact.store'), [
-            'name'        => null,
-            'email'       => null,
-            'description' => null,
-        ])->assertInvalid(['name', 'email', 'description']);
-    }
-
-    #[Test]
-    public function it_requires_a_valid_email()
-    {
-        $this->post(route('contact.store'), [
-            'email' => 'invalid_email',
-        ])->assertInvalid(['email']);
-    }
-
-    #[Test]
-    public function it_needs_a_description_of_at_least_10_characters()
-    {
-        $this->post(route('contact.store'), [
-            'description' => 'nine_char',
-        ])->assertInvalid(['description']);
-
-        $this->post(route('contact.store'), [
-            'description' => 'more than 10 characters',
-        ])->assertValid(['descriptions']);
-    }
-
-    #[Test]
-    public function it_sends_a_notification_when_the_form_is_submitted()
-    {
-        Statamic::shouldReceive('storeContactSubmission')->once();
-
-        $this->post(route('contact.store'), $this->validData);
-
-        Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification) {
-            return $notification->submission === $this->validData;
-        });
-    }
-
-    #[Test]
-    public function it_sends_an_email_when_the_form_is_submitted()
-    {
-        Statamic::shouldReceive('storeContactSubmission')->once();
-
-        $this->post(route('contact.store'), $this->validData);
-
-        Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification, $channels, $notififiable) {
-            return $notififiable->routes['mail'] === config('app.contact_email');
-        });
-    }
-
-    #[Test]
-    public function it_sends_a_telegram_message_when_the_form_is_submitted()
-    {
-        Statamic::shouldReceive('storeContactSubmission')->once();
-
-        $this->post(route('contact.store'), $this->validData);
-
-        Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification, $channels, $notififiable) {
-            return $notififiable->routes['telegram'] === config('services.telegram-bot-api.chat_id');
-        });
-    }
 }
+
+it('stores the form submission', function () {
+    Statamic::shouldReceive('storeContactSubmission')->once()->with(validData());
+
+    $this->post(route('contact.store'), validData())
+        ->assertRedirect();
+});
+
+it('requires all fields', function () {
+    $this->post(route('contact.store'), [
+        'name'        => null,
+        'email'       => null,
+        'description' => null,
+    ])->assertInvalid(['name', 'email', 'description']);
+});
+
+it('requires a valid email', function () {
+    $this->post(route('contact.store'), [
+        'email' => 'invalid_email',
+    ])->assertInvalid(['email']);
+});
+
+it('needs a description of at least 10 characters', function () {
+    $this->post(route('contact.store'), [
+        'description' => 'nine_char',
+    ])->assertInvalid(['description']);
+
+    $this->post(route('contact.store'), [
+        'description' => 'more than 10 characters',
+    ])->assertValid(['descriptions']);
+});
+
+it('sends a notification when the form is submitted', function () {
+    Statamic::shouldReceive('storeContactSubmission')->once();
+
+    $this->post(route('contact.store'), validData());
+
+    Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification) {
+        return $notification->submission === validData();
+    });
+});
+
+it('sends an email when the form is submitted', function () {
+    Statamic::shouldReceive('storeContactSubmission')->once();
+
+    $this->post(route('contact.store'), validData());
+
+    Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification, $channels, $notififiable) {
+        return $notififiable->routes['mail'] === config('app.contact_email');
+    });
+});
+
+it('sends a telegram message when the form is submitted', function () {
+    Statamic::shouldReceive('storeContactSubmission')->once();
+
+    $this->post(route('contact.store'), validData());
+
+    Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification, $channels, $notififiable) {
+        return $notififiable->routes['telegram'] === config('services.telegram-bot-api.chat_id');
+    });
+});

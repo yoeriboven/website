@@ -1,7 +1,5 @@
 <?php
 
-namespace Tests\Integration\Services;
-
 use Facades\App\Services\Statamic;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
@@ -10,134 +8,113 @@ use Statamic\Entries\Entry;
 use Statamic\Facades\Form as FormFacade;
 use Statamic\Forms\Form;
 use Statamic\Forms\Submission;
-use Tests\TestCase;
-use PHPUnit\Framework\Attributes\Test;
 
-class StatamicTest extends TestCase
-{
-    #[Test]
-    public function it_can_store_a_form_submission()
-    {
-        $mockedSubmission = $this->mock(Submission::class, function (MockInterface $mock) {
-            $mock->shouldReceive('data')->once()->with([
-                'name'        => 'Yoeri Boven',
-                'email'       => 'example@yoeri.me',
-                'description' => "We're looking for someone to build a SaaS application.",
-            ]);
-
-            $mock->shouldReceive('save')->once()->andReturn(true);
-        });
-
-        $mockedForm = $this->mock(Form::class, function (MockInterface $mock) use ($mockedSubmission) {
-            $mock->shouldReceive('makeSubmission')->once()->andReturn($mockedSubmission);
-        });
-
-        $mockedCollection = $this->mock(Collection::class, function (MockInterface $mock) use ($mockedForm) {
-            $mock->shouldReceive('first')->once()->andReturn($mockedForm);
-        });
-
-        FormFacade::shouldReceive('all')->once()->andReturn($mockedCollection);
-
-        Statamic::storeContactSubmission([
+it('can store a form submission', function () {
+    $mockedSubmission = $this->mock(Submission::class, function (MockInterface $mock) {
+        $mock->shouldReceive('data')->once()->with([
             'name'        => 'Yoeri Boven',
             'email'       => 'example@yoeri.me',
             'description' => "We're looking for someone to build a SaaS application.",
         ]);
-    }
 
-    #[Test]
-    public function it_gets_published_posts_for_guests()
-    {
-        $this->createArticle(title: 'A published post', published: true);
+        $mock->shouldReceive('save')->once()->andReturn(true);
+    });
 
-        $article = Statamic::getLatestArticles()->items()[0];
+    $mockedForm = $this->mock(Form::class, function (MockInterface $mock) use ($mockedSubmission) {
+        $mock->shouldReceive('makeSubmission')->once()->andReturn($mockedSubmission);
+    });
 
-        $this->assertEquals('A published post', $article->title);
-    }
+    $mockedCollection = $this->mock(Collection::class, function (MockInterface $mock) use ($mockedForm) {
+        $mock->shouldReceive('first')->once()->andReturn($mockedForm);
+    });
 
-    #[Test]
-    public function it_gets_published_posts_for_admins()
-    {
-        $this->loginStatamicUser();
+    FormFacade::shouldReceive('all')->once()->andReturn($mockedCollection);
 
-        $this->createArticle(title: 'A published post', published: true);
+    Statamic::storeContactSubmission([
+        'name'        => 'Yoeri Boven',
+        'email'       => 'example@yoeri.me',
+        'description' => "We're looking for someone to build a SaaS application.",
+    ]);
+});
 
-        $article = Statamic::getLatestArticles()->items()[0];
+it('gets published posts for guests', function () {
+    $this->createArticle(title: 'A published post', published: true);
 
-        $this->assertEquals('A published post', $article->title);
-    }
+    $article = Statamic::getLatestArticles()->items()[0];
 
-    #[Test]
-    public function it_doesnt_get_drafts_for_guests()
-    {
-        $this->createArticle(title: 'A draft post', published: false);
+    expect($article->title)->toEqual('A published post');
+});
 
-        $article = Statamic::getLatestArticles()->first();
+it('gets published posts for admins', function () {
+    $this->loginStatamicUser();
 
-        $this->assertNotEquals('A draft post', $article?->title);
-    }
+    $this->createArticle(title: 'A published post', published: true);
 
-    #[Test]
-    public function it_gets_drafts_for_admin()
-    {
-        $this->loginStatamicUser();
+    $article = Statamic::getLatestArticles()->items()[0];
 
-        $this->createArticle(title: 'A draft post', published: false);
+    expect($article->title)->toEqual('A published post');
+});
 
-        $article = Statamic::getLatestArticles()->items()[0];
+it('doesnt get drafts for guests', function () {
+    $this->createArticle(title: 'A draft post', published: false);
 
-        $this->assertEquals('A draft post', $article->title);
-    }
+    $article = Statamic::getLatestArticles()->first();
 
-    #[Test]
-    public function it_returns_the_article_by_slug()
-    {
-        $this->createArticle(title: 'A draft post', published: false);
+    $this->assertNotEquals('A draft post', $article?->title);
+});
 
-        $article = Statamic::getArticleBySlug(Str::slug('A draft post'));
+it('gets drafts for admin', function () {
+    $this->loginStatamicUser();
 
-        $this->assertEquals('A draft post', $article->title);
-    }
+    $this->createArticle(title: 'A draft post', published: false);
 
-    #[Test]
-    public function it_only_shows_published_in_the_past_posts_to_guests()
-    {
-        $this->createArticle(title: 'A published post in the future', published: true, publish_date: today()->addDay());
+    $article = Statamic::getLatestArticles()->items()[0];
 
-        $containsFuturePost = Statamic::getLatestArticles()->contains(function (Entry $article) {
-            return $article->title === 'A published post in the future';
-        });
+    expect($article->title)->toEqual('A draft post');
+});
 
-        $this->assertFalse($containsFuturePost);
+it('returns the article by slug', function () {
+    $this->createArticle(title: 'A draft post', published: false);
 
-        $this->createArticle(title: 'A published post in the past', published: true, publish_date: today()->subDay());
+    $article = Statamic::getArticleBySlug(Str::slug('A draft post'));
 
-        $containsPastPost = Statamic::getLatestArticles()->contains(function (Entry $article) {
-            return $article->title === 'A published post in the past';
-        });
+    expect($article->title)->toEqual('A draft post');
+});
 
-        $this->assertTrue($containsPastPost);
-    }
+it('only shows published in the past posts to guests', function () {
+    $this->createArticle(title: 'A published post in the future', published: true, publish_date: today()->addDay());
 
-    #[Test]
-    public function it_shows_published_posts_to_admins_regardless_of_the_published_date()
-    {
-        $this->loginStatamicUser();
+    $containsFuturePost = Statamic::getLatestArticles()->contains(function (Entry $article) {
+        return $article->title === 'A published post in the future';
+    });
 
-        $this->createArticle(title: 'A published post in the future', published: true, publish_date: today()->addDay());
+    expect($containsFuturePost)->toBeFalse();
 
-        $containsFuturePost = Statamic::getLatestArticles()->contains(function (Entry $article) {
-            return $article->title === 'A published post in the future';
-        });
+    $this->createArticle(title: 'A published post in the past', published: true, publish_date: today()->subDay());
 
-        $this->assertTrue($containsFuturePost);
+    $containsPastPost = Statamic::getLatestArticles()->contains(function (Entry $article) {
+        return $article->title === 'A published post in the past';
+    });
 
-        $this->createArticle(title: 'A published post in the past', published: true, publish_date: today()->subDay());
+    expect($containsPastPost)->toBeTrue();
+});
 
-        $containsPastPost = Statamic::getLatestArticles()->contains(function (Entry $article) {
-            return $article->title === 'A published post in the past';
-        });
+it('shows published posts to admins regardless of the published date', function () {
+    $this->loginStatamicUser();
 
-        $this->assertTrue($containsPastPost);
-    }
-}
+    $this->createArticle(title: 'A published post in the future', published: true, publish_date: today()->addDay());
+
+    $containsFuturePost = Statamic::getLatestArticles()->contains(function (Entry $article) {
+        return $article->title === 'A published post in the future';
+    });
+
+    expect($containsFuturePost)->toBeTrue();
+
+    $this->createArticle(title: 'A published post in the past', published: true, publish_date: today()->subDay());
+
+    $containsPastPost = Statamic::getLatestArticles()->contains(function (Entry $article) {
+        return $article->title === 'A published post in the past';
+    });
+
+    expect($containsPastPost)->toBeTrue();
+});

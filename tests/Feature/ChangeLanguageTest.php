@@ -1,24 +1,12 @@
 <?php
 
-namespace Tests\Feature;
+it('can visit a url and explicitly set the language with a cookie', function () {
+    $this->post('language/nl')->assertCookie('language', 'nl');
+});
 
-use Tests\TestCase;
-use PHPUnit\Framework\Attributes\Test;
+it('only allows english and dutch', function () {
+    $this->post('language/nl')->assertNoContent();
+    $this->post('language/en')->assertNoContent();
 
-class ChangeLanguageTest extends TestCase
-{
-    #[Test]
-    public function it_can_visit_a_url_and_explicitly_set_the_language_with_a_cookie()
-    {
-        $this->post('language/nl')->assertCookie('language', 'nl');
-    }
-
-    #[Test]
-    public function it_only_allows_english_and_dutch()
-    {
-        $this->post('language/nl')->assertNoContent();
-        $this->post('language/en')->assertNoContent();
-
-        $this->post('language/de')->assertNotFound();
-    }
-}
+    $this->post('language/de')->assertNotFound();
+});
