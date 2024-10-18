@@ -27,7 +27,7 @@ createInertiaApp({
 })
 
 Inertia.on('navigate', (event) => {
-  if (window.fathom) {
+    if (window.fathom) {
       window.fathom.trackPageview();
-  }
+    }
 })
