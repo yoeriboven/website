@@ -1,5 +1,6 @@
 {
     "private": true,
+    "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "vite build"
@@ -24,6 +25,5 @@
         "laravel-vue-i18n": "^1.4.4",
         "mitt": "^3.0.1",
         "vue": "^3.5.12"
-    },
-    "type": "module"
+    }
 }
