@@ -24,5 +24,4 @@ public/assets
 /content/collections/*/
 /content/trees/*/
 /.phpunit.cache
-/.phpunit.cache/
-.phpunit.cache/test-results
+
