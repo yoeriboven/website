@@ -12,6 +12,6 @@ class ChangeLanguageController
             Cookie::forever('language', $language)
         );
 
-        return redirect()->back();
+        return response()->noContent();
     }
 }
