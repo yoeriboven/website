@@ -16,8 +16,8 @@ class ChangeLanguageTest extends TestCase
     #[Test]
     public function it_only_allows_english_and_dutch()
     {
-        $this->post('language/nl')->assertSuccessful();
-        $this->post('language/en')->assertSuccessful();
+        $this->post('language/nl')->assertRedirect();
+        $this->post('language/en')->assertRedirect();
 
         $this->post('language/de')->assertNotFound();
     }
