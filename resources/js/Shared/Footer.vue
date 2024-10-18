@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/inertia-vue3'
+import { Link } from '@inertiajs/vue3'
 
 const currentYear = new Date().getFullYear();
 </script>

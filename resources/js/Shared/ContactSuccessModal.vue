@@ -13,8 +13,12 @@
                         <DialogPanel class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
                             <div>
                                 <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
-                                    <CheckIcon class="h-6 w-6 text-green-600" aria-hidden="true" />
+                                    <!-- Checkmark -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
                                 </div>
+
                                 <div class="mt-3 text-center sm:mt-5">
                                     <DialogTitle as="h3" class="text-lg leading-6 font-medium text-gray-900">
                                         {{ $t('message_received') }}
@@ -44,8 +48,7 @@
 
 <script setup>
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
-import { CheckIcon } from '@heroicons/vue/outline'
-import { Link } from '@inertiajs/inertia-vue3'
+import { Link } from '@inertiajs/vue3'
 
 const props = defineProps({
     open : {

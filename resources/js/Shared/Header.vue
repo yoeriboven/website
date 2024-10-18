@@ -48,8 +48,7 @@
 <script setup>
 import { onMounted, ref, inject } from "vue";
 import { getActiveLanguage, loadLanguageAsync } from "laravel-vue-i18n";
-import { Link } from '@inertiajs/inertia-vue3'
-import axios from "axios";
+import { Link } from '@inertiajs/vue3'
 
 defineProps({
     showHome: {
@@ -81,16 +80,16 @@ function changeLanguage(lang) {
         return;
     }
 
-    axios.post(route('language-change', lang))
-        .then(function(response) {
-            loadLanguageAsync(lang);
-
-            emitter.emit('changedLanguage', {lang: lang});
-
-            if (response.status === 204) {
-                orderLanguages(lang);
-            }
-    });
+    // axios.post(route('language-change', lang))
+    //     .then(function(response) {
+    //         loadLanguageAsync(lang);
+    //
+    //         emitter.emit('changedLanguage', {lang: lang});
+    //
+    //         if (response.status === 204) {
+    //             orderLanguages(lang);
+    //         }
+    // });
 }
 
 </script>

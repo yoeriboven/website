@@ -265,12 +265,11 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { formatDate, projectColors, getCurrentLanguage } from "@/functions"
-import { Link } from '@inertiajs/inertia-vue3'
+import { Link, Head } from '@inertiajs/vue3'
 
 import Header from '@/Shared/Header.vue'
 import CTAFooter from '@/Shared/CTAFooter.vue'
 import Footer from '@/Shared/Footer.vue'
-import { Head } from '@inertiajs/inertia-vue3'
 import TopBanner from "@/Shared/TopBanner.vue"
 import ProjectModal from "@/Shared/ProjectModal.vue"
 

@@ -103,7 +103,7 @@
 </template>
 
 <script setup>
-import { Head, useForm, Link } from '@inertiajs/inertia-vue3'
+import { Head, useForm, Link } from '@inertiajs/vue3'
 import ContactSuccessModal from "@/Shared/ContactSuccessModal.vue";
 import { computed } from 'vue'
 import Footer from "@/Shared/Footer.vue";
