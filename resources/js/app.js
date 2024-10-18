@@ -11,7 +11,10 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(i18nVue, {
-                resolve: lang => import(`../../lang/${lang}.json`),
+                resolve: async lang => {
+                    const langs = import.meta.glob('../../lang/*.json');
+                    return await langs[`../../lang/${lang}.json`]();
+                }
             })
             .provide('emitter', mitt())
             .mixin({ methods: { route } })
