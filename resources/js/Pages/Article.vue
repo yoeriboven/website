@@ -2,7 +2,7 @@
     <Head>
         <title>{{ article.title }}</title>
         <meta name="description" :content="article.meta_description" />
-        <link rel=”canonical” :href="route('article', article.id)">
+        <link rel=”canonical” :href="route('article', article.slug)">
     </Head>
 
     <div>
