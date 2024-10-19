@@ -5,6 +5,7 @@
             name="description"
             content="I try to share everything I learn on this blog. You will find articles on Laravel, Inertia, Livewire, Vue.js and so on."
         />
+        <link rel=”canonical” :href="route('blog')">
     </Head>
 
     <div>

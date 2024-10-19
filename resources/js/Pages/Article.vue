@@ -2,6 +2,7 @@
     <Head>
         <title>{{ article.title }}</title>
         <meta name="description" :content="article.meta_description" />
+        <link rel=”canonical” :href="route('article', article.id)">
     </Head>
 
     <div>
@@ -35,7 +36,7 @@ import { formatDate} from "@/functions";
 import Header from '@/Shared/Header.vue'
 import CTAFooter from '@/Shared/CTAFooter.vue'
 import Footer from '@/Shared/Footer.vue'
-import { Head } from '@inertiajs/vue3'
+import { Head, Link } from "@inertiajs/vue3";
 import TopBanner from "@/Shared/TopBanner.vue";
 
 defineProps({

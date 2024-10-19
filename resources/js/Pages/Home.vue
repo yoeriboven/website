@@ -2,6 +2,7 @@
     <Head>
         <title>Freelance Laravel developer</title>
         <meta name="description" :content="pageDescription" />
+        <link rel=”canonical” :href="route('home')">
     </Head>
 
     <section class="h-auto md:h-screen">
@@ -293,9 +294,7 @@ const featuredProject = ref(props.projects[0])
 const showProjectModal = ref(false);
 
 function showProject(id) {
-    const selectedProject = props.projects.find((project) => project.id === id);
-
-    featuredProject.value = selectedProject;
+    featuredProject.value = props.projects.find((project) => project.id === id);
 
     showProjectModal.value = true;
 }
