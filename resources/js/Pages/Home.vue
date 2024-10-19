@@ -308,13 +308,3 @@ const pageDescription = computed(() => {
 })
 
 </script>
-
-curl --request POST \
---url https://api.cloudflare.com/client/v4/zones/21d1fe5c6c09616dff03a9084f04890b/purge_cache \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer K5XIb4bd594R_SVvuZ1THC1fmAxhT2QlKMZjj9hc' \
---data '{
-"hosts": [
-"yoeri.me"
-]
-}'
