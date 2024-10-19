@@ -2,7 +2,7 @@
     <Head>
         <title>{{ $t('contact.meta_title') }}</title>
         <meta name="description" :content="pageDescription" />
-        <link rel=”canonical” :href="route('contact')">
+        <link rel="canonical" :href="route('contact')">
     </Head>
 
     <TopBanner />
