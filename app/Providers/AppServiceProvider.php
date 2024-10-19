@@ -8,6 +8,7 @@ use Illuminate\Testing\Fluent\AssertableJson;
 use PHPUnit\Framework\Assert as PHPUnit;
 use Statamic\Facades\Markdown;
 use Torchlight\Commonmark\V2\TorchlightExtension;
+use Illuminate\Support\Facades\Vite;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->registerMacros();
         $this->registerMarkdownExtensions();
+
+        Vite::prefetch(5);
     }
 
     protected function registerMacros(): void
