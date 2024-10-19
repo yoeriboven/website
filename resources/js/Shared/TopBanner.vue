@@ -6,13 +6,14 @@
                     <div class="flex items-center justify-center space-x-2">
                         <img class="cursor-text"
                              style="height:1.25em;"
+                             alt="An emoji of a waving hand"
                              src="/img/waving-hand-120.png"
                              srcset="/img/waving-hand-160.png 2x"
                     />
                         <span>{{ $t('top_banner.availability') }}</span>
                     </div>
                     <span class="block sm:ml-2 sm:inline-block">
-                        <Link :href="route('contact')" class="text-white font-bold underline underline-offset-2">
+                        <Link prefetch :href="route('contact')" class="text-white font-bold underline underline-offset-2">
                            {{ $t('top_banner.cta')}} <span aria-hidden="true">&rarr;</span>
                         </Link>
                     </span>

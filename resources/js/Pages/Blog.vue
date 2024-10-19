@@ -19,11 +19,12 @@
                 <li v-for="article in articles.data" :key="article.id">
                     <Link
                         :href="route('article', article.slug)"
+                        prefetch
                         class="group flex flex-col"
                     >
-                        <span class="text-xs uppercase text-emerald-600">{{
-                            formatDate(article.publish_date, "D MMMM YYYY")
-                        }}</span>
+                        <span class="text-xs uppercase text-emerald-600">
+                            {{ formatDate(article.publish_date, "D MMMM YYYY") }}
+                        </span>
                         <span
                             class="text-2xl font-medium leading-7 text-gray-600 group-hover:text-emerald-600"
                             >{{ article.title }}</span
