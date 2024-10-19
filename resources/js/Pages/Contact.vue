@@ -9,7 +9,7 @@
     <div class="py-8">
         <main class="w-5/6 md:w-1/2 mx-auto">
             <div class="prose prose-h1:mb-0">
-                <Link :href="route('home')">
+                <Link :href="route('home')" prefetch>
                     <img class="mt-6 mb-6 w-24 h-24 aspect-square rounded-full shadow-md" src="/img/avatar.webp" alt="A picture of me" />
                 </Link>
 
@@ -105,7 +105,7 @@
 <script setup>
 import { Head, useForm, Link } from '@inertiajs/vue3'
 import ContactSuccessModal from "@/Shared/ContactSuccessModal.vue";
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import Footer from "@/Shared/Footer.vue";
 import TopBanner from "@/Shared/TopBanner.vue";
 import { getCurrentLanguage } from "@/functions";

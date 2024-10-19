@@ -29,8 +29,11 @@
                             <p>Ik sta open voor zowel opdrachten op uurbasis als op projectbasis.</p>
 
                             <p>Kijk even rond of
-                                <Link :href="route('contact')"
-                                      class="no-underline font-regular text-emerald-500 hover:text-emerald-400">
+                                <Link
+                                    :href="route('contact')"
+                                    prefetch
+                                    class="no-underline font-regular text-emerald-500 hover:text-emerald-400"
+                                >
                                     neem contact op
                                 </Link>
                                 en dan praten we snel. :)
@@ -58,8 +61,11 @@
                                 starting from scratch.</p>
 
                             <p>Take a look around or
-                                <Link :href="route('contact')"
-                                      class="no-underline font-regular text-emerald-500 hover:text-emerald-400">
+                                <Link
+                                    :href="route('contact')"
+                                    prefetch
+                                    class="no-underline font-regular text-emerald-500 hover:text-emerald-400"
+                                >
                                     contact me
                                 </Link>
                                 and we'll talk soon. :)
@@ -83,7 +89,7 @@
             <div class="mt-6">
                 <ul class="grid md:grid-cols-2 gap-y-5 gap-x-7">
                     <li v-for="article in articles.data" :key="article.id">
-                        <Link :href="route('article', article.slug)" class="flex flex-col group">
+                        <Link :href="route('article', article.slug)" prefetch class="flex flex-col group">
                             <span class="text-xs uppercase text-emerald-600">{{ formatDate(article.publish_date, "D MMMM YYYY") }}</span>
                             <span class="text-lg font-medium text-gray-700 group-hover:text-emerald-600">{{ article.title }}</span>
                             <p class="text-gray-500 text-sm leading-snug line-clamp-3 group-hover:text-emerald-600">{{ article.excerpt }}</p>
@@ -92,8 +98,12 @@
                 </ul>
 
                 <div class="mt-5 flex justify-end">
-                    <Link :href="route('blog')" as="button"
-                            class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-300">
+                    <Link
+                        :href="route('blog')"
+                        prefetch
+                        as="button"
+                        class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-300"
+                    >
                         {{ $t('read_more') }}
                     </Link>
                 </div>
