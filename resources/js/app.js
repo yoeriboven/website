@@ -5,7 +5,7 @@ import mitt from "mitt";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 
 createInertiaApp({
-    title: title => `${title} - Yoeri.me`,
+    title: title => `${title} - Yoeri Boven`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
