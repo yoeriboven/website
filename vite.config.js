@@ -28,6 +28,8 @@ export default defineConfig({
             vue: 'vue/dist/vue.esm-bundler.js',
 
             '@': path.resolve(__dirname, './resources/js'),
+
+            axios: path.resolve('node_modules/axios/dist/axios.js'),
         }
     }
 });

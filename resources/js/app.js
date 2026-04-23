@@ -3,6 +3,7 @@ import { createInertiaApp, Link, router } from "@inertiajs/vue3";
 import { i18nVue } from "laravel-vue-i18n";
 import mitt from "mitt";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+import axios from "axios";
 
 createInertiaApp({
     title: title => `${title} - Yoeri Boven`,
@@ -30,4 +31,13 @@ router.on('navigate', () => {
     if (window.fathom) {
         window.fathom.trackPageview();
     }
+})
+
+axios.interceptors.request.use((config) => {
+    if (config.headers['X-Inertia']) {
+        const url = new URL(config.url, window.location.origin)
+        url.searchParams.set('inertia', '')
+        config.url = url.pathname + url.search
+    }
+    return config
 })
