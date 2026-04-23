@@ -22,7 +22,7 @@
         "spatie/laravel-ray": "^1.40.2",
         "statamic/cms": "^5.58.1",
         "tightenco/ziggy": "^1.8.2",
-        "torchlight/torchlight-commonmark": "dev-patch-1",
+        "torchlight/torchlight-commonmark": "^0.6.0",
         "wnx/sidecar-browsershot": "^2.6.0"
     },
     "require-dev": {
@@ -78,11 +78,5 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/dasundev/torchlight-commonmark-php.git"
-        }
-    ]
+    "prefer-stable": true
 }
