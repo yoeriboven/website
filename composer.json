@@ -9,7 +9,7 @@
         "ext-intl": "*",
         "guzzlehttp/guzzle": "^7.9.3",
         "hammerstone/sidecar": "^0.6.1",
-        "inertiajs/inertia-laravel": "2.x-dev",
+        "inertiajs/inertia-laravel": "2.0.0",
         "laravel-notification-channels/telegram": "^5.0",
         "laravel/framework": "^11.45.1",
         "laravel/nightwatch": "^1.9.1",
