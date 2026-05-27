@@ -10,7 +10,7 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('blog', BlogController::class)->name('blog');
-Route::get('blog/{article}', ArticleController::class)->name('article');
+Route::get('blog/{articleSlug}', ArticleController::class)->name('article');
 Route::view('blog/social-image/{article}', 'social_image')->name('social-image');
 
 Route::post('language/{language}', ChangeLanguageController::class)
