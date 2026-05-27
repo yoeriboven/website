@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Listeners\CreateSocialImageNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Statamic\Events\EntrySaved;
 
@@ -15,7 +14,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         EntrySaved::class => [
-            CreateSocialImageNotification::class,
+//            CreateSocialImageNotification::class,
         ],
     ];
 
