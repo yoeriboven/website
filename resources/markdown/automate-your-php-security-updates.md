@@ -11,7 +11,7 @@ Let's build exactly that.
 
 ![A screenshot of the pull request on GitHub](/img/articles/security-patch-pr.png)
 
-## Monitoring
+## Detecting the vulnerability
 First we need to know when one of our installed packages has a vulnerability. For that I use [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction) and [Oh Dear](https://ohdear.app/).
 
 Laravel Health is a package that checks the status of your app every minute and notifies you when something is off. It ships with checks for disk space, CPU usage, database connectivity, and many more. One of those checks looks for security advisories against the packages in your `composer.lock`.
@@ -25,7 +25,7 @@ That's the trigger we'll use to open the PR.
 ### Not using Laravel?
 Take a look at the [security advisories health check](https://github.com/spatie/security-advisories-health-check/) and port the idea to plain PHP. There are a bunch of ways to fetch the data, so let your AI agent of choice help you out.
 
-## Noticing the issue
+## Triggering the workflow
 In a service provider we listen for the `CheckEndedEvent`. We first make sure we're dealing with a failed security advisories check, then build a cache key from the affected packages.
 
 The cache key is there to avoid hitting the GitHub API every single minute. If we've already opened a PR for this exact set of packages, we bail out.
@@ -81,10 +81,10 @@ Event::listen(CheckEndedEvent::class, function (CheckEndedEvent $event) {
 
 Don't forget to swap `repo_owner` and `repo_name` for your own.
 
-### Getting a token
+### The trigger token
 [Head over to GitHub](https://github.com/settings/personal-access-tokens) to create a personal access token. Give it a reasonable lifetime. With the permissions scoped down, I think 180 days is fine. Limit it to this app's repository and give it `Contents: read and write`.
 
-## The GitHub Action
+## Opening the pull request
 Create a new `.yml` file under `.github/workflows/` and paste the following:
 
 ```yml
@@ -180,7 +180,7 @@ Before and after the update it grabs each package's version from `composer.lock`
 
 The next step commits the changes to a new branch and opens the PR. You can tack on `--assignee [username]` to the `gh pr create` call if you want the PR assigned to a specific person.
 
-### Another token
+### The PR token
 By default the action doesn't have permission to open pull requests, so you'll need [a second token](https://github.com/settings/personal-access-tokens). This one needs `Contents: read and write` and `Pull requests: read and write`.
 
 In your repo, go to `Settings → Secrets and variables → Actions → Secrets → Repository secrets` and save it as `CREATE_PR_TOKEN`.
