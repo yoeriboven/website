@@ -27,15 +27,15 @@ class ArticleController
         ]);
     }
 
-    private function nieuweSlug() {
+    private function automateYourPhpSecurityUpdates() {
         $article = new \stdClass();
-        $article->title = 'Random titl2e';
-        $article->meta_description = 'Random meta description';
-        $article->slug = 'nieuwe-slug';
-        $article->publish_date = Carbon::parse('2022-07-06');
+        $article->title = 'Automate your PHP security updates';
+        $article->meta_description = 'Using Github Actions we can ';
+        $article->slug = 'automate-your-php-security-updates';
+        $article->publish_date = Carbon::parse('2026-05-28');
         $article->published = true;
         $article->content = Str::markdown(
-            file_get_contents(resource_path('markdown/nieuwe-slug.md')),
+            file_get_contents(resource_path('markdown/automate-your-php-security-updates.md')),
             extensions: [new TorchlightExtension()]);
 
         return $article;
