@@ -9,6 +9,8 @@ Wouldn't it be nice if a PR showed up on GitHub the moment a new advisory drops?
 
 Let's build exactly that.
 
+![A screenshot of the pull request on GitHub](/img/articles/security-patch-pr.png)
+
 ## Monitoring
 First we need to know when one of our installed packages has a vulnerability. For that I use [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction) and [Oh Dear](https://ohdear.app/).
 
@@ -16,7 +18,7 @@ Laravel Health is a package that checks the status of your app every minute and 
 
 Hooked up to Oh Dear, I get pinged whenever a check fails.
 
-![titel](/img/articles/oh-dear-telegram.png)
+![A Telegram screenshot with notifications from Oh Dear](/img/articles/oh-dear-telegram.png)
 
 That's the trigger we'll use to open the PR.
 
