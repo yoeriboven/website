@@ -6,6 +6,7 @@ use Facades\App\Services\Statamic;
 use Inertia\Inertia;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
 use Torchlight\Commonmark\V2\TorchlightExtension;
 
 class ArticleController
@@ -43,7 +44,11 @@ class ArticleController
     {
         $markdown = file_get_contents(resource_path("markdown/{$file}"));
 
-        $html = Str::markdown($markdown, extensions: [new TorchlightExtension()]);
+        $html = Str::markdown($markdown, options: [
+            'external_link' => [
+                'open_in_new_window' => true,
+            ],
+        ], extensions: [new TorchlightExtension(), new ExternalLinkExtension()]);
 
         return $this->embedRawCodeBlocks($markdown, $html);
     }

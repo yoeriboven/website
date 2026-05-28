@@ -60,21 +60,24 @@ Event::listen(CheckEndedEvent::class, function (CheckEndedEvent $event) {
 
     $affectedPackages = array_keys($event->result->meta);
 
-    Http::createPendingRequest()
+    $response = Http::createPendingRequest()
         ->withToken(config('services.github.workflow_trigger_token'))
-        ->post('https://api.github.com/repos/yoeriboven/hosmic/dispatches', [
+        ->post('https://api.github.com/repos/[repo_owner]/[repo_name]/dispatches', [
             'event_type' => 'composer-security-advisories-failed',
             'client_payload' => [
     'packages' => $affectedPackages,
             ],
-        ])
-        ->onError(function (Response $response) {
-            report($response->toException());
-        });
+        ]);
 
-    Cache::put($cacheKey, true, now()->addWeek());
+    if ($response->successful()) {
+        Cache::put($cacheKey, true, now()->addWeek());
+    } else {
+        report($response->toException());
+    }
 });
 ```
+
+Don't forget to swap `repo_owner` and `repo_name` for your own.
 
 ### Getting a token
 [Head over to GitHub](https://github.com/settings/personal-access-tokens) to create a personal access token. Give it a reasonable lifetime. With the permissions scoped down, I think 180 days is fine. Limit it to this app's repository and give it `Contents: read and write`.
