@@ -28,7 +28,6 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
-        $this->registerRouteModelBinding();
 
         $this->routes(function () {
             Route::prefix('api')
@@ -44,17 +43,6 @@ class RouteServiceProvider extends ServiceProvider
     {
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
-        });
-    }
-
-    public function registerRouteModelBinding(): void
-    {
-        Route::bind('article', function ($slug) {
-            $article = Statamic::getArticleBySlug($slug);
-
-            abort_if(is_null($article), 404);
-
-            return $article;
         });
     }
 }
