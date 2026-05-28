@@ -9,10 +9,6 @@ class BlogController
 {
     public function __invoke()
     {
-        $articles = Statamic::getLatestArticles(10);
-
-        return Inertia::render('Blog', [
-            'articles' => $articles,
-        ]);
+        return Inertia::render('Blog');
     }
 }

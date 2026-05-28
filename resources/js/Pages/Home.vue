@@ -89,11 +89,60 @@
             </div>
             <div class="mt-6">
                 <ul class="grid md:grid-cols-2 gap-y-5 gap-x-7">
-                    <li v-for="article in articles.data" :key="article.id">
-                        <Link :href="route('article', article.slug)" prefetch class="flex flex-col group">
-                            <span class="text-xs uppercase text-emerald-600">{{ formatDate(article.publish_date, "D MMMM YYYY") }}</span>
-                            <span class="text-lg font-medium text-gray-700 group-hover:text-emerald-600">{{ article.title }}</span>
-                            <p class="text-gray-500 text-sm leading-snug line-clamp-3 group-hover:text-emerald-600">{{ article.excerpt }}</p>
+                    <li>
+                        <Link :href="route('article', 'automate-your-php-security-updates')" prefetch class="flex flex-col group">
+                            <span class="text-xs uppercase text-emerald-600">{{ formatDate("2026-05-28T00:00:00.000000Z", "D MMMM YYYY") }}</span>
+                            <span class="text-lg font-medium text-gray-700 group-hover:text-emerald-600">Automate your PHP security updates</span>
+                            <p class="text-gray-500 text-sm leading-snug line-clamp-3 group-hover:text-emerald-600">I'm using a GitHub action to automatically create a PR when a new security vulnerability is announced.</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link :href="route('article', 'increase-the-timeout-of-laravel-herd')" prefetch class="flex flex-col group">
+                            <span class="text-xs uppercase text-emerald-600">{{ formatDate("2024-02-22T00:00:00.000000Z", "D MMMM YYYY") }}</span>
+                            <span class="text-lg font-medium text-gray-700 group-hover:text-emerald-600">Increase the timeout of Laravel Herd</span>
+                            <p class="text-gray-500 text-sm leading-snug line-clamp-3 group-hover:text-emerald-600">An update of my article about Valet but for Laravel Herd.</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link :href="route('article', 'increase-the-timeout-of-laravel-valet')" prefetch class="flex flex-col group">
+                            <span class="text-xs uppercase text-emerald-600">{{ formatDate("2023-07-07T00:00:00.000000Z", "D MMMM YYYY") }}</span>
+                            <span class="text-lg font-medium text-gray-700 group-hover:text-emerald-600">Increase the timeout of Laravel Valet</span>
+                            <p class="text-gray-500 text-sm leading-snug line-clamp-3 group-hover:text-emerald-600">I tried to run a very slow request but kept hitting the timeout. Here's how you can increase the timeout and get on with the development.</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link :href="route('article', 'how-i-made-my-blog-multi-lingual')" prefetch class="flex flex-col group">
+                            <span class="text-xs uppercase text-emerald-600">{{ formatDate("2022-07-06T00:00:00.000000Z", "D MMMM YYYY") }}</span>
+                            <span class="text-lg font-medium text-gray-700 group-hover:text-emerald-600">How I made my blog multi-lingual</span>
+                            <p class="text-gray-500 text-sm leading-snug line-clamp-3 group-hover:text-emerald-600">You can change this site's language by clicking on the flag in the top right. Here's how I did that.</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link :href="route('article', 'building-social-images-with-browsershot-and-aws')" prefetch class="flex flex-col group">
+                            <span class="text-xs uppercase text-emerald-600">{{ formatDate("2022-06-17T00:00:00.000000Z", "D MMMM YYYY") }}</span>
+                            <span class="text-lg font-medium text-gray-700 group-hover:text-emerald-600">Building social images with Browsershot and AWS</span>
+                            <p class="text-gray-500 text-sm leading-snug line-clamp-3 group-hover:text-emerald-600">Creating social images for your website is super simple using Browsershot and AWS Lambda.</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link :href="route('article', 'logging-to-the-database-with-laravel')" prefetch class="flex flex-col group">
+                            <span class="text-xs uppercase text-emerald-600">{{ formatDate("2022-06-07T00:00:00.000000Z", "D MMMM YYYY") }}</span>
+                            <span class="text-lg font-medium text-gray-700 group-hover:text-emerald-600">Logging to the database with Laravel</span>
+                            <p class="text-gray-500 text-sm leading-snug line-clamp-3 group-hover:text-emerald-600">I wanted to log to the database. Laravel doesn't come with a driver out of the box, so I built one myself.</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link :href="route('article', 'testing-your-statamic-implementation')" prefetch class="flex flex-col group">
+                            <span class="text-xs uppercase text-emerald-600">{{ formatDate("2022-06-03T00:00:00.000000Z", "D MMMM YYYY") }}</span>
+                            <span class="text-lg font-medium text-gray-700 group-hover:text-emerald-600">Testing your Statamic implementation</span>
+                            <p class="text-gray-500 text-sm leading-snug line-clamp-3 group-hover:text-emerald-600">It can be unclear how to write Statamic tests. I wrote a trait that makes it easy to test your Statamic implementation.</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link :href="route('article', 'a-better-ux-for-laravel-cashier')" prefetch class="flex flex-col group">
+                            <span class="text-xs uppercase text-emerald-600">{{ formatDate("2022-05-26T00:00:00.000000Z", "D MMMM YYYY") }}</span>
+                            <span class="text-lg font-medium text-gray-700 group-hover:text-emerald-600">A better UX for Laravel Cashier</span>
+                            <p class="text-gray-500 text-sm leading-snug line-clamp-3 group-hover:text-emerald-600">Laravel Cashier doesn't have a great UX out of the box. With these changes your users will better understand what's going on.</p>
                         </Link>
                     </li>
                 </ul>
@@ -286,7 +335,6 @@ import ProjectModal from "@/Shared/ProjectModal.vue"
 
 const props = defineProps({
     'projects': Array,
-    'articles': Object,
 })
 
 const currentLanguage = getCurrentLanguage();
