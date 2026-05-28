@@ -17,6 +17,27 @@
             <h2 class="mb-8 text-center text-3xl font-bold">Blog</h2>
 
             <ul class="space-y-8">
+                <li>
+                    <Link
+                        :href="route('article', 'automate-your-php-security-updates')"
+                        prefetch
+                        class="group flex flex-col"
+                    >
+                        <span class="text-xs uppercase text-emerald-600">
+                            {{ formatDate("2026-05-28T00:00:00.000000Z", "D MMMM YYYY") }}
+                        </span>
+                        <span
+                            class="text-2xl font-medium leading-7 text-gray-600 group-hover:text-emerald-600"
+                        >Automate your PHP security updates</span
+                        >
+                        <p
+                            class="mt-2 text-sm leading-snug text-gray-500 line-clamp-3 group-hover:text-emerald-600 md:mt-1"
+                        >
+                            I'm using a GitHub action to automatically create a PR when a new security vulnerability is announced.
+                        </p>
+                    </Link>
+                </li>
+
                 <li v-for="article in articles.data" :key="article.id">
                     <Link
                         :href="route('article', article.slug)"
