@@ -176,7 +176,7 @@ Before and after the update it grabs each package's version from `composer.lock`
 The next step commits the changes to a new branch and opens the PR. You can tack on `--assignee [username]` to the `gh pr create` call if you want the PR assigned to a specific person.
 
 ### Another token
-By default the action doesn't have permission to open pull requests, so you'll need a second token. This one needs `Contents: read and write` and `Pull requests: read and write`.
+By default the action doesn't have permission to open pull requests, so you'll need [a second token](https://github.com/settings/personal-access-tokens). This one needs `Contents: read and write` and `Pull requests: read and write`.
 
 In your repo, go to `Settings → Secrets and variables → Actions → Secrets → Repository secrets` and save it as `CREATE_PR_TOKEN`.
 
