@@ -133,6 +133,11 @@ jobs:
 
           composer update $PACKAGES --with-all-dependencies --no-interaction --prefer-dist --no-progress --no-scripts
 
+          if ! composer audit --no-interaction; then
+            echo "::error::Update ran but an advisory is still present — likely the fix is outside the declared version constraint. Needs a manual major bump."
+            exit 1
+          fi
+
           {
             echo "| Package | Old | New |"
             echo "| --- | --- | --- |"
@@ -147,11 +152,6 @@ jobs:
           GH_TOKEN: ${{ secrets.CREATE_PR_TOKEN }}
         run: |
           set -euo pipefail
-
-          if [[ -z "$(git status --porcelain)" ]]; then
-            echo "No changes — packages already patched."
-            exit 0
-          fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
