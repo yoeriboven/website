@@ -23,7 +23,7 @@ Hooked up to Oh Dear, I get pinged whenever a check fails.
 That's the trigger we'll use to open the PR.
 
 ### Not using Laravel?
-Take a look at the [security advisories health check](https://github.com/spatie/security-advisories-health-check/) and port the idea to plain PHP. There are plenty of ways to fetch the data, so let your AI agent of choice help you out.
+Take a look at the [security advisories health check](https://github.com/spatie/security-advisories-health-check/) and port the idea to plain PHP. There are a bunch of ways to fetch the data, so let your AI agent of choice help you out.
 
 ## Noticing the issue
 In a service provider we listen for the `CheckEndedEvent`. We first make sure we're dealing with a failed security advisories check, then build a cache key from the affected packages.
