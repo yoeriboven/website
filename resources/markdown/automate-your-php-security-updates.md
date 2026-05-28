@@ -1,38 +1,34 @@
-As PHP developers it has been raining security [issues] lately. This is a good thing because it means package maintainers found and patched security issues in their packages.
+It's been raining security advisories in the PHP world lately. That's a good thing, it means maintainers are finding and patching issues in their packages.
 
-However, it can be quite annoying having to constantly update your code to apply the patch. If you are at your computer it is usually just a simple `composer update` to fix the issue. But what if you are not at your computer?
+It's also a bit annoying. When you're at your computer, a quick `composer update` is all it takes. But when you're not:
 
-1) your app is vulnerable
-2) (my real reason for the solution in this post)  my security monitoring keeps sending me notifications.
+1. your app is vulnerable, and
+2. (the real reason I built this) my security monitoring won't stop pinging me.
 
-Wouldn't it be nice if a PR was opened on GitHub right when a new issue appear?
+Wouldn't it be nice if a PR showed up on GitHub the moment a new advisory drops?
 
 Let's build exactly that.
 
-## Monitoring 
-We need to know when we have a package installed that has issues. For that I use Laravel Health and OhDear.
+## Monitoring
+First we need to know when one of our installed packages has a vulnerability. For that I use [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction) and [Oh Dear](https://ohdear.app/).
 
-Laravel Health is a package that checks the status of your app. It runs every minute and notifies you when things go wrong.
-It has checks for available disk space, cpu usage, checking if your database is online, etc. 
-It also has a check that checks whether there are any security advisories for the current application.
+Laravel Health is a package that checks the status of your app every minute and notifies you when something is off. It ships with checks for disk space, CPU usage, database connectivity, and plenty more. One of those checks looks for security advisories against the packages in your `composer.lock`.
 
-Hooked up to OhDear I get pinged whenever a check fails.
+Hooked up to Oh Dear, I get pinged whenever a check fails.
 
-[image]
+![titel](/img/articles/oh-dear-telegram.png)
 
-Let's hook into Laravel Health to automatically create a PR.
+That's the trigger we'll use to open the PR.
 
 ### Not using Laravel?
-Check out the [security advisories health check](https://github.com/spatie/security-advisories-health-check/) and translate that to a plain PHP version. 
-
-There are a bunch of different ways to get the data, let your AI agents help you. 
+Take a look at the [security advisories health check](https://github.com/spatie/security-advisories-health-check/) and port the idea to plain PHP. There are plenty of ways to fetch the data, so let your AI agent of choice help you out.
 
 ## Noticing the issue
-In a service provider we hook into the `CheckEndedEvent`. After making sure we are working with a failed security advisories check we create a cache key from the affected packages.
+In a service provider we listen for the `CheckEndedEvent`. We first make sure we're dealing with a failed security advisories check, then build a cache key from the affected packages.
 
-This is to ensure we don't call the github action every minute. We check whether we have already created a PR for these packages and stop if we have.
+The cache key is there to avoid hitting the GitHub API every single minute. If we've already opened a PR for this exact set of packages, we bail out.
 
-Then we tell GitHub to trigger an action. If it fails we don't want the request to fail but silently report.
+Otherwise we ask GitHub to trigger the workflow. If that request fails we don't want to break the health check, so we just silently report the exception.
 
 ```php
 use Illuminate\Http\Client\Response;
@@ -81,13 +77,10 @@ Event::listen(CheckEndedEvent::class, function (CheckEndedEvent $event) {
 ```
 
 ### Getting a token
-[Visit GitHub](https://github.com/settings/personal-access-tokens) to create an authorization token. 
-Give it a reasonable lifetime. 
-If you scope down the permissions I think a 180 day lifetime is fine. 
-Only allow it on the app's repository. The permissions are `Contents: read and write`.
+[Head over to GitHub](https://github.com/settings/personal-access-tokens) to create a personal access token. Give it a reasonable lifetime. With the permissions scoped down, I think 180 days is fine. Limit it to this app's repository and give it `Contents: read and write`.
 
-## The Github Action
-Create a new `.yml` file under `.github/workflows/`. Paste the following code.
+## The GitHub Action
+Create a new `.yml` file under `.github/workflows/` and paste the following:
 
 ```yml
 name: Composer Security Patch
@@ -176,21 +169,18 @@ jobs:
             --body "$BODY"
 
 ```
-The action updates only the packages that have a security vulnerability. It also doesn't run scripts. This is to ensure the PRs stay small and only fix the issues.
+The action only updates the packages flagged as vulnerable, and it skips composer scripts. That keeps the PR small and focused on the actual fix.
 
-The update data then gets written to a temporary file so we can show that information on the pull request.
+Before and after the update it grabs each package's version from `composer.lock` and write a little markdown table to `/tmp/version-table.md`. That ends up in the PR body so you can see at a glance what changed.
 
-In the next step the changed files are committed to a new branch and the pr is created. You could also add an `--assigned [username]` to the `gh pr create` call so it assigns the pr to the right user.
+The next step commits the changes to a new branch and opens the PR. You can tack on `--assignee [username]` to the `gh pr create` call if you want the PR assigned to a specific person.
 
 ### Another token
-The action by default does not have permission to open pull requests. 
-You'll need to generate another token and add it to the repository's secrets.
-The token needs two permissions this time: `Contents: read and write` and `Pull requests: read and write`.
+By default the action doesn't have permission to open pull requests, so you'll need a second token. This one needs `Contents: read and write` and `Pull requests: read and write`.
 
-Then on you repo you go to `Settings -> Secrets and variables -> Actions -> Secrets -> Repository secrets`. 
-Save the token as `CREATE_PR_TOKEN`.
+In your repo, go to `Settings → Secrets and variables → Actions → Secrets → Repository secrets` and save it as `CREATE_PR_TOKEN`.
 
-### end
-And that's it. Make sure you save your workflow trigger token on your production environment and the next time a security vulnerability is found simply open GitHub and merge the pull request.
+## Wrapping up
+That's it. Drop the workflow trigger token into your production environment, and the next time a security advisory rolls in, all you have to do is open GitHub and merge the PR.
 
-Any questions or looking for a developer? [Let me know](https://www.yoeri.me/contact-me).
+Any questions, or looking for a developer? [Let me know](https://www.yoeri.me/contact-me).
