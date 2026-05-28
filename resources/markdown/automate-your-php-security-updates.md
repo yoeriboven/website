@@ -14,7 +14,7 @@ Let's build exactly that.
 ## Monitoring
 First we need to know when one of our installed packages has a vulnerability. For that I use [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction) and [Oh Dear](https://ohdear.app/).
 
-Laravel Health is a package that checks the status of your app every minute and notifies you when something is off. It ships with checks for disk space, CPU usage, database connectivity, and plenty more. One of those checks looks for security advisories against the packages in your `composer.lock`.
+Laravel Health is a package that checks the status of your app every minute and notifies you when something is off. It ships with checks for disk space, CPU usage, database connectivity, and many more. One of those checks looks for security advisories against the packages in your `composer.lock`.
 
 Hooked up to Oh Dear, I get pinged whenever a check fails.
 
@@ -176,7 +176,7 @@ jobs:
 ```
 The action only updates the packages flagged as vulnerable, and it skips composer scripts. That keeps the PR small and focused on the actual fix.
 
-Before and after the update it grabs each package's version from `composer.lock` and write a little markdown table to `/tmp/version-table.md`. That ends up in the PR body so you can see at a glance what changed.
+Before and after the update it grabs each package's version from `composer.lock` and writes a little markdown table to `/tmp/version-table.md`. That ends up in the PR body so you can see at a glance what changed.
 
 The next step commits the changes to a new branch and opens the PR. You can tack on `--assignee [username]` to the `gh pr create` call if you want the PR assigned to a specific person.
 
