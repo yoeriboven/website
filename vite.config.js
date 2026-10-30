@@ -27,7 +27,7 @@ export default defineConfig({
             // (i.e. Vue not loading) when building for production
             vue: 'vue/dist/vue.esm-bundler.js',
 
-            '@': path.resolve(__dirname, './resources/js'),
+            '@': path.resolve(import.meta.dirname, './resources/js'),
         }
     }
 });
