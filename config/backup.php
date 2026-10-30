@@ -29,7 +29,6 @@ return [
                  * The list of directories and files that will be included in the backup.
                  */
                 'include' => [
-                    base_path('content'),
                     base_path('public/assets'),
                 ],
 
@@ -108,6 +107,19 @@ return [
         'database_dump_compressor' => null,
 
         /*
+         * If specified, the database dumped file name will contain a timestamp (e.g.: 'Y-m-d-H-i-s').
+         */
+        'database_dump_file_timestamp_format' => null,
+
+        /*
+         * The base of the dump filename, either 'database' or 'connection'
+         *
+         * If 'database' (default), the dumped filename will contain the database name.
+         * If 'connection', the dumped filename will contain the connection name.
+         */
+        'database_dump_filename_base' => 'database',
+
+        /*
          * The file extension used for the database dump files.
          *
          * If not specified, the file extension will be .archive for MongoDB and .sql for all other databases
@@ -123,11 +135,26 @@ return [
             'filename_prefix' => '',
 
             /*
+             * The compression algorithm to be used for creating the zip archive.
+             */
+            'compression_method' => ZipArchive::CM_DEFAULT,
+
+            /*
+             * The compression level corresponding to the used algorithm; an integer between 0 and 9.
+             */
+            'compression_level' => 9,
+
+            /*
              * The disk names on which the backups will be stored.
              */
             'disks' => [
                 's3',
             ],
+
+            /*
+             * Determines whether to allow backups to continue when some targets fail instead of failing completely.
+             */
+            'continue_on_failure' => false,
         ],
 
         /*
@@ -149,6 +176,17 @@ return [
          * available on your system.
          */
         'encryption' => 'default',
+
+        /*
+         * The number of attempts, in case the backup command encounters an exception
+         */
+        'tries' => 1,
+
+        /*
+         * The number of seconds to wait before attempting a new backup if the previous try failed
+         * Set to `0` for none
+         */
+        'retry_delay' => 0,
     ],
 
     /*
@@ -279,6 +317,17 @@ return [
              */
             'delete_oldest_backups_when_using_more_megabytes_than' => 5000,
         ],
+
+        /*
+         * The number of attempts, in case the cleanup command encounters an exception
+         */
+        'tries' => 1,
+
+        /*
+         * The number of seconds to wait before attempting a new cleanup if the previous try failed
+         * Set to `0` for none
+         */
+        'retry_delay' => 0,
     ],
 
 ];
