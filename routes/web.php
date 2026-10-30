@@ -1,16 +1,14 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ChangeLanguageController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
 use App\Http\Controllers\SocialImageController;
 
-Route::get('/', HomeController::class)->name('home');
-Route::get('blog', BlogController::class)->name('blog');
+Route::inertia('/', 'Home')->name('home');
+Route::inertia('blog', 'Blog')->name('blog');
 Route::get('blog/{articleSlug}', ArticleController::class)->name('article');
 Route::get('blog/social-image/{articleSlug}', SocialImageController::class)->name('social-image');
 

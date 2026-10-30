@@ -172,8 +172,8 @@
                     <div class="overflow-scroll col-span-3 md:col-span-1 divide-y divide-slate-50 md:divide-y-0">
                         <div
                             v-for="project in projects"
-                            :key="project.id"
-                            @click="showProject(project.id)"
+                            :key="project.link"
+                            @click="showProject(project)"
                             class="flex flex-col px-4 first:pt-4 last:pb-4 py-2 hover:bg-slate-100 hover:cursor-pointer">
                             <span class="text-gray-700">{{ project.title }}</span>
                             <div class="flex space-x-1.5 text-xs text-gray-500">
@@ -333,16 +333,64 @@ import Footer from '@/Shared/Footer.vue'
 import TopBanner from "@/Shared/TopBanner.vue"
 import ProjectModal from "@/Shared/ProjectModal.vue"
 
-const props = defineProps({
-    'projects': Array,
-})
+const projects = [
+    {
+        title: 'Implemented Paddle modifiers in Cashier',
+        content: `<p>Paddle offers a way to change subscriptions.</p><p>With modifiers you can offer discounts, bill people based on usage or let them buy credits.</p><p>I implemented modifiers in <code>laravel/cashier</code> with a PR.</p><p>This PR shows I can work in existing codebases and write code in the same style.</p>`,
+        repo: 'laravel/cashier-paddle',
+        link: 'https://github.com/laravel/cashier-paddle/pull/95',
+        project_type: { value: 'pr', label: 'PR' },
+    },
+    {
+        title: 'Yoeri.me',
+        content: `<p>The source code of this website is publicly available.</p><p>Take a look on GitHub to see whether my work appeals to you. :)</p>`,
+        repo: 'yoeriboven/website',
+        link: 'https://github.com/yoeriboven/website',
+        project_type: { value: 'project', label: 'Project' },
+    },
+    {
+        title: 'Laravel now passes route parameters to views',
+        content: `<p>While working on <a href="https://github.com/yoeriboven/website/commit/b73340f435310666eeb2d2db4aa23b7596ee3be9">this commit</a> I noticed <code>Route::view</code> did not pass route parameters to the view.</p><p>I sent this PR to the Laravel framework to fix this issue.</p><p>Great code cleanup!</p>`,
+        repo: 'laravel/framework',
+        link: 'https://github.com/laravel/framework/pull/42461',
+        project_type: { value: 'pr', label: 'PR' },
+    },
+    {
+        title: 'Socopo.xyz',
+        content: `<p>Socopo is a SaaS app including payments. I built it a few years ago.</p><p>You can subscribe to Instagram accounts and get a Slack notification when one of the accounts posts something new.</p>`,
+        repo: 'yoeriboven/socopo',
+        link: 'https://github.com/yoeriboven/socopo',
+        project_type: { value: 'project', label: 'Project' },
+    },
+    {
+        title: 'Partial queue faking in Laravel',
+        content: `<p>I wanted to test that <code>JobOne</code> dispatched <code>JobTwo</code>.</p><p>When using <code>Queue::fake()</code> both jobs would be faked so <code>JobOne</code> could never dispatch the other job.</p><p>With this PR you could say <code>Queue::fake(JobTwo::class)</code> and only fake a certain job.</p>`,
+        repo: 'laravel/framework',
+        link: 'https://github.com/laravel/framework/pull/41344',
+        project_type: { value: 'pr', label: 'PR' },
+    },
+    {
+        title: 'Created a database driver for logging in Laravel',
+        content: `<p>For a project I wanted to know when a specific action happened. Notifications to e-mail or Slack were overkill. I wanted to see it in the app's dashboard.</p><p>That's why I created and open sourced a database logging driver for Laravel.</p><pre><code data-theme="github-dark" data-lang="php" class='torchlight' style='background-color: #24292e; --theme-selection-background: #39414a;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#444d56; margin-right:10px;margin-left:-5px;" class="line-number">1</span><span style="color: #79B8FF;">Log</span><span style="color: #F97583;">::</span><span style="color: #B392F0;">channel</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;db&#39;</span><span style="color: #E1E4E8;">)</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">info</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;Your message&#39;</span><span style="color: #E1E4E8;">);</span></div></code></pre><p>Now whenever this action happens it will show up in the dashboard.</p>`,
+        repo: 'yoeriboven/laravel-log-db',
+        link: 'https://github.com/yoeriboven/laravel-log-db',
+        project_type: { value: 'package', label: 'Package' },
+    },
+    {
+        title: 'Added method to Stringable',
+        content: `<p>I tried to get a piece of a string which wasn't straightforward to do with Laravel's stringable class.</p><p>So I sent in a PR.</p><p>More info on GitHub.</p>`,
+        repo: 'laravel/framework',
+        link: 'https://github.com/laravel/framework/pull/41144/files',
+        project_type: { value: 'pr', label: 'PR' },
+    },
+]
 
 const currentLanguage = getCurrentLanguage();
-const featuredProject = ref(props.projects[0])
+const featuredProject = ref(projects[0])
 const showProjectModal = ref(false);
 
-function showProject(id) {
-    featuredProject.value = props.projects.find((project) => project.id === id);
+function showProject(project) {
+    featuredProject.value = project;
 
     showProjectModal.value = true;
 }

@@ -11,7 +11,7 @@
         "hammerstone/sidecar": "^0.6.1",
         "inertiajs/inertia-laravel": "2.0.0",
         "laravel-notification-channels/telegram": "^5.0",
-        "laravel/framework": "^11.45.1",
+        "laravel/framework": "^12.40",
         "laravel/nightwatch": "^1.9.1",
         "laravel/sanctum": "^4.1.1",
         "laravel/tinker": "^2.10.1",
