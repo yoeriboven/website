@@ -19,8 +19,8 @@
         "@headlessui/vue": "^1.7.23",
         "@inertiajs/vue3": "^3.9.1",
         "dayjs": "^1.11.13",
-        "inter-ui": "^3.19.3",
-        "ky": "^1.7.2",
+        "inter-ui": "^4.1.1",
+        "ky": "^2.2.0",
         "laravel-vue-i18n": "^2.7.7",
         "mitt": "^3.0.1",
         "vue": "^3.5.12"

@@ -1,4 +1,4 @@
-@import url("inter-ui/inter.css");
+@import url("inter-ui/inter-variable.css");
 
 @tailwind base;
 @tailwind components;
