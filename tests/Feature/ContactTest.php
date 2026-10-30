@@ -1,7 +1,6 @@
 <?php
 
 use App\Notifications\NewContactSubmission;
-use Facades\App\Services\Statamic;
 use Illuminate\Support\Facades\Notification;
 
 beforeEach(function () {
