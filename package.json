@@ -17,7 +17,7 @@
     },
     "dependencies": {
         "@headlessui/vue": "^1.7.23",
-        "@inertiajs/vue3": "^2.0.0-beta.2",
+        "@inertiajs/vue3": "^3.9.1",
         "dayjs": "^1.11.13",
         "inter-ui": "^3.19.3",
         "ky": "^1.7.2",
