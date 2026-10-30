@@ -2,7 +2,6 @@
 
 namespace App\Actions;
 
-use Facades\App\Services\Statamic;
 use Illuminate\Support\Facades\Storage;
 use Wnx\SidecarBrowsershot\BrowsershotLambda;
 
