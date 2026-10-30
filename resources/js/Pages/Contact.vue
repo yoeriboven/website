@@ -48,8 +48,8 @@
                                type="text"
                                name="name"
                                id="name"
-                               class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                               :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500' : form.errors.name }"
+                               class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                               :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:outline-hidden focus:ring-red-500 focus:border-red-500' : form.errors.name }"
                                :placeholder="$t('contact.form_placeholder_name')"
                         />
                         <p v-if="form.errors.name" class="mt-1 text-sm text-red-600">{{ form.errors.name }}</p>
@@ -61,8 +61,8 @@
                                type="email"
                                name="email"
                                id="email"
-                               class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                               :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500' : form.errors.email }"
+                               class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                               :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:outline-hidden focus:ring-red-500 focus:border-red-500' : form.errors.email }"
                                :placeholder="$t('contact.form_placeholder_email')"
                         />
                         <p v-if="form.errors.email" class="mt-1 text-sm text-red-600">{{ form.errors.email }}</p>
@@ -74,8 +74,8 @@
                                   rows="5"
                                   name="description"
                                   id="description"
-                                  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                  :class="{ 'shadow-sm text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 block w-full sm:text-sm border-red-300 rounded-md' : form.errors.description }"
+                                  class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                  :class="{ 'shadow-xs text-red-900 placeholder-red-300 focus:outline-hidden focus:ring-red-500 focus:border-red-500 block w-full sm:text-sm border-red-300 rounded-md' : form.errors.description }"
                                   :placeholder="$t('contact.form_placeholder_description')" />
                         <p v-if="form.errors.description" class="mt-1 text-sm text-red-600">{{ form.errors.description }}</p>
                     </div>
@@ -88,7 +88,7 @@
                     <div class="flex justify-end">
                         <button type="submit"
                                 :disabled="form.processing"
-                                class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-semibold rounded shadow-sm text-white bg-emerald-500 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-300">
+                                class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-semibold rounded-sm shadow-xs text-white bg-emerald-500 hover:bg-emerald-600 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-emerald-300">
                             {{ $t('send') }}
                         </button>
                     </div>

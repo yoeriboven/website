@@ -11,13 +11,13 @@
                 </p>
 
                 <div class="mt-8 flex mx-auto md:mx-0 md:w-fit">
-                    <div class="inline-flex w-full rounded-md shadow">
+                    <div class="inline-flex w-full rounded-md shadow-sm">
                         <Link :href="route('contact')" class="w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-500 hover:bg-emerald-600">{{ $t('contact_me') }}</Link>
                     </div>
                 </div>
             </div>
 
-            <div class="flex order-first md:order-none justify-center md:justify-end">
+            <div class="flex order-first md:order-0 justify-center md:justify-end">
                 <img class="w-40 h-40 rounded-full shadow-md" src="/img/avatar.webp" alt="A picture of me" />
             </div>
         </div>

@@ -2,7 +2,7 @@
     <TransitionRoot as="template" :show="open">
         <Dialog as="div" class="relative z-10" @close="open = false">
             <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">
-                <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                <div class="fixed inset-0 bg-gray-500/75 transition-opacity" />
             </TransitionChild>
 
             <div class="fixed z-10 inset-0 overflow-y-auto">
@@ -36,7 +36,7 @@
                                     :href="route('home')"
                                     prefetch
                                     as="button"
-                                    class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-emerald-500 text-base font-medium text-white hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-300 sm:text-sm"
+                                    class="inline-flex justify-center w-full rounded-md border border-transparent shadow-xs px-4 py-2 bg-emerald-500 text-base font-medium text-white hover:bg-emerald-400 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-emerald-300 sm:text-sm"
                                 >
                                     {{ $t('contact.success_modal_close') }}
                                 </Link>

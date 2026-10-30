@@ -14,7 +14,7 @@
                 </div>
 
                 <div
-                    class="absolute right-0 group bg-white shadow-sm rounded-lg w-fit -mt-1 hover:cursor-pointer overflow-hidden">
+                    class="absolute right-0 group bg-white shadow-xs rounded-lg w-fit -mt-1 hover:cursor-pointer overflow-hidden">
                     <button v-for="(lang, index) in languages"
                             :key="lang"
                             @click="changeLanguage(lang)"

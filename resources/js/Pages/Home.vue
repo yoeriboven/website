@@ -152,7 +152,7 @@
                         :href="route('blog')"
                         prefetch
                         as="button"
-                        class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-300"
+                        class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded-sm shadow-xs text-white bg-emerald-500 hover:bg-emerald-400 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-emerald-300"
                     >
                         {{ $t('read_more') }}
                     </Link>
@@ -168,7 +168,7 @@
                 <p class="prose leading-snug mt-2 mx-auto text-gray-500">{{ $t('home.os.description') }}</p>
             </div>
             <div class="w-full bg-white shadow-md mx-auto mt-4 rounded-lg">
-                <div class="grid grid-cols-3 rounded-lg overflow-hidden h-[28rem]">
+                <div class="grid grid-cols-3 rounded-lg overflow-hidden h-112">
                     <div class="overflow-scroll col-span-3 md:col-span-1 divide-y divide-slate-50 md:divide-y-0">
                         <div
                             v-for="project in projects"
@@ -213,7 +213,7 @@
                         <a
                             :href="featuredProject.link"
                             target="_blank"
-                            class="inline-flex justify-center rounded-md border border-transparent shadow-sm mt-2 px-4 py-2 bg-emerald-500 text-base font-medium text-white hover:bg-emerald-400 focus:outline-none sm:text-sm">
+                            class="inline-flex justify-center rounded-md border border-transparent shadow-xs mt-2 px-4 py-2 bg-emerald-500 text-base font-medium text-white hover:bg-emerald-400 focus:outline-hidden sm:text-sm">
                             {{ $t('view_code') }}
                         </a>
                     </div>
@@ -242,7 +242,7 @@
 <!--                    </div>-->
 <!--                    <footer class="mt-8">-->
 <!--                        <div class="md:flex md:items-center md:justify-center">-->
-<!--                            <div class="md:flex-shrink-0">-->
+<!--                            <div class="md:shrink-0">-->
 <!--                                <img class="mx-auto h-10 w-10 rounded-full" src="/img/testimonial-sandra.webp" alt="">-->
 <!--                            </div>-->
 <!--                            <div class="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">-->
@@ -282,7 +282,7 @@
 <!--                </div>-->
 <!--                <footer class="mt-8">-->
 <!--                    <div class="md:flex md:items-center md:justify-center">-->
-<!--                        <div class="md:flex-shrink-0">-->
+<!--                        <div class="md:shrink-0">-->
 <!--                            <img class="mx-auto h-10 w-10 rounded-full" src="img/testimonial-sandra.webp" alt="">-->
 <!--                        </div>-->
 <!--                        <div class="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">-->
