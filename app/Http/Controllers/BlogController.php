@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Facades\App\Services\Statamic;
 use Inertia\Inertia;
 
 class BlogController

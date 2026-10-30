@@ -48,8 +48,6 @@ it('needs a description of at least 10 characters', function () {
 });
 
 it('sends a notification when the form is submitted', function () {
-    Statamic::shouldReceive('storeContactSubmission')->once();
-
     $this->post(route('contact.store'), validData());
 
     Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification) {
@@ -58,8 +56,6 @@ it('sends a notification when the form is submitted', function () {
 });
 
 it('sends an email when the form is submitted', function () {
-    Statamic::shouldReceive('storeContactSubmission')->once();
-
     $this->post(route('contact.store'), validData());
 
     Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification, $channels, $notififiable) {
@@ -68,8 +64,6 @@ it('sends an email when the form is submitted', function () {
 });
 
 it('sends a telegram message when the form is submitted', function () {
-    Statamic::shouldReceive('storeContactSubmission')->once();
-
     $this->post(route('contact.store'), validData());
 
     Notification::assertSentOnDemand(NewContactSubmission::class, function ($notification, $channels, $notififiable) {
