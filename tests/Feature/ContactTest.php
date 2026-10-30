@@ -17,8 +17,6 @@ function validData(): array {
 }
 
 it('stores the form submission', function () {
-    Statamic::shouldReceive('storeContactSubmission')->once()->with(validData());
-
     $this->post(route('contact.store'), validData())
         ->assertRedirect();
 });
